@@ -1,28 +1,33 @@
 
+function showPartesOptions()
+{      
+    $(`.prod${currentProduct}`).fadeIn()
+    optionPartListner = $('.optionPart').click(usePartesOptions)   
+}
+function hidePartesOptions()
+{      
+    $(`.prod${currentProduct}`).hide()  
+
+}
 
 function usePartesOptions()
         {
-            $(`.part${currentPart}`).hide()
-            $(`.np-active img`).attr('src',`assets/icons/icon_${currentPart}_laranja.webp`)
-            $(`.np-active`).removeClass('np-active')
+            
+            unselectPart(currentPart)
+            hideItemParteMins()
             
             currentPart = $(this).attr('id')||`${currentPart}`;
-            selecionaParte(parseInt(currentPart))
-
-            
-            $(`li#${currentPart}`).addClass('np-active')
-            $(`li#${currentPart} img`).attr('src',`assets/icons/icon_${currentPart}_branco.webp`)
+           
+            selectPart(currentPart)
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
-
-            var objElementos = document.getElementsByClassName(`part${currentPart}`)
             
-            $(`.part${currentPart}`).fadeIn()
-            for( i = 0; i < objElementos.length; i++){
-                const id = objElementos[i].id
-                
-                verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis)
-            }
+            
+            selecionaParte(currentPart)
+            selecionaItemParte(parseInt(currentCore))
+            showItemParteMins()
+            // selecionaItemParte(currentCore)
+            
 
             
             
@@ -30,6 +35,7 @@ function usePartesOptions()
 
 function rendPartesOptions(parts,element)
 {
+
     parts.map(
         
         part => {

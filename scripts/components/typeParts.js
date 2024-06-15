@@ -1,22 +1,47 @@
 
+function showItemParteMins()
+{
+    var objElementos = document.getElementsByClassName(`part${currentPart}`)
+    
+    $(`.part${currentPart}`).fadeIn()
+    for( i = 0; i < objElementos.length; i++){
+        const id = objElementos[i].id
+        
+        verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis)
+    }
+}
+function hideItemParteMins()
+{
+     
+    $(`.part${currentPart}`).hide()
+    
+}
+
 function useItemParteMins()
     {
-        const target = parseInt($(this).attr('id')) || currentCore
+        unselectItem(`.part${currentPart}.selected`)
+        const target = $(this).attr('id') || currentCore
         
-        selecionaItemParte(target)
-
-        var objElementos = document.getElementsByClassName(`part${currentPart}`)
-            
-        for( i = 0; i < objElementos.length; i++){
-            const id = parseInt(objElementos[i].id)
-            
-            if(target == id){
-                selectItem(`#${target}.enabled`)
-            }else{
-                unselectItem(`#${id}.enabled`)
+        selecionaItemParte(parseInt(target))
+        
+        if (partesChaves.includes(currentPart)){
+            currentCore = target
         }
+        selectItem($(this))
+        // var objElementos = document.getElementsByClassName(`part${currentPart}`)
             
-    }
+    //     for( i = 0; i < objElementos.length; i++){
+    //         const id = parseInt(objElementos[i].id)
+            
+    //         if(target == id){
+    //             console.log('entrou')
+    //             selectItem(`#${target}.enabled`)
+    //         }else{
+    //             console.log('entrou')
+    //             unselectItem(`#${id}.enabled`)
+    //     }
+            
+    // }
 }
 
 

@@ -1,3 +1,19 @@
+
+function useSelect()
+{
+    hidePartesOptions()
+    hideItemParteMins()
+    currentProduct = selectOS.value
+    currentPart = selecionaProduto(currentProduct)[0]
+    listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
+    currentCore= listaItensPartesSelecionados[0]
+    showPartesOptions()
+    usePartesOptions()
+    useItemParteMins()
+    $('#changeItem').on('change', useSelect)
+
+}
+
 function rendSelectItensOs(items,element)
 {
     items.map(
