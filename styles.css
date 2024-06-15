@@ -288,6 +288,7 @@ main{
     order: -1;
     border: none;
     transition: all 600ms;
+    cursor: pointer;
 }
 
 .enabled.selected{
