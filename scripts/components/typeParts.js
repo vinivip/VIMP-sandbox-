@@ -20,14 +20,14 @@ function hideItemParteMins()
 function useItemParteMins()
     {
         unselectItem(`.part${currentPart}.selected`)
-        const target = $(this).attr('id') || currentCore
+        const currentItem = $(this).attr('id') || currentCore
         
-        selecionaItemParte(parseInt(target))
+        selecionaItemParte(parseInt(currentItem))
         
         if (partesChaves.includes(currentPart)){
-            currentCore = target
+            currentCore = currentItem
         }
-        selectItem($(this))
+        selectItem(`#${currentItem}.enabled`)
         // var objElementos = document.getElementsByClassName(`part${currentPart}`)
             
     //     for( i = 0; i < objElementos.length; i++){

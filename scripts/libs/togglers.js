@@ -1,16 +1,12 @@
 
 function selectPart(partID){
     $(`li#${partID}`).addClass('np-active')
-    
-    $(`li#${partID} img`).fadeOut('fast')
     $(`li#${partID} img`).attr('src',`assets/icons/icon_${partID}_branco.webp`)
-    $(`li#${partID} img`).fadeIn('fast')
+    
     
 }
 function unselectPart(partID){
-    $(`#${partID}`).removeClass('np-active')
-    $(`#${partID} img`).hide()
-    $(`#${partID} img`).fadeIn('medium')
+    $(`#${partID}`).removeClass('np-active') 
     $(`#${partID} img`).attr('src',`assets/icons/icon_${partID}_laranja.webp`)
 
 }

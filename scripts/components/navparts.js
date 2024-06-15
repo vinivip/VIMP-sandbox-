@@ -6,6 +6,7 @@ function showPartesOptions()
 }
 function hidePartesOptions()
 {      
+    unselectPart(currentPart)
     $(`.prod${currentProduct}`).hide()  
 
 }
