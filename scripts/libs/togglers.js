@@ -42,3 +42,19 @@ function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis){
     }
 
 }
+function verificaSelecaoItensParte(){
+    
+    if (listaItensPartesSelecionados.length == 0){
+        console.log("curr",currentProduct)
+        console.log(listaItensPartesSelecionados)
+        listaItensPartesSelecionados = arrDefault[currentProduct]
+        
+    }
+    
+    for (var i = 0;i <listaItensPartesSelecionados.length;i++){
+
+        selectItem(`#${listaItensPartesSelecionados[i]}.miniatura`)
+
+    }
+    console.log("lista:",listaItensPartesSelecionados)
+}

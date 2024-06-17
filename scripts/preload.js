@@ -18,12 +18,12 @@ var acabamentos
 var partesChaves 
 
 //Input OS
-var arrListaItensPartesSelecionados = [[3,15,22,81,82,83],[],[],[59,63],[],[],[]]
+var arrListaItensPartesSelecionados = [[],[],[],[59,63],[],[],[]]
 var listaItensPartesSelecionados = []
 var itensOS =[]
 
 async function preload(){  
-    const response = await fetch("data.json")
+    const response = await fetch("https://www.vipsportsproducao.com.br/vimp/retorna_dados_produtos.php")
     const data = await response.json()
 
     produtos = await data[0];
@@ -44,6 +44,6 @@ async function preload(){
         
         
     }
-
+    
     app()
 }

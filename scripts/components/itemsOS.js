@@ -3,9 +3,11 @@ function useSelect()
 {
     hidePartesOptions()
     hideItemParteMins()
+    
     currentProduct = selectOS.value
     currentPart = selecionaProduto(currentProduct)[0]
     listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
+    verificaSelecaoItensParte()    
     currentCore= listaItensPartesSelecionados[0]
     showPartesOptions()
     usePartesOptions()

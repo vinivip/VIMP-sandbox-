@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet"/>
-    <title>Document</title>
+    <title>VIMP 2.0</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
@@ -130,8 +130,8 @@
     </main>
 
     <script src="scripts/libs/jquery-3.7.1.slim.min.js"></script>
-    <script src="scripts/libs/lib_hierarquia.js"></script>
-    <script src="scripts/libs/config_camisa.js"></script>
+    <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
+    <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script>
 
 
     <script src="scripts/libs/togglers.js"></script>
