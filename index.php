@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body onload="preload()">
-    <header>
+    <header style="background-color: green;">
         <nav id="nav-os" class="nav-os">
             <img src="assets/logo.svg" alt="logoVIMP">
             <select id="changeItem">
@@ -17,50 +17,49 @@
             </select>
         </nav>
     </header>
-    <main>
-        <section id="view" class="view">
-            <section>
+    <main >
+        <section style="background-color: blue;" id="view" class="view">
                 <h1 class="partTitle">CORPO</h1>
-                <nav id="sideMenu">
-                    <button id="sideMenuDelete">
-                        <span class="material-symbols-outlined">
-                                delete
-                        </span>
-                    </button>
-                    <button id="sideMenuComments">
-                        <span class="material-symbols-outlined">
-                                chat
-                        </span>
-                    </button>
-                    <button id="sideMenuDuplicate">
-                        <span class="material-symbols-outlined">
-                                markdown_copy
-                        </span>
-                    </button>
-                </nav> 
+                <section class= "modelingContainer" style="height: 85%;">
+                    <div style="display: inline-block; width:15%; background-color: red; text-align: center; ">
+                        <nav id="sideMenu">
+                            <button id="sideMenuDelete">
+                                <span class="material-symbols-outlined">
+                                        delete
+                                </span>
+                            </button>
+                            <button id="sideMenuComments">
+                                <span class="material-symbols-outlined">
+                                        chat
+                                </span>
+                            </button>
+                            <button id="sideMenuDuplicate">
+                                <span class="material-symbols-outlined">
+                                        markdown_copy
+                                </span>
+                            </button>
+                        </nav>
+                    </div>
+                         
+                    <div id="slices"  class="" style="display: inline-block; width:95%; background-color: green; height:100%; position:relative ">
+                        <div id="slice.body" class="" style="height: 100% ; display: flex;justify-content: center;">
+                            
+                            <img  src="templates/teste01.png" style="max-height: 100%;">
+                        </div>
+                        <div id="slice.body" class="" style="height: 100% ; display: flex; justify-content: center;position:relative; margin-top: -100%;">
+                        
+                            <img  src="templates/teste01.png" style="max-height: 100%;">
+                        </div>
+                        
+                        
+                    </div>
+                </section>
                 <ul>
                     <li>corpo-normal x</li>
-
                 </ul>   
-            </section>
-            <div id="slices"  class="slices">
-                <div id="slice.body" class="slice">
-                    <img class="parts" src="templates/body/finishings/01.png" alt="tipo-corpo">
-                    <img  class="parts" src="templates/body/types/01.png" alt="acabamento-corpo">
-                </div>
-                
-                <div id="slice.arm" class="slice">
-                    <!-- <img src="templates/arm/finishings/01.png" alt="acabamento-manga"> -->
-                    <img src="templates/arm/types/04.png" alt="tipo-manga">
-                </div>
-
-                <div id="slice.collar" class="slice">
-                    <!-- <img src="templates/collar/finishings/01.png" alt="acabamento-gola"> -->
-                    <img src="templates/collar/types/01.png" alt="tipo-gola">
-                </div>       
-            </div>
+    
         </section>
-        <section class="menu" id="menu">
+        <section style="background-color: pink;" class="menu" id="menu">
             <nav id="partsNavigation">
                 <ul id="navParts">
                     

@@ -13,16 +13,13 @@ function unselectPart(partID){
 
 
 function selectItem(item){
-    
     $(item).addClass('selected');
 }
 function unselectItem(item){
-    console.log(item)
     $(item).removeClass('selected');
    
 }
 function enableItem(item){
-    console.log(item)
     $(item).addClass('enabled');
     $(item).on('click',useItemParteMins)
 }

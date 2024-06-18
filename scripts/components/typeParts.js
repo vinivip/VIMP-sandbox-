@@ -14,6 +14,7 @@ function hideItemParteMins()
 {
      
     $(`.part${currentPart}`).hide()
+    $(`.part${currentPart}`).off()
     
 }
 function atualizaItemParteSelecionada()
@@ -72,7 +73,7 @@ function rendItemParteMins(items,element)
        
         item => {
             
-            img = new Image()
+       
             element.innerHTML += `
                 <div 
                     id='${item.codigoItemParteProduto}' 
@@ -81,6 +82,7 @@ function rendItemParteMins(items,element)
                 >   
                    <img 
                     src="assets/miniaturas/icon_item_parte_${item.codigoItemParteProduto}.webp"
+                    onerror="this.src='assets/miniaturas/default.png'" 
                     
                    alt="${item.descItemParteProduto}">
                  

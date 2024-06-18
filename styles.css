@@ -98,20 +98,25 @@ header{
 main{
     height: 90vh;
     display: flex;
-}main section{
-    width: 50%;
-
 }
+/* main section{ */
+    /* width: 50%;
+
+} */
 
 /* view ======================================================================================================*/
 
 .view {
     display: flex;
+    flex-direction: column;
     position: relative;
+    width: 60vw;
+    justify-content: space-between;
+    padding: 20px;
     
 
-}.view section{
-    position: absolute;
+}
+/* .view section{  
     display: flex; 
     flex-direction: column;  
     justify-content: space-between;
@@ -121,7 +126,8 @@ main{
     padding: 50px;
     box-sizing: border-box;
 
-}.view section h1{
+} */
+.view h1{
     font-size: 35px;
     text-align: left;
     width: 100%;
@@ -129,50 +135,69 @@ main{
     color: var(--main-bg);
     padding-left: 10px;
 }
+.view ul{
+    display: flex;
+   justify-content: center;
+}
+.view li{
+    background-color: var(--main-bg);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 15px;
+}
 
-.view section nav{
+.modelingContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.modelingContainer nav{
     display: flex; 
     flex-direction: column;  
     align-items: start;
+    
     gap: 15px;
-    width: 100%;
 }
-.view section nav button{
-    width: 65px;
+.modelingContainer nav button{
+    width: 65%;
+    margin-left: 17.5%;
     aspect-ratio: 1/1;
     border:none;
     border-radius: 50%;
     cursor: pointer;
     transition: all 500ms;
-}.view section nav button:hover{
+}.modelingContainer nav button:hover{
     scale: 1.1;
     transition: all 500ms;
-}.view section nav button .material-symbols-outlined{
+}.modelingContainer nav button .material-symbols-outlined{
     font-size: 40px;
     text-align: center;
 }
 
 
 
-.modelingContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}.slices{
+.slices{
+   
     position: relative;
     width: 60%;
-    left: 20%;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
 
 } .slices .slice{
-    top: 20%;
-    position: absolute;
+
+    position: relative;
     width: 100%;
+    display: flex;
+    align-items: center;
 
 }.slices .slice img{
-    position: absolute;
+    position: relative;
     width: 100%;
+    margin: -100%;
 }
 
 
@@ -180,7 +205,9 @@ main{
 /* menu modelagem ============================================================================================*/
 
 /* NAVEGAÇÃO */
-
+.menu{
+    width: 40%;
+}
 .menu nav{
     display: flex;
     list-style: none;
@@ -196,7 +223,7 @@ main{
     display: none;
     border-radius: 15px 15px 0px 0px;
     padding: 0px 5px;
-    width: 8%;
+    width: 10%;
     text-align: center;
     border: 5px solid;
     border-bottom: none;
@@ -229,7 +256,7 @@ main{
    
 }
 .menu nav ul li:hover{
-    width: 10%;
+    width: 12%;
     
 }
 
