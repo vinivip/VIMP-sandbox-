@@ -280,6 +280,7 @@ main{
     border-radius: 25px;
     display: none;
     filter: grayscale(100);
+    overflow: hidden;
     
 }
 .enabled{
@@ -318,7 +319,7 @@ main{
 .miniatura img{
     
     width: 100%;
-
+    border-radius: 25px;
 
 }
 
