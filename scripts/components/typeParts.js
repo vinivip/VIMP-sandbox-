@@ -16,14 +16,34 @@ function hideItemParteMins()
     $(`.part${currentPart}`).hide()
     
 }
+function atualizaItemParteSelecionada()
+{
+    for (i=0;i<listaItensPartesSelecionados.length;i++){
+        
+        const parteProd = encontraItemPartePorId(parseInt(listaItensPartesSelecionados[i])).codigoParteProduto
+    
+        if(parteProd == currentPart){
+            const newItem = listaItensPartesSelecionados.indexOf(listaItensPartesSelecionados[i])
+            listaItensPartesSelecionados[newItem] = parseInt(currentItem)
+            
+            return 
+        }
 
+    }
+}
 function useItemParteMins()
     {
         unselectItem(`.part${currentPart}.selected`)
-        const currentItem = $(this).attr('id') || currentCore
+        currentItem = $(this).attr('id') || currentCore
         
         selecionaItemParte(parseInt(currentItem))
-        
+
+        console.log("lips",listaItensPartesSelecionados)
+        console.log(arrOpcoesDisponiveis)
+        atualizaItemParteSelecionada()
+        verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
+        verificaSelecaoItensParte()    
+
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
         }
@@ -60,8 +80,8 @@ function rendItemParteMins(items,element)
                     class='part${item.codigoParteProduto} miniatura'
                 >   
                    <img 
-                    src="assets/miniaturas/icon_item_parte_${item.codigoItemParteProduto}_laranja.webp"
-                    onerror="this.src='assets/miniaturas/default.png'"
+                    src="assets/miniaturas/icon_item_parte_${item.codigoItemParteProduto}.webp"
+                    
                    alt="${item.descItemParteProduto}">
                  
                 </div>`
