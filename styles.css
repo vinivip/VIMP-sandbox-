@@ -116,7 +116,7 @@ use{
 }
 .editing{
     fill: var(--main-bg);
-    animation: pulsing 2s infinite linear;
+    /* animation: pulsing 2s infinite linear; */
 }
 
 use:hover{
