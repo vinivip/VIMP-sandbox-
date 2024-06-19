@@ -5,7 +5,10 @@
     --main-bg: #FF751F;
     --white: #ffffff;
     --sec-bg: #22333B;
+    --neutral-fill: #dacfcf;
+    
 
+    
 }
 *{
     font-family: "Inter Tight", sans-serif;
@@ -94,14 +97,32 @@ body,h1,h2,h3,ul,textarea{
     
 }
 
-.infill{
-    fill: rgb(158, 158, 158);
+use{
+    fill: var(--neutral-fill);
     stroke: rgb(0, 0, 0) !important;
     stroke-width:20;
     stroke-miterlimit:22.9256
 }
-.infill.editing{
+@keyframes pulsing {
+    0%{
+        fill: var(--neutral-fill)
+    }
+    50%{
+        fill: var(--main-bg);
+    }
+    100%{
+        fill: var(--neutral-fill);
+    }
+}
+.editing{
     fill: var(--main-bg);
+    animation: pulsing 2s infinite linear;
+}
+
+use:hover{
+    fill: rgb(144, 116, 94);
+  
+    transition: all 1000ms;
 }
 
 
@@ -212,9 +233,9 @@ main{
     width: 100%;
 }
 
-.slice img{
+.slice svg{
     max-height: 100%;
-    max-width: 100%;
+ 
   
 }
 

@@ -43,15 +43,13 @@
                          
                     <div id="slices"  class="modelingSlicesDiv">
                         <div  class="slice" >
-                            <svg id="model0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill" >
-                                <use xlink:href="templates/model_3.svg#template"></use>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill" >
+                                <use class="modelPart1" xlink:href="templates/model_3.svg#template"></use>
+                                <use class="modelPart3" xlink:href="templates/model_21.svg#template"></use>
+                                <use class="modelPart2" xlink:href="templates/modelo2.svg#template"></use>
                             </svg>
                         </div>
-                        <div class="slice" >
-                            <svg id="model1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill" >
-                                <use   xlink:href="templates/model_21.svg#template"></use>
-                            </svg>
-                        </div>
+                        
                         
                         
                         
