@@ -10,7 +10,10 @@ function hidePartesOptions()
     $(`.prod${currentProduct}`).hide()  
 
 }
-
+function selectEditingModel(){
+    $('.editing').removeClass('editing')
+    $(`.modelPart${currentPart}`).addClass('editing')
+}
 function usePartesOptions()
         {
             
@@ -20,6 +23,7 @@ function usePartesOptions()
             currentPart = $(this).attr('id')||`${currentPart}`;
            
             selectPart(currentPart)
+            selectEditingModel()
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             

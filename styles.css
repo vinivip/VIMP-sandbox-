@@ -5,7 +5,10 @@
     --main-bg: #FF751F;
     --white: #ffffff;
     --sec-bg: #22333B;
+    --neutral-fill: #dacfcf;
+    
 
+    
 }
 *{
     font-family: "Inter Tight", sans-serif;
@@ -53,6 +56,27 @@
 
 }
 
+@media screen and (min-width: 10000px){
+    .view{
+        background-color: blue;     
+    }
+    .modelingMenuDiv{
+        background-color: red;
+    }
+    .modelingSlicesDiv{
+        background-color: green;
+    }
+    .slice{
+        background-color: palevioletred;
+    }
+    .menu{
+        background-color: purple;
+    }
+    header{
+        background-color: aquamarine;
+    }
+}
+
 #type,#finishing,#sectorCommentsLog,#sectorsCommentImput{
 
     background-color: var(--white);
@@ -71,6 +95,34 @@ body,h1,h2,h3,ul,textarea{
     display: flex;
     flex-direction: column;
     
+}
+
+use{
+    fill: var(--neutral-fill);
+    stroke: rgb(0, 0, 0) !important;
+    stroke-width:20;
+    stroke-miterlimit:22.9256
+}
+@keyframes pulsing {
+    0%{
+        fill: var(--neutral-fill)
+    }
+    50%{
+        fill: var(--main-bg);
+    }
+    100%{
+        fill: var(--neutral-fill);
+    }
+}
+.editing{
+    fill: var(--main-bg);
+    /* animation: pulsing 2s infinite linear; */
+}
+
+use:hover{
+    fill: rgb(144, 116, 94);
+  
+    transition: all 1000ms;
 }
 
 
@@ -112,21 +164,10 @@ main{
     position: relative;
     width: 60vw;
     justify-content: space-between;
-    padding: 20px;
+    padding: 45px 20px;
     
 
 }
-/* .view section{  
-    display: flex; 
-    flex-direction: column;  
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-    box-sizing: border-box;
-
-} */
 .view h1{
     font-size: 35px;
     text-align: left;
@@ -151,16 +192,19 @@ main{
     flex-direction: row;
     align-items: center;
     width: 100%;
+    height: 85%;
 }
 
-.modelingContainer nav{
+.modelingMenuDiv{
+    display: inline-block; 
+    width:15%;  
+    
+}.modelingMenuDiv nav{
     display: flex; 
     flex-direction: column;  
     align-items: start;
-    
     gap: 15px;
-}
-.modelingContainer nav button{
+}.modelingMenuDiv nav button{
     width: 65%;
     margin-left: 17.5%;
     aspect-ratio: 1/1;
@@ -168,37 +212,33 @@ main{
     border-radius: 50%;
     cursor: pointer;
     transition: all 500ms;
-}.modelingContainer nav button:hover{
+}.modelingMenuDiv nav button:hover{
     scale: 1.1;
     transition: all 500ms;
-}.modelingContainer nav button .material-symbols-outlined{
+}.modelingMenuDiv nav button .material-symbols-outlined{
     font-size: 40px;
     text-align: center;
 }
 
-
-
-.slices{
-   
-    position: relative;
-    width: 60%;
-    margin: 0 auto;
+.modelingSlicesDiv{
+    display: inline-block; 
+    width:95%;  
+    height:100%; 
+    position:relative 
+}.modelingSlicesDiv .slice{
+    height: 100% ; 
     display: flex;
-    align-items: center;
+    position: absolute;
     justify-content: center;
-
-} .slices .slice{
-
-    position: relative;
     width: 100%;
-    display: flex;
-    align-items: center;
-
-}.slices .slice img{
-    position: relative;
-    width: 100%;
-    margin: -100%;
 }
+
+.slice svg{
+    max-height: 100%;
+ 
+  
+}
+
 
 
 
