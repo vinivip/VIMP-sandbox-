@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body onload="preload()">
-    <header style="background-color: green;">
+    <header >
         <nav id="nav-os" class="nav-os">
             <img src="assets/logo.svg" alt="logoVIMP">
             <select id="changeItem">
@@ -18,10 +18,10 @@
         </nav>
     </header>
     <main >
-        <section style="background-color: blue;" id="view" class="view">
+        <section  id="view" class="view">
                 <h1 class="partTitle">CORPO</h1>
-                <section class= "modelingContainer" style="height: 85%;">
-                    <div style="display: inline-block; width:15%; background-color: red; text-align: center; ">
+                <section class= "modelingContainer" >
+                    <div class="modelingMenuDiv">
                         <nav id="sideMenu">
                             <button id="sideMenuDelete">
                                 <span class="material-symbols-outlined">
@@ -41,15 +41,19 @@
                         </nav>
                     </div>
                          
-                    <div id="slices"  class="" style="display: inline-block; width:95%; background-color: green; height:100%; position:relative ">
-                        <div id="slice.body" class="" style="height: 100% ; display: flex;justify-content: center;">
-                            
-                            <img  src="templates/teste01.png" style="max-height: 100%;">
+                    <div id="slices"  class="modelingSlicesDiv">
+                        <div  class="slice" >
+                            <svg id="model0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill " >
+                                <use xlink:href="templates/model_3.svg#template"></use>
+                            </svg>
                         </div>
-                        <div id="slice.body" class="" style="height: 100% ; display: flex; justify-content: center;position:relative; margin-top: -100%;">
+                        <div class="slice" >
+                            <svg id="model1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill editing" >
+                                <use   xlink:href="templates/model_21.svg#template"></use>
+                            </svg>
+                        </div>
                         
-                            <img  src="templates/teste01.png" style="max-height: 100%;">
-                        </div>
+                        
                         
                         
                     </div>
@@ -59,7 +63,7 @@
                 </ul>   
     
         </section>
-        <section style="background-color: pink;" class="menu" id="menu">
+        <section id="menu" class="menu" >
             <nav id="partsNavigation">
                 <ul id="navParts">
                     
