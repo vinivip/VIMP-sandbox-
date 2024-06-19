@@ -6,8 +6,8 @@ function selectPart(partID){
     
 }
 function unselectPart(partID){
-    $(`#${partID}`).removeClass('np-active') 
-    $(`#${partID} img`).attr('src',`assets/icons/icon_${partID}_laranja.webp`)
+    $(`li#${partID}`).removeClass('np-active') 
+    $(`li#${partID} img`).attr('src',`assets/icons/icon_${partID}_laranja.webp`)
 
 }
 
