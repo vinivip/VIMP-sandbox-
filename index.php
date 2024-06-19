@@ -1,3 +1,28 @@
+<?php 
+    // echo basename(__DIR__).'/assets/icons<br>';
+    // echo getcwd();
+    // $listaArquivos = array();
+    // $pastas = array('localhost','c:/Workspace/'.basename(__DIR__).'/assets/icons','assets/miniaturas','assets/models');
+    // foreach ($pastas as $pasta){
+    //     $arquivos = glob("$pasta{*.*}", GLOB_BRACE);
+    //     foreach($arquivos as $img){
+    //        $listaArquivos[] = $img;
+    //     }
+    // }
+    // echo "<pre>";
+    // print_r($listaArquivos);
+    $listaArquivos = array();
+    $pastas = array('assets/miniaturas','../icons','../models');
+    foreach ($pastas as $pasta){
+        
+        chdir($pasta);
+        foreach (glob("*.*") as $arquivo) {
+        $listaArquivos[] = $arquivo;
+    }
+    $json = json_encode($listaArquivos);
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +32,10 @@
     <title>VIMP 2.0</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script>
+        var listaArquivos = <?=$json; ?>;
+        
+    </script>
 </head>
 <body onload="preload()">
     <header >
@@ -43,10 +72,7 @@
                          
                     <div id="slices"  class="modelingSlicesDiv">
                         <div  class="slice" >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23988.9 19296.9" class="infill" >
-                                <use class="modelPart1" xlink:href="templates/model_3.svg#template"></use>
-                                <use class="modelPart3" xlink:href="templates/model_21.svg#template"></use>
-                                <use class="modelPart2" xlink:href="templates/modelo2.svg#template"></use>
+                            <svg id="containerSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5757.32 4614.32" class="infill" >
                             </svg>
                         </div>
                         
@@ -137,10 +163,11 @@
 
     <script src="scripts/libs/togglers.js"></script>
     
-
+    
     <script src="scripts/components/itemsOS.js"></script>
     <script src="scripts/components/navparts.js"></script>
     <script src="scripts/components/typeParts.js"></script>
+    <script src="scripts/components/modelsSlices.js"></script>
 
     <script src="scripts/build.js"></script>
     <script src="scripts/main.js"></script>

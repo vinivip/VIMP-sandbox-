@@ -38,19 +38,38 @@ function usePartesOptions()
             
 }
 
+function checkStatus(imageUrl){
+    try{
+        var http = jQuery.ajax(
+            {
+               type:"HEAD",
+               url: imageUrl,
+               async: false
+             })
+            
+    }catch(err){
+       return err.status; 
+    }
+   
+ }
 function rendPartesOptions(parts,element)
 {
 
     parts.map(
+
+        
         
         part => {
-            
+            let urlimg = `icon_${part.codigoParteProduto}_laranja.webp`
+            if(listaArquivos.includes(urlimg)){
+                urlimg = 'default.png'
+            }
             element.innerHTML += `
                 <li id='${part.codigoParteProduto}'  class='optionPart prod${part.codigoProduto}'>
                     <div>
                         
-                        <img src="assets/icons/icon_${part.codigoParteProduto}_laranja.webp"
-                        onerror="this.src='assets/icons/default.png'" title='${part.descParteProduto}' alt="${part.descParteProduto}">
+                        <img src="assets/icons/${urlimg}"
+                        title='${part.descParteProduto}' alt="${part.descParteProduto}">
                     </div>
                    
                 </li>`

@@ -42,8 +42,12 @@ function useItemParteMins()
         console.log("lips",listaItensPartesSelecionados)
         console.log(arrOpcoesDisponiveis)
         atualizaItemParteSelecionada()
+        
+        
+
         verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         verificaSelecaoItensParte()    
+        carregaModelagemSelecionada()
 
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem

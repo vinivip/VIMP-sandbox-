@@ -3,6 +3,10 @@ var navParts = document.getElementById('navParts')
 var selectOS = document.getElementById('changeItem')
 var typePart = document.getElementById('typeContent')
 
+// Lista de icones disponiveis
+
+
+
 // Valores default (temporarios)
 var currentProduct 
 var currentPart 

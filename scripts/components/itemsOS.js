@@ -6,14 +6,17 @@ function useSelect()
     
     currentProduct = selectOS.value
     currentPart = selecionaProduto(currentProduct)[0]
+    // definição listaItensPartesSelecionados ===============================================================
     listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
-    verificaSelecaoItensParte()    
+    verificaSelecaoItensParte()   
+    // ====================================================================================================== 
+    rendObjetosImgModelagem(listaItensPartesSelecionados.length)
     currentCore= listaItensPartesSelecionados[0]
     showPartesOptions()
     usePartesOptions()
     useItemParteMins()
+    
     $('#changeItem').on('change', useSelect)
-
 }
 
 function rendSelectItensOs(items,element)
