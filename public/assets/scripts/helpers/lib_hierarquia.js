@@ -70,7 +70,7 @@ function selecionaParte(codParte){
         }
     }
     
-    console.log(arrOpcoesDisponiveis);
+    // console.log(arrOpcoesDisponiveis);
     
     return arrPartes;
 }
@@ -89,10 +89,10 @@ function encontraPartePorId(codParte) {
 
 function verificaMudancaItensSelecionados(arrSelecionados,arrDisponiveis){ 
     const newArray = [...arrSelecionados]
-    console.log(arrDisponiveis)
+    // console.log(arrDisponiveis)
     const witchElement = arrSelecionados.some(el => {
-        console.log(arrSelecionados)
-        console.log(el)
+        // console.log(arrSelecionados)
+        // console.log(el)
        if(!arrDisponiveis.includes(el)) {
         
         var objItemParte = encontraItemPartePorId(el);
@@ -100,17 +100,17 @@ function verificaMudancaItensSelecionados(arrSelecionados,arrDisponiveis){
         var cont=0;
         arrDisponiveis.some(item => {
             if(encontraItemPartePorId(item).codigoParteProduto == objItemParte.codigoParteProduto && cont==0){
-                console.log('entra:',encontraItemPartePorId(item))
+                // console.log('entra:',encontraItemPartePorId(item))
                 newArray.push(item);
                 cont++
             }
         })
         
-        console.log('sai:',objItemParte);
+        // console.log('sai:',objItemParte);
         
       }
     })
-    return arrSelecionados = [...newArray]
+    return [...newArray]
 }
 
 function selecionaItemParte(codItemParte){

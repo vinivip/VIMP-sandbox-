@@ -21,6 +21,7 @@ function carregaModelagemSelecionada()
     for(k=0;k<listaItensPartesSelecionados.length;k++){
         
         id = listaItensPartesSelecionados[k]
+        // id = verifyException(listaItensPartesSelecionados[k])
         
         loadModel(id,k)
     }

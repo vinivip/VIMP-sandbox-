@@ -36,7 +36,7 @@ function useItemParteMins()
     {
         unselectItem(`.part${currentPart}.selected`)
         currentItem = $(this).attr('id') || currentCore
-        console.log(currentItem)
+        // console.log(currentItem)
         selecionaItemParte(parseInt(currentItem))
 
 
@@ -45,7 +45,7 @@ function useItemParteMins()
         
 
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
-        console.log('saida final:',listaItensPartesSelecionados)
+        
         verificaSelecaoItensParte()  
        
         
