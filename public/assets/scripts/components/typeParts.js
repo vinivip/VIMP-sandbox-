@@ -39,34 +39,22 @@ function useItemParteMins()
         
         selecionaItemParte(parseInt(currentItem))
 
-        console.log("lips",listaItensPartesSelecionados)
-        console.log(arrOpcoesDisponiveis)
+
         atualizaItemParteSelecionada()
         
         
 
         verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
-        verificaSelecaoItensParte()    
-        carregaModelagemSelecionada()
+        verificaSelecaoItensParte()  
+       
+        
 
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
         }
+        
         selectItem(`#${currentItem}.enabled`)
-        // var objElementos = document.getElementsByClassName(`part${currentPart}`)
-            
-    //     for( i = 0; i < objElementos.length; i++){
-    //         const id = parseInt(objElementos[i].id)
-            
-    //         if(target == id){
-    //             console.log('entrou')
-    //             selectItem(`#${target}.enabled`)
-    //         }else{
-    //             console.log('entrou')
-    //             unselectItem(`#${id}.enabled`)
-    //     }
-            
-    // }
+        carregaModelagemSelecionada()
 }
 
 
@@ -76,7 +64,7 @@ function rendItemParteMins(items,element)
     items.map(
        
         item => {
-            
+            let url = `icon_item_parte_${item.codigoItemParteProduto}.webp`
        
             element.innerHTML += `
                 <div 
@@ -85,10 +73,8 @@ function rendItemParteMins(items,element)
                     class='part${item.codigoParteProduto} miniatura'
                 >   
                    <img 
-                    src="assets/miniaturas/icon_item_parte_${item.codigoItemParteProduto}.webp"
-                    onerror="this.src='assets/miniaturas/default.png'" 
-                    
-                   alt="${item.descItemParteProduto}">
+                    src="assets/img/miniaturas/${verificaDisponibilidadePath(url,'default.png')}"
+                    alt="${item.descItemParteProduto}">
                  
                 </div>`
           

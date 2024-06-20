@@ -38,20 +38,8 @@ function usePartesOptions()
             
 }
 
-function checkStatus(imageUrl){
-    try{
-        var http = jQuery.ajax(
-            {
-               type:"HEAD",
-               url: imageUrl,
-               async: false
-             })
-            
-    }catch(err){
-       return err.status; 
-    }
-   
- }
+
+
 function rendPartesOptions(parts,element)
 {
 
@@ -60,16 +48,16 @@ function rendPartesOptions(parts,element)
         
         
         part => {
-            let urlimg = `icon_${part.codigoParteProduto}_laranja.webp`
-            if(listaArquivos.includes(urlimg)){
-                urlimg = 'default.png'
-            }
+            let url = `icon_${part.codigoParteProduto}_laranja.webp`
             element.innerHTML += `
                 <li id='${part.codigoParteProduto}'  class='optionPart prod${part.codigoProduto}'>
                     <div>
                         
-                        <img src="assets/icons/${urlimg}"
-                        title='${part.descParteProduto}' alt="${part.descParteProduto}">
+                        <img 
+                            src="assets/img/icons/${verificaDisponibilidadePath(url,'default.png')}"
+                            title='${part.descParteProduto}' 
+                            alt="${part.descParteProduto}"
+                        >
                     </div>
                    
                 </li>`

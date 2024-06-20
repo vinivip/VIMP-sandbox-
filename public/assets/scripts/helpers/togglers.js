@@ -1,13 +1,13 @@
 
 function selectPart(partID){
     $(`li#${partID}`).addClass('np-active')
-    $(`li#${partID} img`).attr('src',`assets/icons/icon_${partID}_branco.webp`)
+    $(`li#${partID} img`).attr('src',`assets/img/icons/icon_${partID}_branco.webp`)
     
     
 }
 function unselectPart(partID){
     $(`li#${partID}`).removeClass('np-active') 
-    $(`li#${partID} img`).attr('src',`assets/icons/icon_${partID}_laranja.webp`)
+    $(`li#${partID} img`).attr('src',`assets/img/icons/icon_${partID}_laranja.webp`)
 
 }
 
@@ -42,8 +42,6 @@ function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis){
 function verificaSelecaoItensParte(){
     
     if (listaItensPartesSelecionados.length == 0){
-        console.log("curr",currentProduct)
-        console.log(listaItensPartesSelecionados)
         listaItensPartesSelecionados = arrDefault[currentProduct]
         
     }
@@ -53,5 +51,12 @@ function verificaSelecaoItensParte(){
         selectItem(`#${listaItensPartesSelecionados[i]}.miniatura`)
 
     }
-    console.log("lista:",listaItensPartesSelecionados)
+}
+function verificaDisponibilidadePath(path,alt){
+    let urlimg = path
+   
+    if(!(listaArquivosDisponiveis.includes(urlimg))){
+        urlimg = alt
+    }
+    return urlimg
 }

@@ -3,9 +3,14 @@ var navParts = document.getElementById('navParts')
 var selectOS = document.getElementById('changeItem')
 var typePart = document.getElementById('typeContent')
 
-// Lista de icones disponiveis
+// Exceções de exeptions
 
-
+var exceptions = {
+    '21-8':'21(raeglan)',
+    '22-8':'22(raeglan)',
+    '21-1':'21(raeglan)',
+    '22-1':'22(raeglan)',
+}
 
 // Valores default (temporarios)
 var currentProduct 

@@ -4,13 +4,14 @@ var arrRelacionamentosAcabamentos = [];
 var $arrRetornoAcabamentos = [];
 var $arrRetornoItensPartes = [];
 var arrOpcoesDisponiveis  = [];
+var arrDefault = [];
 
 function carregaListaProdutos(){
     $.ajax({
         timeout: 10000,
-        type: "POST", url: "data.json",
+        type: "POST", url: "retorna_dados_produtos.php",
         error: function(){
-            alert("Falha na conexï¿½o...! Tente novamente.");   
+            alert("Falha na conexão...! Tente novamente.");   
         },
         success: function(retorno) {
             var dados = JSON.parse(retorno);
@@ -60,17 +61,16 @@ function selecionaParte(codParte){
     
     //inicializa arrOpcoesDisponiveis com os itens da parte-chave 
     if(partesChaves.includes(codParte)){//se o item selecionado pertence a uma parte-chave, carrega os novos dados
-        arrOpcoesDisponiveis  = [];//limpa as opï¿½ï¿½es disponï¿½vels para carregar a nova lista de acordo com a nova escolha 
-        //adiciona os itens da parte chave, que sempre estarï¿½o disponï¿½veis
+        arrOpcoesDisponiveis  = [];//limpa as opções disponívels para carregar a nova lista de acordo com a nova escolha 
+        //adiciona os itens da parte chave, que sempre estarão disponíveis
         for (i=0;i<itensPartes.length;i++){
             if(itensPartes[i].codigoParteProduto == codParte){
                 arrOpcoesDisponiveis.push(parseInt(itensPartes[i].codigoItemParteProduto));
-                
             }
         }
     }
     
-    
+    console.log(arrOpcoesDisponiveis);
     
     return arrPartes;
 }
@@ -87,6 +87,25 @@ function encontraPartePorId(codParte) {
     return partes.find(item => item.codigoParteProduto === codParte.toString());
 }
 
+function verificaMudancaItensSelecionados(arrSelecionados,arrDisponiveis){ 
+    const witchElement = arrSelecionados.some(el => {
+       if(!arrDisponiveis.includes(el)) {
+        console.log("elemento: ", el)
+        var objItemParte = encontraItemPartePorId(el);
+        arrSelecionados.splice(arrSelecionados.indexOf(el), 1);//remove o elemento que ficou indisponível
+        var cont=0;
+        arrDisponiveis.some(item => {
+            if(encontraItemPartePorId(item).codigoParteProduto == objItemParte.codigoParteProduto && cont==0){
+                arrSelecionados.push(item);
+                cont++
+            }
+        })
+        console.log(objItemParte);
+        console.log(arrSelecionados);
+      }
+    })
+}
+
 function selecionaItemParte(codItemParte){
     //acabamentos parte
     //apaga todos os itens ateriores
@@ -96,7 +115,7 @@ function selecionaItemParte(codItemParte){
     for(i=0;i<arrRelacionamentosAcabamentos.length;i++){
         var listaAcabamentos = arrRelacionamentosAcabamentos[i].slice();
         listaAcabamentos.shift();
-        if (listaAcabamentos.includes(codItemParte)){
+        if (listaAcabamentos.includes(parseInt(codItemParte))){
             var acabamento = encontraAcabamentoPorId(arrRelacionamentosAcabamentos[i][0]);
             //select.options[select.options.length] = new Option(acabamento.descAcabamento, acabamento.codigoAcabamento);
             arrAcabamentos.push(parseInt(acabamento.codigoAcabamento));
@@ -109,20 +128,20 @@ function selecionaItemParte(codItemParte){
     
     
     if(partesChaves.includes(objItemParteSelecionada.codigoParteProduto)){//se o item selecionado pertence a uma parte-chave, carrega os novos dados
-        //seleciona as opï¿½ï¿½es disponï¿½veis em cada uma das demais partes do produto
-        //com base na opï¿½ï¿½o de corpo selecionada
+        //seleciona as opções disponíveis em cada uma das demais partes do produto
+        //com base na opção de corpo selecionada
         var arrItensParte = [];
         for(i=0;i<arrRelacionamentosPartes.length;i++){
             var listaItensParte = arrRelacionamentosPartes[i].slice();
             listaItensParte.shift();
-            if (listaItensParte.includes(codItemParte)){
+            if (listaItensParte.includes(parseInt(codItemParte))){
                 arrItensParte.push(arrRelacionamentosPartes[i][0]);
             }
         }
         //****************************************
 
-        arrOpcoesDisponiveis  = [];//limpa as opï¿½ï¿½es disponï¿½vels para carregar a nova lista de acordo com a nova escolha 
-        //adiciona os itens da parte chave, que sempre estarï¿½o disponï¿½veis
+        arrOpcoesDisponiveis  = [];//limpa as opções disponívels para carregar a nova lista de acordo com a nova escolha 
+        //adiciona os itens da parte chave, que sempre estarão disponíveis
         var parteChave = objItemParteSelecionada.codigoParteProduto;
         for (i=0;i<itensPartes.length;i++){
             if(itensPartes[i].codigoParteProduto == parteChave){
@@ -131,7 +150,7 @@ function selecionaItemParte(codItemParte){
             }
         }
         
-        //carrega a nova lista de itens disponï¿½veis 
+        //carrega a nova lista de itens disponíveis 
         for (i=0;i<arrItensParte.length;i++){
             //var itemParte = encontraItemPartePorId(arrItensParte[i]);
             //console.log(itemParte);

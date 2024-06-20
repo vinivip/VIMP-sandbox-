@@ -1,46 +1,23 @@
 <?php 
-    // echo basename(__DIR__).'/assets/icons<br>';
-    // echo getcwd();
-    // $listaArquivos = array();
-    // $pastas = array('localhost','c:/Workspace/'.basename(__DIR__).'/assets/icons','assets/miniaturas','assets/models');
-    // foreach ($pastas as $pasta){
-    //     $arquivos = glob("$pasta{*.*}", GLOB_BRACE);
-    //     foreach($arquivos as $img){
-    //        $listaArquivos[] = $img;
-    //     }
-    // }
-    // echo "<pre>";
-    // print_r($listaArquivos);
-    $listaArquivos = array();
-    $pastas = array('assets/miniaturas','../icons','../models');
-    foreach ($pastas as $pasta){
-        
-        chdir($pasta);
-        foreach (glob("*.*") as $arquivo) {
-        $listaArquivos[] = $arquivo;
-    }
-    $json = json_encode($listaArquivos);
-    
-}
+    include '../app/helpers/listaElementosDisponiveis.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="assets/styles/styles.css" rel="stylesheet"/>
     <title>VIMP 2.0</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script>
-        var listaArquivos = <?=$json; ?>;
-        
+        var listaArquivosDisponiveis = <?=$json; ?>;
     </script>
 </head>
 <body onload="preload()">
     <header >
         <nav id="nav-os" class="nav-os">
-            <img src="assets/logo.svg" alt="logoVIMP">
+            <img src="assets/img/logo.svg" alt="logoVIMP">
             <select id="changeItem">
                 
             </select>
@@ -156,21 +133,21 @@
         </section>
     </main>
 
-    <script src="scripts/libs/jquery-3.7.1.slim.min.js"></script>
+    <script src="assets/scripts/helpers/jquery-3.7.1.slim.min.js"></script>
     <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
     <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script>
 
 
-    <script src="scripts/libs/togglers.js"></script>
+    <script src="assets/scripts/helpers/togglers.js"></script>
     
     
-    <script src="scripts/components/itemsOS.js"></script>
-    <script src="scripts/components/navparts.js"></script>
-    <script src="scripts/components/typeParts.js"></script>
-    <script src="scripts/components/modelsSlices.js"></script>
+    <script src="assets/scripts/components/itemsOS.js"></script>
+    <script src="assets/scripts/components/navparts.js"></script>
+    <script src="assets/scripts/components/typeParts.js"></script>
+    <script src="assets/scripts/components/modelsSlices.js"></script>
 
-    <script src="scripts/build.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/preload.js"></script>
+    <script src="assets/scripts/build.js"></script>
+    <script src="assets/scripts/main.js"></script>
+    <script src="assets/scripts/preload.js"></script>
 </body>
 </html>
