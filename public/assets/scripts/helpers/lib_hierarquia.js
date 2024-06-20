@@ -11,7 +11,7 @@ function carregaListaProdutos(){
         timeout: 10000,
         type: "POST", url: "retorna_dados_produtos.php",
         error: function(){
-            alert("Falha na conexão...! Tente novamente.");   
+            alert("Falha na conexï¿½o...! Tente novamente.");   
         },
         success: function(retorno) {
             var dados = JSON.parse(retorno);
@@ -61,8 +61,8 @@ function selecionaParte(codParte){
     
     //inicializa arrOpcoesDisponiveis com os itens da parte-chave 
     if(partesChaves.includes(codParte)){//se o item selecionado pertence a uma parte-chave, carrega os novos dados
-        arrOpcoesDisponiveis  = [];//limpa as opções disponívels para carregar a nova lista de acordo com a nova escolha 
-        //adiciona os itens da parte chave, que sempre estarão disponíveis
+        arrOpcoesDisponiveis  = [];//limpa as opï¿½ï¿½es disponï¿½vels para carregar a nova lista de acordo com a nova escolha 
+        //adiciona os itens da parte chave, que sempre estarï¿½o disponï¿½veis
         for (i=0;i<itensPartes.length;i++){
             if(itensPartes[i].codigoParteProduto == codParte){
                 arrOpcoesDisponiveis.push(parseInt(itensPartes[i].codigoItemParteProduto));
@@ -88,22 +88,29 @@ function encontraPartePorId(codParte) {
 }
 
 function verificaMudancaItensSelecionados(arrSelecionados,arrDisponiveis){ 
+    const newArray = [...arrSelecionados]
+    console.log(arrDisponiveis)
     const witchElement = arrSelecionados.some(el => {
+        console.log(arrSelecionados)
+        console.log(el)
        if(!arrDisponiveis.includes(el)) {
-        console.log("elemento: ", el)
+        
         var objItemParte = encontraItemPartePorId(el);
-        arrSelecionados.splice(arrSelecionados.indexOf(el), 1);//remove o elemento que ficou indisponível
+        newArray.splice(newArray.indexOf(el), 1);//remove o elemento que ficou indisponï¿½vel
         var cont=0;
         arrDisponiveis.some(item => {
             if(encontraItemPartePorId(item).codigoParteProduto == objItemParte.codigoParteProduto && cont==0){
-                arrSelecionados.push(item);
+                console.log('entra:',encontraItemPartePorId(item))
+                newArray.push(item);
                 cont++
             }
         })
-        console.log(objItemParte);
-        console.log(arrSelecionados);
+        
+        console.log('sai:',objItemParte);
+        
       }
     })
+    return arrSelecionados = [...newArray]
 }
 
 function selecionaItemParte(codItemParte){
@@ -128,8 +135,8 @@ function selecionaItemParte(codItemParte){
     
     
     if(partesChaves.includes(objItemParteSelecionada.codigoParteProduto)){//se o item selecionado pertence a uma parte-chave, carrega os novos dados
-        //seleciona as opções disponíveis em cada uma das demais partes do produto
-        //com base na opção de corpo selecionada
+        //seleciona as opï¿½ï¿½es disponï¿½veis em cada uma das demais partes do produto
+        //com base na opï¿½ï¿½o de corpo selecionada
         var arrItensParte = [];
         for(i=0;i<arrRelacionamentosPartes.length;i++){
             var listaItensParte = arrRelacionamentosPartes[i].slice();
@@ -140,8 +147,8 @@ function selecionaItemParte(codItemParte){
         }
         //****************************************
 
-        arrOpcoesDisponiveis  = [];//limpa as opções disponívels para carregar a nova lista de acordo com a nova escolha 
-        //adiciona os itens da parte chave, que sempre estarão disponíveis
+        arrOpcoesDisponiveis  = [];//limpa as opï¿½ï¿½es disponï¿½vels para carregar a nova lista de acordo com a nova escolha 
+        //adiciona os itens da parte chave, que sempre estarï¿½o disponï¿½veis
         var parteChave = objItemParteSelecionada.codigoParteProduto;
         for (i=0;i<itensPartes.length;i++){
             if(itensPartes[i].codigoParteProduto == parteChave){
@@ -150,7 +157,7 @@ function selecionaItemParte(codItemParte){
             }
         }
         
-        //carrega a nova lista de itens disponíveis 
+        //carrega a nova lista de itens disponï¿½veis 
         for (i=0;i<arrItensParte.length;i++){
             //var itemParte = encontraItemPartePorId(arrItensParte[i]);
             //console.log(itemParte);

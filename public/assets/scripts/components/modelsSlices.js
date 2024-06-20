@@ -8,20 +8,20 @@ function loadModel(idSvg,layer){
     $("#"+layers[layer].id).attr('xlink:href',pathSvg)    
 }
 
-function verifyException(idSvg){
-    const idCore =`${idSvg}-${currentCore}`
-    if(Object.keys(exceptions).includes(idCore)){
-        return exceptions[idCore]
-    }
-    return idSvg
-}
-function carregaModelagemSelecionada(){
-    var id
-    
+// function verifyException(idSvg){
+//     const idCore =`${idSvg}-${currentCore}`
+//     if(Object.keys(exceptions).includes(idCore)){
+//         return exceptions[idCore]
+//     }
+//     return idSvg
+// }
+function carregaModelagemSelecionada()
+{
+    let id
     for(k=0;k<listaItensPartesSelecionados.length;k++){
         
         id = listaItensPartesSelecionados[k]
-        // const id = verifyException(listaItensPartesSelecionados[k])
+        
         loadModel(id,k)
     }
 }
