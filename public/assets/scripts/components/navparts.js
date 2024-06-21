@@ -14,18 +14,7 @@ function selectEditingModel(){
     $('.editing').removeClass('editing')
     $(`.modelPart${currentPart}`).addClass('editing')
 }
-function escondeLayers(listaEscodidos){
-    for(i=0;i<listaEscodidos.length;i++){
-        $(`.modelPart${listaEscodidos[i]}`).hide()
-    }
 
-}
-function mostraLayers(listaEscodidos){
-    for(i=0;i<listaEscodidos.length;i++){
-        $(`.modelPart${listaEscodidos[i]}`).show()
-    }
-
-}
 function toggleBackModels(){
     const costas = arrConfigExibCostas[0]
     const frente = arrConfigExibCostas[1]

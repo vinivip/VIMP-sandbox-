@@ -61,3 +61,16 @@ function verificaDisponibilidadePath(path,alt){
     }
     return urlimg
 }
+
+function escondeLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).hide()
+    }
+
+}
+function mostraLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).show()
+    }
+
+}
