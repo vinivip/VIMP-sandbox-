@@ -45,7 +45,8 @@ function verificaSelecaoItensParte(){
         listaItensPartesSelecionados = arrDefault[currentProduct]
         
     }
-    
+    // console.log("seleção item:",listaItensPartesSelecionados)
+    unselectItem('.selected')
     for (var i = 0;i <listaItensPartesSelecionados.length;i++){
 
         selectItem(`#${listaItensPartesSelecionados[i]}.miniatura`)

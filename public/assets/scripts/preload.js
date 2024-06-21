@@ -19,6 +19,8 @@ var currentCore
 var currentItem 
 var currentEnabled=[]
 
+
+
 // Arrays itens, partes e produtos
 var produtos 
 var partes 
@@ -28,6 +30,7 @@ var partesChaves
 
 //Input OS
 var arrListaItensPartesSelecionados = [[],[],[],[59,63],[],[],[]]
+var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var itensOS =[]
 

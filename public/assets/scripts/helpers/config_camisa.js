@@ -7,7 +7,7 @@ var camisa_bolso_costas = 5;
 var camisa_cava = 20;
 
 var arrDefault = [['1','5'],['1','5']];
-console.log(arrDefault);
+// console.log(arrDefault);
 
 
 //TIPO PARTES
@@ -37,7 +37,7 @@ arrRelacionamentosPartes.push(arrMangaCurta);
 arrRelacionamentosPartes.push(arrMangaLonga);
 
 
-//CAMISA PESCOÇO
+//CAMISA PESCOï¿½O
 var camisa_pescoco_abanhado = 19;
 var camisa_pescoco_gola_redonda = 15;
 var camisa_pescoco_gola_decote_v = 18;

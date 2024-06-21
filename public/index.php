@@ -111,7 +111,7 @@
                                 <label for="art"><input name="art" type="checkbox">arte</label>
                                 <label for="cut"><input name="cut" type="checkbox">corte</label>
                                 <label for="separation"><input name="separation" type="checkbox">separação</label>
-                                <label for="needleWork"><input name="needleWork" type="checkbox">bordado</label>
+                                <label for="needleWork"><input name="needleWork" type="checkbox">   bordado</label>
                                 <label for="print"><input name="print" type="checkbox">impressão</label>
                                 <label for="serigraphy"><input name="serigraphy" type="checkbox">siregrafia</label>
                                 <label for="sublimation"><input name="sublimation" type="checkbox">sublimação</label>

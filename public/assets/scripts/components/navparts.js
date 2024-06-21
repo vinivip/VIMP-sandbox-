@@ -14,16 +14,47 @@ function selectEditingModel(){
     $('.editing').removeClass('editing')
     $(`.modelPart${currentPart}`).addClass('editing')
 }
+function escondeLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).hide()
+    }
+
+}
+function mostraLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).show()
+    }
+
+}
+function toggleBackModels(){
+    const costas = arrConfigExibCostas[0]
+    const frente = arrConfigExibCostas[1]
+    console.log('frente,costas:',frente,costas)
+   if (costas.includes(parseInt(currentPart))){
+        mostraLayers(costas)
+        escondeLayers(frente)
+
+   }else{
+        mostraLayers(frente)
+        escondeLayers(costas)    
+    } 
+        
+        
+    
+    
+}
 function usePartesOptions()
         {
-            
+            // console.log("antes:",listaItensPartesSelecionados)
             unselectPart(currentPart)
             hideItemParteMins()
             
             currentPart = $(this).attr('id')||`${currentPart}`;
-           
+            // console.log("depois:",listaItensPartesSelecionados)
+            // console.log(currentPart)
             selectPart(currentPart)
             selectEditingModel()
+            toggleBackModels()
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
