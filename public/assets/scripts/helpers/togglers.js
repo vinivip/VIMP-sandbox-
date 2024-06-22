@@ -45,7 +45,8 @@ function verificaSelecaoItensParte(){
         listaItensPartesSelecionados = arrDefault[currentProduct]
         
     }
-    
+    // console.log("seleção item:",listaItensPartesSelecionados)
+    unselectItem('.selected')
     for (var i = 0;i <listaItensPartesSelecionados.length;i++){
 
         selectItem(`#${listaItensPartesSelecionados[i]}.miniatura`)
@@ -59,4 +60,17 @@ function verificaDisponibilidadePath(path,alt){
         urlimg = alt
     }
     return urlimg
+}
+
+function escondeLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).hide()
+    }
+
+}
+function mostraLayers(listaEscodidos){
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).show()
+    }
+
 }

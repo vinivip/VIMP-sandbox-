@@ -36,12 +36,13 @@ function useItemParteMins()
     {
         unselectItem(`.part${currentPart}.selected`)
         currentItem = $(this).attr('id') || currentCore
-        // console.log(currentItem)
+        
         selecionaItemParte(parseInt(currentItem))
 
 
         atualizaItemParteSelecionada()
-        
+        // console.log(currentItem)
+        // console.log(listaItensPartesSelecionados)
         
 
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)

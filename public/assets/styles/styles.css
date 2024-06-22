@@ -6,6 +6,8 @@
     --white: #ffffff;
     --sec-bg: #22333B;
     --neutral-fill: #dacfcf;
+    --teste: #00aeff;
+    
     
 
     
@@ -97,22 +99,13 @@ body,h1,h2,h3,ul,textarea{
     
 }
 
-use{
+.modelPart{
     fill: var(--neutral-fill);
     stroke: rgb(0, 0, 0) !important;
     stroke-width:15;
-    stroke-miterlimit:22.9256
-}
-@keyframes pulsing {
-    0%{
-        fill: var(--neutral-fill)
-    }
-    50%{
-        fill: var(--main-bg);
-    }
-    100%{
-        fill: var(--neutral-fill);
-    }
+    stroke-miterlimit:22.9256;
+
+    z-index: 0;
 }
 .editing{
     fill: var(--main-bg);
@@ -121,10 +114,14 @@ use{
 
 use:hover{
     fill: rgb(144, 116, 94);
-  
     transition: all 1000ms;
+    z-index: 2;
 }
-
+.modelPart2:hover{
+    transition: all 1000ms;
+    --teste: orange
+    
+}
 
 
 /*containers =====================================================================================================*/

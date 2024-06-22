@@ -5,6 +5,8 @@ function useSelect()
     hideItemParteMins()
     
     currentProduct = selectOS.value
+    arrConfigExibCostas = arrExibicaoApenasCostas[currentProduct]
+    
     currentPart = selecionaProduto(currentProduct)[0]
     // definição listaItensPartesSelecionados ===============================================================
     listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
@@ -17,6 +19,7 @@ function useSelect()
     useItemParteMins()
     
     $('#changeItem').on('change', useSelect)
+    
 }
 
 function rendSelectItensOs(items,element)

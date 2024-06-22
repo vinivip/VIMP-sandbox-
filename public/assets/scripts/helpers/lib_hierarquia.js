@@ -21,23 +21,23 @@ function carregaListaProdutos(){
             acabamentos = dados[3];
             partesChaves = dados[4];
 
-            //console.log(dados);
-            console.log(produtos);
-            console.log(partes);
-            console.log(itensPartes);
-            console.log(acabamentos);
-            console.log(partesChaves);
+            //// console.log(dados);
+            // console.log(produtos);
+            // console.log(partes);
+            // console.log(itensPartes);
+            // console.log(acabamentos);
+            // console.log(partesChaves);
 
             select = document.getElementById("selectProduto");
             for (i=0;i<produtos.length;i++){
-                console.log(produtos[i]);
+                // console.log(produtos[i]);
                 select.options[select.options.length] = new Option(produtos[i].descProduto, produtos[i].codigoProduto);
             }                
         }			
     });
 }
 function selecionaProduto(codProduto){
-    console.log(codProduto);
+    // console.log(codProduto);
     var arrPartes = [];
     for (i=0;i<partes.length;i++){
         if(partes[i].codigoProduto == codProduto){
@@ -160,22 +160,22 @@ function selecionaItemParte(codItemParte){
         //carrega a nova lista de itens dispon�veis 
         for (i=0;i<arrItensParte.length;i++){
             //var itemParte = encontraItemPartePorId(arrItensParte[i]);
-            //console.log(itemParte);
+            //// console.log(itemParte);
             //var objParte = encontraPartePorId(itemParte.codigoParteProduto);
-            //console.log(encontraPartePorId(itemParte.codigoParteProduto));
+            //// console.log(encontraPartePorId(itemParte.codigoParteProduto));
             //var arrParParteOpcao = [parseInt(objParte.codigoParteProduto),arrItensParte[i]];
             //arrOpcoesDisponiveis.push(arrParParteOpcao);
             arrOpcoesDisponiveis.push(arrItensParte[i]);
         }
     }
 
-    //console.log("ArrayAcabamentos: ",$arrRetornoAcabamentos);
-    //console.log("ArrayOpcoesDisponiveis: ",arrOpcoesDisponiveis);
+    //// console.log("ArrayAcabamentos: ",$arrRetornoAcabamentos);
+    //// console.log("ArrayOpcoesDisponiveis: ",arrOpcoesDisponiveis);
     //listaOpcoesPartes(arrOpcoesDisponiveis);
 }
 
 function selecionaAcabamento(codAcabamento){
-    console.log(codAcabamento);
+    // console.log(codAcabamento);
 }
 
 /*function listaOpcoesPartes(arrOpcoes){
@@ -188,11 +188,11 @@ function selecionaAcabamento(codAcabamento){
             indiceAtual = codParte;
             var objParte = encontraPartePorId(codParte);
             //txt += '<br><br>'+objParte.descParteProduto+'<br>';
-            console.log(objParte.descParteProduto);
-            //console.log("txt: ",txt);
+            // console.log(objParte.descParteProduto);
+            //// console.log("txt: ",txt);
         }
         var objTipoParte = encontraItemPartePorId(codTipoParte);
-        console.log(objTipoParte.descItemParteProduto);
+        // console.log(objTipoParte.descItemParteProduto);
         //txt += objTipoParte.descItemParteProduto+' | ';
     }
     
