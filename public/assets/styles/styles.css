@@ -6,7 +6,7 @@
     --white: #ffffff;
     --sec-bg: #22333B;
     --neutral-fill: #dacfcf;
-    --teste: #00aeff;
+    --teste: #aaa6a6;
     
     
 
@@ -101,7 +101,7 @@ body,h1,h2,h3,ul,textarea{
 
 .modelPart{
     fill: var(--neutral-fill);
-    stroke: rgb(0, 0, 0) !important;
+    stroke: rgb(0, 0, 0);
     stroke-width:15;
     stroke-miterlimit:22.9256;
 
@@ -109,8 +109,15 @@ body,h1,h2,h3,ul,textarea{
 }
 .editing{
     fill: var(--main-bg);
+  
     /* animation: pulsing 2s infinite linear; */
 }
+.editing{
+    fill: var(--main-bg);
+    --teste: rgb(160, 72, 0);
+    /* animation: pulsing 2s infinite linear; */
+}
+
 
 use:hover{
     fill: rgb(144, 116, 94);
