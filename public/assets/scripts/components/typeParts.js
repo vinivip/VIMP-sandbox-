@@ -71,14 +71,17 @@ function rendItemParteMins(items,element)
             element.innerHTML += `
                 <div 
                     id='${item.codigoItemParteProduto}' 
-                    title='${item.descItemParteProduto}' 
                     class='part${item.codigoParteProduto} miniatura'
                 >   
                    <img 
                     src="assets/img/miniaturas/${verificaDisponibilidadePath(url,'default.png')}"
                     alt="${item.descItemParteProduto}">
+                
+                    <p id="" class="itemTag">${item.descItemParteProduto}</p>    
                  
-                </div>`
+                </div>
+                
+                `
           
         }
     )

@@ -6,7 +6,8 @@
     --white: #ffffff;
     --sec-bg: #22333B;
     --neutral-fill: #dacfcf;
-    --teste: #aaa6a6;
+    --cor2: #aaa6a6;
+    --cor3: #000000;
     
     
 
@@ -114,7 +115,8 @@ body,h1,h2,h3,ul,textarea{
 }
 .editing{
     fill: var(--main-bg);
-    --teste: rgb(160, 72, 0);
+    --cor2: rgb(160, 72, 0);
+    --cor3: var(--main-bg);
     /* animation: pulsing 2s infinite linear; */
 }
 
@@ -126,7 +128,7 @@ use:hover{
 }
 .modelPart2:hover{
     transition: all 1000ms;
-    --teste: orange
+    --cor2: orange
     
 }
 
@@ -351,8 +353,26 @@ main{
     border-radius: 25px;
     display: none;
     filter: grayscale(100);
+    z-index: 1;
     overflow: hidden;
     
+}
+
+.itemTag{
+    background-color: #FF751F;
+    color: rgb(255, 255, 255);
+    height: 0px;
+    margin: 0px;
+    padding-block: 0px;
+    padding-inline: 5px;
+    text-align: center;
+    font-size: 10px;
+    transition: all 500ms;
+}
+.miniatura:hover> .itemTag{
+    height: auto;
+    padding-block: 5px;
+    transition: all 500ms;
 }
 .enabled{
     box-shadow: rgba(182, 182, 182,1) 0px 1px 4px;
@@ -371,7 +391,8 @@ main{
 
 .typeContent{
     justify-content: center;
-    overflow-y:auto;
+    /* overflow-x: visible;
+    overflow-y:auto; */
     align-items: start;
     flex-wrap: wrap;
     display: none;
@@ -393,6 +414,7 @@ main{
     border-radius: 25px;
 
 }
+
 
 .sectorComments{
     display: flex;

@@ -15,7 +15,7 @@
     </script>
 </head>
 <body onload="preload()">
-    <header >
+    <header>
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
             <select id="changeItem">
@@ -24,6 +24,8 @@
         </nav>
     </header>
     <main >
+        
+        
         <section  id="view" class="view">
                 <h1 class="partTitle">CORPO</h1>
                 <section class= "modelingContainer" >
