@@ -2,6 +2,7 @@
 var navParts = document.getElementById('navParts')
 var selectOS = document.getElementById('changeItem')
 var typePart = document.getElementById('typeContent')
+var selectAcabamentos =  document.getElementById('SelectAcabamentos')
 
 // Exceções de exeptions
 

@@ -76,18 +76,24 @@
                 <section id="piecePart" class="selectAcordion">
                     <div id="type" class="field">
                         <h3 id="typeTrigger">
-                            <button>
-                                <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined">
                                     chevron_right
-                                </span>
-                            </button>
+                            </span>
                             <span class="partTitle"></span>
                         </h3>
                         <div class="typeContent open" id="typeContent">
 
                         </div>
+                        <div class="" id="finishingContent">
+                            <h3>
+                                <span class="material-symbols-outlined">
+                                    chevron_right
+                                </span>
+                                ACABAMENTO 
+                                <select class="selectAcabamentos" name="" id="SelectAcabamentos"></select></h3>
+                        </div>
                     </div>
-                    <div id="finishing" class="field">
+                    <!-- <div id="finishing" class="field">
                         <h3>
                             <button>
                                 <span class="material-symbols-outlined">
@@ -96,10 +102,8 @@
                             </button>
                             ACABAMENTO
                         </h3>
-                        <div class=".content" id="finishingContent">
-                            
-                        </div>
-                    </div>
+                        
+                    </div> -->
                 </section>
                 <section id="sectorComments" class="sectorComments">
                     <div id="sectorCommentsLog" class="log">
@@ -147,6 +151,7 @@
     <script src="assets/scripts/components/itemsOS.js"></script>
     <script src="assets/scripts/components/navparts.js"></script>
     <script src="assets/scripts/components/typeParts.js"></script>
+    <script src="assets/scripts/components/acabamentos.js"></script>
     <script src="assets/scripts/components/modelsSlices.js"></script>
 
     <script src="assets/scripts/build.js"></script>

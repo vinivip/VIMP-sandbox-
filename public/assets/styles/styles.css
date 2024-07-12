@@ -416,6 +416,16 @@ main{
 }
 
 
+.selectAcabamentos{
+
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    width: 100%;
+
+}
+
+
 .sectorComments{
     display: flex;
     flex-direction: column;
