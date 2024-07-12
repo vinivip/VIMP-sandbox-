@@ -18,6 +18,7 @@ var currentProduct
 var currentPart 
 var currentCore 
 var currentItem 
+var currentAcabamento
 var currentEnabled=[]
 
 
@@ -31,6 +32,7 @@ var partesChaves
 
 //Input OS
 var arrListaItensPartesSelecionados = [[8,23,18,81,82,83],[],[],[59,63],[],[],[]]
+var arrListaItensAcabamentosSelecionados = [[],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var itensOS =[]

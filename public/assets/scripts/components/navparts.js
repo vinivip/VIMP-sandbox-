@@ -53,7 +53,7 @@ function usePartesOptions()
             showItemParteMins()
             // selecionaItemParte(currentCore)
             
-
+            rendSelectAcabamentos(acabamentos,selectAcabamentos)
             
             
 }

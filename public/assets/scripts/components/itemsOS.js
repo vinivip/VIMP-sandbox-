@@ -17,6 +17,7 @@ function useSelect()
     showPartesOptions()
     usePartesOptions()
     useItemParteMins()
+
     
     $('#changeItem').on('change', useSelect)
     
