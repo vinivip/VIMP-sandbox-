@@ -12,6 +12,10 @@ function useSelect()
     listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
     verificaSelecaoItensParte()   
     // ====================================================================================================== 
+    // definição listaItensAcabamentosSelecionados ==========================================================
+    listaItensAcabamentosSelecionados = arrListaItensAcabamentosSelecionados[$("#changeItem").prop('selectedIndex')]
+      
+    // ====================================================================================================== 
     rendObjetosImgModelagem(listaItensPartesSelecionados.length)
     currentCore= listaItensPartesSelecionados[0]
     showPartesOptions()

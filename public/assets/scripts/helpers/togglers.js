@@ -13,6 +13,7 @@ function unselectPart(partID){
 
 
 function selectItem(item){
+    
     $(item).addClass('selected');
 }
 function unselectItem(item){
@@ -22,6 +23,7 @@ function unselectItem(item){
 function enableItem(item){
     $(item).addClass('enabled');
     $(item).on('click',useItemParteMins)
+
 }
 function disableItem(item){
     $(item).removeClass('enabled');
@@ -29,15 +31,20 @@ function disableItem(item){
     unselectItem(item)
 }
 
-function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis){
+function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis, flag){
     if(listaItensDisponiveis.includes(codItemParte))    
     {   
         enableItem( `#${codItemParte}.part${currentPart}`)
-
+        if(listaItensPartesSelecionados.includes(codItemParte)){
+            if(!flag){
+                currentItem = codItemParte
+                return true
+            }
+        }           
     }else{
         disableItem( `#${codItemParte}.part${currentPart}`)
+        return false
     }
-
 }
 function verificaSelecaoItensParte(){
     

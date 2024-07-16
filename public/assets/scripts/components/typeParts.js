@@ -1,14 +1,14 @@
-
 function showItemParteMins()
 {
     var objElementos = document.getElementsByClassName(`part${currentPart}`)
-    
+    var flag = false
     $(`.part${currentPart}`).fadeIn()
     for( i = 0; i < objElementos.length; i++){
         const id = objElementos[i].id
-        
-        verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis)
+        flag = verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis, flag)
+               
     }
+    useItemParteMins()
 }
 function hideItemParteMins()
 {
@@ -35,16 +35,19 @@ function atualizaItemParteSelecionada()
 function useItemParteMins()
     {
         unselectItem(`.part${currentPart}.selected`)
-        currentItem = $(this).attr('id') || currentCore
+        if($(this).attr('id')){
+            currentItem = $(this).attr('id') || currentCore
+        }
         
         selecionaItemParte(parseInt(currentItem))
 
 
         atualizaItemParteSelecionada()
-        // console.log(currentItem)
-        // console.log(listaItensPartesSelecionados)
+        //console.log(currentItem)
+        //console.log(listaItensPartesSelecionados)
         
 
+        //console.log("AOD:",arrOpcoesDisponiveis)
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         
         verificaSelecaoItensParte()  
@@ -57,6 +60,11 @@ function useItemParteMins()
         
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
+        
+
+        //console.log('item:',currentItem)
+        rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
+        mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
 }
 
 

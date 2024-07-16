@@ -31,19 +31,22 @@ var acabamentos
 var partesChaves 
 
 //Input OS
-var arrListaItensPartesSelecionados = [[8,23,18,81,82,83],[],[],[59,63],[],[],[]]
-var arrListaItensAcabamentosSelecionados = [[],[],[],[],[],[],[]]
+var arrListaItensPartesSelecionados = [[],[],[],[59,63],[],[],[]]
+var arrListaItensAcabamentosSelecionados = [[5,106,105,23,26,77],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
+var listaItensAcabamentosSelecionados = []
 var itensOS =[]
 
 async function preload(){  
     const response = await fetch("https://www.vipsportsproducao.com.br/vimp/retorna_dados_produtos.php")
+    
     const data = await response.json()
 
     produtos = await data[0];
     partes = await data[1];
     itensPartes = await data[2];
+    //console.log("teste",itensPartes)
     acabamentos = await data[3];
     partesChaves = await data[4];
     

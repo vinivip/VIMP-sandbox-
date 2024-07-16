@@ -1,13 +1,47 @@
-function atualizaAcabamento()
+function atualizaAcabamento(antigaListaAcabamentos,novoAcabamento, codParte)
 {
-    
+    const listaAcabamentos = [...antigaListaAcabamentos]
+
+    for(i = 0; i < listaAcabamentos.length;i++){
+        let current = encontraAcabamentoPorId(listaAcabamentos[i])
+        let currentCod = parseInt(current.codigoAcabamento)
+        if (current.codigoParteProduto == codParte){
+            listaAcabamentos.splice(listaAcabamentos.indexOf(currentCod), 1)
+            return [...listaAcabamentos, parseInt(novoAcabamento)]
+        }
+    }
+}
+function mudaAcabamentoSelect(listaAcabamentos, codParte)
+{
+    // const currentItemPart = $(`.part${currentPart}.selected`).attr
+    // selecionaItemParte(currentItemPart)
+    for(i = 0; i < listaAcabamentos.length;i++){
+        let current = encontraAcabamentoPorId(listaAcabamentos[i])
+        
+        if (current.codigoParteProduto == codParte){
+            
+            selectAcabamentos.value = current.codigoAcabamento
+            currentAcabamento = selectAcabamentos.value 
+            
+        }
+    }
 }
 
 
 function useAcabamentos()
-    {    
-        currentAcabamento = selectAcabamentos.value
-        console.log(currentAcabamento)
+{     
+    //console.logogog(listaItensAcabamentosSelecionados)
+
+    currentAcabamento = selectAcabamentos.value 
+    listaItensAcabamentosSelecionados = atualizaAcabamento
+    (
+        listaItensAcabamentosSelecionados,
+        currentAcabamento, 
+        currentPart
+    )
+
+    //console.logog(listaItensAcabamentosSelecionados)
+    return
         
 }
 
@@ -17,17 +51,14 @@ function rendSelectAcabamentos(items,element)
     element.innerHTML = ''
     items.map(
         
-        item => {
-            if (item.codigoParteProduto == currentPart){
+        itemCode => {
+            const item = encontraAcabamentoPorId(itemCode)
+            
                 element.innerHTML += `
                 <option class="part${item.codigoParteProduto}" value="${item.codigoAcabamento}">${item.descAcabamento}</option>
-`
-            }
-                  
+            `        
         }
     )  
-    $('#SelectAcabamentos').on('change', useAcabamentos)
-    selectAcabamentos.value = currentAcabamento
-    useAcabamentos()
-    
+
+    $('#SelectAcabamentos').on('change',useAcabamentos)
 };

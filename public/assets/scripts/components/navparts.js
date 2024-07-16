@@ -18,7 +18,7 @@ function selectEditingModel(){
 function toggleBackModels(){
     const costas = arrConfigExibCostas[0]
     const frente = arrConfigExibCostas[1]
-    console.log('frente,costas:',frente,costas)
+    // console.log('frente,costas:',frente,costas)
    if (costas.includes(parseInt(currentPart))){
         mostraLayers(costas)
         escondeLayers(frente)
@@ -47,14 +47,14 @@ function usePartesOptions()
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
-            
+            // console.log('DO SELECIONA PARTES:',itensPartes)
             selecionaParte(currentPart)
-            selecionaItemParte(parseInt(currentCore))
+            selecionaItemParte(parseInt(currentCore)) // atualiza acabamento de partes e acabamento de relacionamentos
             showItemParteMins()
-            // selecionaItemParte(currentCore)
             
-            rendSelectAcabamentos(acabamentos,selectAcabamentos)
             
+            // rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
+            // mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
             
 }
 
