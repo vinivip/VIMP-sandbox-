@@ -1,6 +1,7 @@
 
 function useSelect()
 {
+
     hidePartesOptions()
     hideItemParteMins()
     
@@ -23,7 +24,7 @@ function useSelect()
     useItemParteMins()
 
     
-    $('#changeItem').on('change', useSelect)
+  
     
 }
 
@@ -38,4 +39,5 @@ function rendSelectItensOs(items,element)
 `      
         }
     )  
+    $('#changeItem').on('change', useSelect)
 };

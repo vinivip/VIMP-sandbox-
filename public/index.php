@@ -42,7 +42,7 @@
                                         chat
                                 </span>
                             </button>
-                            <button id="sideMenuDuplicate">
+                            <button  id="sideMenuDuplicate">
                                 <span class="material-symbols-outlined">
                                         markdown_copy
                                 </span>

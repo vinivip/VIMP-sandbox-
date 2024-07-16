@@ -33,7 +33,7 @@ var partesChaves
 
 //Input OS
 var arrListaItensPartesSelecionados = []
-var arrListaItensAcabamentosSelecionados = [[5,106,105,23,26,77],[],[],[],[],[],[]]
+var arrListaItensAcabamentosSelecionados = [[5,106,105,23,26,77],[],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var listaItensAcabamentosSelecionados = []
@@ -65,8 +65,7 @@ async function preload(){
         [3, 83, 80, 15, 81, 82],
         [3, 83, 21, 15, 81, 82],
         [3, 83, 22, 19, 81, 82],
-        [3, 83, 22, 18, 81, 82],
-        [3, 83, 22, 14, 81, 82], 
+        [3, 83, 22, 18, 81, 82]
     ]
     for (i in produtos){ 
         itensOS = [...itensOS,

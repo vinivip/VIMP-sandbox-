@@ -65,6 +65,9 @@ function useItemParteMins()
         //console.log('item:',currentItem)
         rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
         mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
+
+        arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
+        console.log("lista da OS modificada:", arrListaItensPartesSelecionados)
 }
 
 

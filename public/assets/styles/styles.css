@@ -105,9 +105,10 @@ body,h1,h2,h3,ul,textarea{
     stroke: rgb(0, 0, 0);
     stroke-width:15;
     stroke-miterlimit:22.9256;
-
-    z-index: 0;
 }
+
+
+
 .editing{
     fill: var(--main-bg);
   

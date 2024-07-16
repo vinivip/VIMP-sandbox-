@@ -2,10 +2,11 @@
 function showPartesOptions()
 {      
     $(`.prod${currentProduct}`).fadeIn()
-    optionPartListner = $('.optionPart').click(usePartesOptions)   
+    $('.optionPart').on('click',usePartesOptions)   
 }
 function hidePartesOptions()
 {      
+    $('.optionPart').off()   
     unselectPart(currentPart)
     $(`.prod${currentProduct}`).hide()  
 
