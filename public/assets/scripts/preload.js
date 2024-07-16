@@ -30,13 +30,16 @@ var itensPartes
 var acabamentos 
 var partesChaves 
 
+
 //Input OS
-var arrListaItensPartesSelecionados = [[],[],[],[59,63],[],[],[]]
+var arrListaItensPartesSelecionados = []
 var arrListaItensAcabamentosSelecionados = [[5,106,105,23,26,77],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var listaItensAcabamentosSelecionados = []
 var itensOS =[]
+
+
 
 async function preload(){  
     const response = await fetch("https://www.vipsportsproducao.com.br/vimp/retorna_dados_produtos.php")
@@ -50,18 +53,39 @@ async function preload(){
     acabamentos = await data[3];
     partesChaves = await data[4];
     
-    
+
+    //*************************************************************** */
+    //APAGAR QUANDO FOR PARA PRODUÇÂO
+    //Inicializa lista de itens da OS (deverá ser subitituido pelos itens da OS verdadeiros)
+    var modelagem = [
+        [], 
+        [3, 83, 22, 15, 81, 82],
+        [2, 83, 22, 15, 81, 82],
+        [9, 83, 22, 15, 81, 82],
+        [3, 83, 80, 15, 81, 82],
+        [3, 83, 21, 15, 81, 82],
+        [3, 83, 22, 19, 81, 82],
+        [3, 83, 22, 18, 81, 82],
+        [3, 83, 22, 14, 81, 82], 
+    ]
     for (i in produtos){ 
         itensOS = [...itensOS,
             {
-                codigoProduto: produtos[i].codigoProduto, 
+                codigoProduto: produtos[0].codigoProduto, 
                 descProduto: produtos[i].descProduto,
-                descItem: `descrição-${produtos[i].descProduto}` 
+                descItem: `descrição-${produtos[i].descProduto}`,
+                modelagem: modelagem[i]
             }
         ]
-        
-        
     }
-    
+
+//********************************************************************* */
+
+
+
+    for(i = 0; i< itensOS.length;i++){
+        arrListaItensPartesSelecionados.push(itensOS[i].modelagem)
+    }
+
     app()
 }
