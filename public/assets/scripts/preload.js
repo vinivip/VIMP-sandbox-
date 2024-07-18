@@ -33,7 +33,7 @@ var partesChaves
 
 //Input OS
 var arrListaItensPartesSelecionados = []
-var arrListaItensAcabamentosSelecionados = [[5,106,105,23,26,77],[],[],[],[],[],[],[]]
+var arrListaItensAcabamentosSelecionados = [[5,106,23,26,77,16],[],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var listaItensAcabamentosSelecionados = []

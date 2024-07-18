@@ -13,8 +13,6 @@ function atualizaAcabamento(antigaListaAcabamentos,novoAcabamento, codParte)
 }
 function mudaAcabamentoSelect(listaAcabamentos, codParte)
 {
-    // const currentItemPart = $(`.part${currentPart}.selected`).attr
-    // selecionaItemParte(currentItemPart)
     for(i = 0; i < listaAcabamentos.length;i++){
         let current = encontraAcabamentoPorId(listaAcabamentos[i])
         
@@ -30,8 +28,6 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
 
 function useAcabamentos()
 {     
-   
-
     currentAcabamento = selectAcabamentos.value 
     listaItensAcabamentosSelecionados = atualizaAcabamento
     (
@@ -39,26 +35,46 @@ function useAcabamentos()
         currentAcabamento, 
         currentPart
     )
-    console.log(listaItensAcabamentosSelecionados)
-    //console.logog(listaItensAcabamentosSelecionados)
-    return
-        
+    return        
+}
+
+function selectSelected(codAcabamento){
+   if( listaItensAcabamentosSelecionados.includes(codAcabamento)){
+    return 'selected'
+    }
+   return
 }
 
 function rendSelectAcabamentos(items,element)
 {
+    
     $('#SelectAcabamentos').off()
-    element.innerHTML = ''
+    element.innerHTML = '<option value="x"> SELECIONE UM ACABAMENTO... </option>'
+    // element.innerHTML = ''
+    let selecionado = ''
+ 
     items.map(
         
         itemCode => {
+            selecionado = ''
             const item = encontraAcabamentoPorId(itemCode)
-            
+              
+                if( listaItensAcabamentosSelecionados.includes(parseInt(item.codigoAcabamento))){
+                 
+                    selecionado =  'selected'
+                }
+                  
                 element.innerHTML += `
-                <option class="part${item.codigoParteProduto}" value="${item.codigoAcabamento}">${item.descAcabamento}</option>
+                <option 
+                    
+                    ${selecionado}   
+                    value="${item.codigoAcabamento}" 
+                >
+                    ${item.descAcabamento}
+                </option>
             `        
         }
     )  
-
+    console.log(listaItensAcabamentosSelecionados)
     $('#SelectAcabamentos').on('change',useAcabamentos)
 };
