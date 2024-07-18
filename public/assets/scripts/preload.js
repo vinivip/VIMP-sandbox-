@@ -3,6 +3,7 @@ var navParts = document.getElementById('navParts')
 var selectOS = document.getElementById('changeItem')
 var typePart = document.getElementById('typeContent')
 var selectAcabamentos =  document.getElementById('SelectAcabamentos')
+var saveButton = document.getElementById('sideMenuSave')
 
 // Exceções de exeptions
 
@@ -39,7 +40,8 @@ var listaItensPartesSelecionados = []
 var listaItensAcabamentosSelecionados = []
 var itensOS =[]
 
-
+//Global States
+var editing = true
 
 async function preload(){  
     const response = await fetch("https://www.vipsportsproducao.com.br/vimp/retorna_dados_produtos.php")

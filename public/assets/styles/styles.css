@@ -46,7 +46,7 @@
 }
 
 
-#sideMenuDelete,#sideMenuComments,#sideMenuDuplicate{
+#sideMenuDelete,#sideMenuComments,#sideMenuDuplicate,#sideMenuSave{
 
     background-color: var(--sec-bg);
     color: var(--white);
@@ -57,6 +57,12 @@
     background-color: var(--main-bg);
 
 
+}
+#sideMenuSave{
+    background-color: green;
+}
+#sideMenuSave:disabled{
+    background-color: grey;
 }
 
 @media screen and (min-width: 10000px){
@@ -149,9 +155,42 @@ header{
     width: 20%;
     height: 10vh;
 }.nav-os select{
-    width: 65%;
+    width: 70%;
     border-radius: 25px;
     padding: 10px;
+    display: none;
+}
+.nav-os h3{
+    color: white;
+    display: flex;
+}
+.nav-os h3 span{
+    margin-right: 10px;
+}
+.changeItemContainer{
+    width: 100%;
+}
+
+.toastNoSavedWarning{
+    display: none;
+    padding: 20px;
+    background-color: rgba(165, 37, 37, 0.349);
+    border: 2px solid red;
+    color: red;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 5px;
+    z-index: 4;
+    
+}
+
+.toastContent{
+    display: flex;
+    align-items: center;
+}
+.toastNoSavedWarning span{
+    margin-right: 10px;
 }
 
 main{
@@ -226,6 +265,13 @@ main{
     font-size: 40px;
     text-align: center;
 }
+.modelingMenuDiv nav button:disabled:hover{
+    background-color: grey;
+    scale: 1.0;
+    cursor: auto;
+}
+
+
 
 .modelingSlicesDiv{
     display: inline-block; 

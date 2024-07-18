@@ -34,6 +34,7 @@ function atualizaItemParteSelecionada()
 }
 function useItemParteMins()
     {
+        editModdeling()
         unselectItem(`.part${currentPart}.selected`)
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentCore

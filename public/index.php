@@ -15,14 +15,25 @@
         var listaArquivosDisponiveis = <?=$json; ?>;
     </script>
 </head>
+
 <body onload="preload()">
+    <div class="toastNoSavedWarning ">
+        
+        <div class="toastContent">
+            <span class="material-symbols-outlined">error</span>
+            VOCÊ DEVE SALVAR A MODELAGEM ANTES DE IR PARA OUTRO ITEM DA OS
+        </div>
+    </div>
     <header>
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
-            <select id="changeItem">
-                
-            </select>
+            <select id="changeItem" onclick="console.log('teste')"></select>
+            <h3>
+                <span class="material-symbols-outlined">edit</span>
+                <div id="descSelectOS">teste</div>
+            </h3>
         </nav>
+
     </header>
     <main >
         
@@ -45,6 +56,11 @@
                             <button  id="sideMenuDuplicate">
                                 <span class="material-symbols-outlined">
                                         markdown_copy
+                                </span>
+                            </button>
+                            <button onclick="saveModdeling()" id="sideMenuSave" disabled> 
+                                <span class="material-symbols-outlined">
+                                        save
                                 </span>
                             </button>
                         </nav>

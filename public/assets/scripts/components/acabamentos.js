@@ -28,6 +28,7 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
 
 function useAcabamentos()
 {     
+    editModdeling()
     currentAcabamento = selectAcabamentos.value 
     listaItensAcabamentosSelecionados = atualizaAcabamento
     (

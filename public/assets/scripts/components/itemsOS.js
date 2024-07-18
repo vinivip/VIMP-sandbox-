@@ -23,9 +23,7 @@ function useSelect()
     usePartesOptions()
     useItemParteMins()
 
-    
-  
-    
+    saveModdeling()
 }
 
 function rendSelectItensOs(items,element)
