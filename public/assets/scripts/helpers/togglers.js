@@ -50,8 +50,8 @@ function verificaSelecaoItensParte(){
     
     if (listaItensPartesSelecionados.length == 0){
         listaItensPartesSelecionados = arrDefault[currentProduct]
-        console.log("default",arrDefault)
-        console.log(listaDefault)
+       
+       
         
     }
     // console.log("seleção item:",listaItensPartesSelecionados)

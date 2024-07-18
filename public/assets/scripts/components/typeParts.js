@@ -67,7 +67,6 @@ function useItemParteMins()
         mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
-        console.log("lista da OS modificada:", arrListaItensPartesSelecionados)
 }
 
 

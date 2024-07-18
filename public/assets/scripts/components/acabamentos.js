@@ -30,7 +30,7 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
 
 function useAcabamentos()
 {     
-    //console.logogog(listaItensAcabamentosSelecionados)
+   
 
     currentAcabamento = selectAcabamentos.value 
     listaItensAcabamentosSelecionados = atualizaAcabamento
@@ -39,7 +39,7 @@ function useAcabamentos()
         currentAcabamento, 
         currentPart
     )
-
+    console.log(listaItensAcabamentosSelecionados)
     //console.logog(listaItensAcabamentosSelecionados)
     return
         
