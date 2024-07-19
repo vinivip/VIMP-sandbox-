@@ -496,6 +496,21 @@ main{
 
 }
 
+.acabamentoPendente{
+    color: white;
+    background-color: rgb(180, 15, 15);
+    border: rgb(180, 15, 15) 2px solid;
+    
+
+}
+.acabamentoPendente:focus{
+
+    outline: red;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border: red 2px solid;
+
+}
 
 .sectorComments{
     display: flex;

@@ -20,6 +20,17 @@ function saveModdeling(){
     //console.log(editing)
     
 }
+
+
+function closeEditingWarning(){
+    $('.toastNoSavedWarning').animate({
+        "top": "-=205px",
+    },'fast')
+    $('.toastNoSavedWarning').animate({
+        "top": "+=205px",
+        "right": "-=1005px",
+    },'fast')
+}
 function editModdeling(){
 
     
@@ -40,13 +51,7 @@ function editModdeling(){
             $('.toastNoSavedWarning').animate({
                 "right": "+=0px",
             },5000)
-            $('.toastNoSavedWarning').animate({
-                "top": "-=205px",
-            },'fast')
-            $('.toastNoSavedWarning').animate({
-                "top": "+=205px",
-                "right": "-=1005px",
-            },'fast')
+            closeEditingWarning()
             //console.log('teste')
         })
 

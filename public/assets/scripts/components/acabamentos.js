@@ -29,6 +29,38 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
         }
     }
 }
+function retiraAcabamentosIndisponíveis(listaAcabamentos,listaDisponiveis){
+
+    let novaSelecao = [...listaAcabamentos]
+    console.log(novaSelecao)
+
+    for(i=0; i< listaAcabamentos.length; i++){
+
+        if(!(listaDisponiveis.includes(listaAcabamentos[i]))){
+            
+            console.log(listaAcabamentos[i])
+
+            novaSelecao.splice(novaSelecao.indexOf(listaAcabamentos[i]),1)
+            novaSelecao.push(0)
+
+        }
+        
+    }
+
+    console.log(novaSelecao)
+
+}
+
+
+function verifySelectAcabamentoPendente(){
+
+    if(selectAcabamentos.value == 0){
+        $('#SelectAcabamentos').addClass('acabamentoPendente')
+        return
+    }
+    $('#SelectAcabamentos').removeClass('acabamentoPendente')
+
+}
 
 
 function useAcabamentos()
@@ -44,15 +76,16 @@ function useAcabamentos()
         currentPart
     )
     //console.log(listaItensAcabamentosSelecionados)
+    verifySelectAcabamentoPendente()
     return        
 }
 
-function selectSelected(codAcabamento){
-   if( listaItensAcabamentosSelecionados.includes(codAcabamento)){
-    return 'selected'
-    }
-   return
-}
+// function selectSelected(codAcabamento){
+//    if( listaItensAcabamentosSelecionados.includes(codAcabamento)){
+//     return 'selected'
+//     }
+//    return
+// }
 
 function rendSelectAcabamentos(items,element)
 {
@@ -85,5 +118,6 @@ function rendSelectAcabamentos(items,element)
     )  
     //console.log(listaItensAcabamentosSelecionados)
     useAcabamentos()
+    verifySelectAcabamentoPendente()
     $('#SelectAcabamentos').on('change',useAcabamentos)
 };

@@ -85,13 +85,14 @@ function mostraLayers(listaEscodidos){
 }
 
 
+
 function defineArrAcabamentosDisponiveis(listaItensSelecionados){
     let arrAcabamentos = []; 
     let arrAcabamentosDisponiveis = [];
     
     for(i=0;i<listaItensSelecionados.length;i++){
         arrAcabamentos = []
-        console.log("item PARTE:",listaItensSelecionados[i])
+        // console.log("item PARTE:",listaItensSelecionados[i])
         for(a=0;a<arrRelacionamentosAcabamentos.length;a++){
             var listaAcabamentos = arrRelacionamentosAcabamentos[a].slice();
             listaAcabamentos.shift();
@@ -106,5 +107,5 @@ function defineArrAcabamentosDisponiveis(listaItensSelecionados){
     }
     
     
-    console.log('final:',arrAcabamentosDisponiveis)
+    return arrAcabamentosDisponiveis
 }

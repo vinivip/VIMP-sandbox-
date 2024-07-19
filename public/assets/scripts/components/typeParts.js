@@ -68,7 +68,13 @@ function useItemParteMins()
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
 
-        defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
+        const arrDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
+
+        retiraAcabamentosIndisponíveis
+        (
+            listaItensAcabamentosSelecionados,
+            arrDisponiveis
+        )
 
 }
 
