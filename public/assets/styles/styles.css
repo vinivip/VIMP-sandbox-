@@ -103,7 +103,7 @@ body,h1,h2,h3,ul,textarea{
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    
+    overflow: hidden;
 }
 
 .modelPart{
@@ -158,31 +158,55 @@ header{
     width: 70%;
     border-radius: 25px;
     padding: 10px;
-    display: none;
 }
 .nav-os h3{
     color: white;
-    display: flex;
+    display: none;
+    cursor: not-allowed;
 }
+/* .editing{
+    display: flex !important;
+    transition: all 500ms;
+} */
 .nav-os h3 span{
-    margin-right: 10px;
+    margin-inline: 10px;
 }
 .changeItemContainer{
     width: 100%;
 }
 
+
+@keyframes toast{
+    0%{
+        top: 5px;
+        right: -200px;
+    }
+    5%{
+        top: 5px;
+        right: 5px;
+    }
+    90%{
+        top:5px
+    }
+    100%{
+        top: -200px;
+  
+    }
+}
 .toastNoSavedWarning{
-    display: none;
     padding: 20px;
     background-color: rgba(165, 37, 37, 0.349);
     border: 2px solid red;
     color: red;
     position: absolute;
-    right: 5px;
+    right: -1000px;
     top: 5px;
     border-radius: 5px;
-    z-index: 4;
-    
+    z-index: 4
+}
+.toastAnimate{
+    display: flex;
+    animation: toast 5000ms;
 }
 
 .toastContent{

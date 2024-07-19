@@ -1,15 +1,20 @@
 function atualizaAcabamento(antigaListaAcabamentos,novoAcabamento, codParte)
 {
     const listaAcabamentos = [...antigaListaAcabamentos]
-
+    let currentAcabamentoCod = 0;
+    let currentAcabamentoObject
     for(i = 0; i < listaAcabamentos.length;i++){
-        let current = encontraAcabamentoPorId(listaAcabamentos[i])
-        let currentCod = parseInt(current.codigoAcabamento)
-        if (current.codigoParteProduto == codParte){
-            listaAcabamentos.splice(listaAcabamentos.indexOf(currentCod), 1)
-            return [...listaAcabamentos, parseInt(novoAcabamento)]
+        currentAcabamentoObject = encontraAcabamentoPorId(listaAcabamentos[i])//objeto do acabamento da lista de acabamentos selecionados
+        if (!(typeof(currentAcabamentoObject)=='undefined')){ // verifica se o valor do selecionado antigo é 0
+            if (currentAcabamentoObject.codigoParteProduto == codParte){
+              currentAcabamentoCod = listaAcabamentos[i]
+                break  
+            }
         }
     }
+
+    listaAcabamentos.splice(listaAcabamentos.indexOf(currentAcabamentoCod), 1)
+    return [...listaAcabamentos, parseInt(novoAcabamento)]
 }
 function mudaAcabamentoSelect(listaAcabamentos, codParte)
 {
@@ -28,14 +33,17 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
 
 function useAcabamentos()
 {     
+    
     editModdeling()
     currentAcabamento = selectAcabamentos.value 
+    console.log('novo:', currentAcabamento)
     listaItensAcabamentosSelecionados = atualizaAcabamento
     (
         listaItensAcabamentosSelecionados,
         currentAcabamento, 
         currentPart
     )
+    console.log(listaItensAcabamentosSelecionados)
     return        
 }
 
@@ -50,8 +58,7 @@ function rendSelectAcabamentos(items,element)
 {
     
     $('#SelectAcabamentos').off()
-    element.innerHTML = '<option value="x"> SELECIONE UM ACABAMENTO... </option>'
-    // element.innerHTML = ''
+    element.innerHTML = '<option value="0"> SELECIONE UM ACABAMENTO... </option>'
     let selecionado = ''
  
     items.map(
@@ -77,5 +84,6 @@ function rendSelectAcabamentos(items,element)
         }
     )  
     console.log(listaItensAcabamentosSelecionados)
+    useAcabamentos()
     $('#SelectAcabamentos').on('change',useAcabamentos)
 };

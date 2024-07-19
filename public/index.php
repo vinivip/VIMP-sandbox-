@@ -28,9 +28,9 @@
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
             <select id="changeItem" onclick="console.log('teste')"></select>
-            <h3>
-                <span class="material-symbols-outlined">edit</span>
-                <div id="descSelectOS">teste</div>
+            <h3 class="descSelectOS">
+                <div id="descSelectOS"></div>
+                
             </h3>
         </nav>
 
