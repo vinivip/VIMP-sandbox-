@@ -36,14 +36,14 @@ function useAcabamentos()
     
     editModdeling()
     currentAcabamento = selectAcabamentos.value 
-    console.log('novo:', currentAcabamento)
+    //console.log('novo:', currentAcabamento)
     listaItensAcabamentosSelecionados = atualizaAcabamento
     (
         listaItensAcabamentosSelecionados,
         currentAcabamento, 
         currentPart
     )
-    console.log(listaItensAcabamentosSelecionados)
+    //console.log(listaItensAcabamentosSelecionados)
     return        
 }
 
@@ -83,7 +83,7 @@ function rendSelectAcabamentos(items,element)
             `        
         }
     )  
-    console.log(listaItensAcabamentosSelecionados)
+    //console.log(listaItensAcabamentosSelecionados)
     useAcabamentos()
     $('#SelectAcabamentos').on('change',useAcabamentos)
 };

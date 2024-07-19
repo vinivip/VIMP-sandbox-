@@ -27,7 +27,7 @@
     <header>
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
-            <select id="changeItem" onclick="console.log('teste')"></select>
+            <select id="changeItem"></select>
             <h3 class="descSelectOS">
                 <div id="descSelectOS"></div>
                 

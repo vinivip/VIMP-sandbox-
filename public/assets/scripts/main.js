@@ -17,7 +17,7 @@ function saveModdeling(){
 
     editing = false
     saveButton.disabled = true
-    console.log(editing)
+    //console.log(editing)
     
 }
 function editModdeling(){
@@ -47,7 +47,7 @@ function editModdeling(){
                 "top": "+=205px",
                 "right": "-=1005px",
             },'fast')
-            console.log('teste')
+            //console.log('teste')
         })
 
         editing = true
@@ -55,7 +55,7 @@ function editModdeling(){
         // $('#changeItem').attr("readonly", 'readonly')
         // $('#changeItem').attr("tabindex", '-1')
         saveButton.disabled = false
-        console.log(editing)
+        //console.log(editing)
     }
 
 }

@@ -83,3 +83,28 @@ function mostraLayers(listaEscodidos){
     }
 
 }
+
+
+function defineArrAcabamentosDisponiveis(listaItensSelecionados){
+    let arrAcabamentos = []; 
+    let arrAcabamentosDisponiveis = [];
+    
+    for(i=0;i<listaItensSelecionados.length;i++){
+        arrAcabamentos = []
+        console.log("item PARTE:",listaItensSelecionados[i])
+        for(a=0;a<arrRelacionamentosAcabamentos.length;a++){
+            var listaAcabamentos = arrRelacionamentosAcabamentos[a].slice();
+            listaAcabamentos.shift();
+            if (listaAcabamentos.includes(parseInt(listaItensSelecionados[i]))){
+                var acabamento = encontraAcabamentoPorId(arrRelacionamentosAcabamentos[a][0]);
+                
+                arrAcabamentos.push(parseInt(acabamento.codigoAcabamento));
+            }
+        }
+        arrAcabamentosDisponiveis=[...arrAcabamentosDisponiveis,...arrAcabamentos];
+        // console.log(arrAcabamentosDisponiveis)
+    }
+    
+    
+    console.log('final:',arrAcabamentosDisponiveis)
+}

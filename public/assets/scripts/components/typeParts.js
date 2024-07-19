@@ -61,13 +61,15 @@ function useItemParteMins()
         
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
-        
 
         //console.log('item:',currentItem)
         rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
         // mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
+
+        defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
+
 }
 
 
