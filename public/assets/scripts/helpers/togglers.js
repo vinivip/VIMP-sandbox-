@@ -109,3 +109,40 @@ function defineArrAcabamentosDisponiveis(listaItensSelecionados){
     
     return arrAcabamentosDisponiveis
 }
+
+function encontraListaPartesPorProduto(){
+    const partesDoProduto = []
+    for(i=0; i<partes.length; i++){
+        if (partes[i].codigoProduto == currentProduct){
+            partesDoProduto.push(parseInt(partes[i].codigoParteProduto))
+        }
+    }
+    return partesDoProduto
+}
+function retornaArrayPartesPendentes(){
+    let partes = [...encontraListaPartesPorProduto()]
+    let partesProntas = []
+    let partePronta = ''
+    
+    for(x = 0; x< listaItensAcabamentosSelecionados.length; x++){
+        if(listaItensAcabamentosSelecionados[x] !== 0){
+            
+            partePronta = parseInt(encontraAcabamentoPorId(listaItensAcabamentosSelecionados[x]).codigoParteProduto)
+            partesProntas.push(partePronta)
+        }
+    }
+    for(x=0;x<partes.length;x++){
+        if(partesProntas.includes(partes[x])){
+            hideIncompleteWarning(partes[x])
+        }else{
+            showIncompleteWarning(partes[x])
+        }
+    }
+    console.log(partesProntas)
+}
+function verificaPendenciaModelagem(){
+    if(listaItensAcabamentosSelecionados.includes(0)){
+        return 0
+    }
+    return 1
+}

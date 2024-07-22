@@ -4,6 +4,7 @@ var selectOS = document.getElementById('changeItem')
 var typePart = document.getElementById('typeContent')
 var selectAcabamentos =  document.getElementById('SelectAcabamentos')
 var saveButton = document.getElementById('sideMenuSave')
+var tagsList = document.getElementById('selectionTags')
 
 // Exceções de exeptions
 

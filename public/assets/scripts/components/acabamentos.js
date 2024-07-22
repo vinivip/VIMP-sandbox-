@@ -12,6 +12,7 @@ function atualizaAcabamento(antigaListaAcabamentos,novoAcabamento, codParte)
             }
         }
     }
+    
 
     listaAcabamentos.splice(listaAcabamentos.indexOf(currentAcabamentoCod), 1)
     return [...listaAcabamentos, parseInt(novoAcabamento)]
@@ -32,23 +33,30 @@ function mudaAcabamentoSelect(listaAcabamentos, codParte)
 function retiraAcabamentosIndisponíveis(listaAcabamentos,listaDisponiveis){
 
     let novaSelecao = [...listaAcabamentos]
-    console.log(novaSelecao)
+ 
 
     for(i=0; i< listaAcabamentos.length; i++){
 
         if(!(listaDisponiveis.includes(listaAcabamentos[i]))){
             
-            console.log(listaAcabamentos[i])
-
             novaSelecao.splice(novaSelecao.indexOf(listaAcabamentos[i]),1)
             novaSelecao.push(0)
 
         }
         
     }
-
-    console.log(novaSelecao)
-
+    
+    return(novaSelecao)
+    
+    
+}
+function showIncompleteWarning(Parte){
+    $(`#${Parte} .checkWarningContainer`).fadeOut()
+    $(`#${Parte} .incompleteWarningContainer`).fadeIn()
+}
+function hideIncompleteWarning(Parte){
+    $(`#${Parte} .incompleteWarningContainer`).fadeOut()
+    $(`#${Parte} .checkWarningContainer`).fadeIn()
 }
 
 
@@ -75,8 +83,9 @@ function useAcabamentos()
         currentAcabamento, 
         currentPart
     )
-    //console.log(listaItensAcabamentosSelecionados)
+    
     verifySelectAcabamentoPendente()
+
     return        
 }
 

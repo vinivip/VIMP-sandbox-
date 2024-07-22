@@ -70,12 +70,17 @@ function useItemParteMins()
 
         const arrDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
 
-        retiraAcabamentosIndisponíveis
-        (
+        // console.log("acabamentos antigos",listaItensAcabamentosSelecionados)
+
+        listaItensAcabamentosSelecionados = retiraAcabamentosIndisponíveis(
             listaItensAcabamentosSelecionados,
             arrDisponiveis
         )
+        // console.log("acabamento disponivel",arrDisponiveis)
+        console.log("acabamentos novos",listaItensAcabamentosSelecionados)
 
+        retornaArrayPartesPendentes()
+        showTags()
 }
 
 

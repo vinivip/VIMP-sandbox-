@@ -72,7 +72,13 @@ function rendPartesOptions(parts,element)
             let url = `icon_${part.codigoParteProduto}_laranja.webp`
             element.innerHTML += `
                 <li id='${part.codigoParteProduto}'  class='optionPart prod${part.codigoProduto}'>
-                    <div>
+                    <div class="incompleteWarningContainer"> 
+                        <span class="material-symbols-outlined incompleteWarning">exclamation</span>    
+                    </div>
+                    <div class="checkWarningContainer"> 
+                        <span class="material-symbols-outlined checkWarning">check</span>
+                    </div>
+                    <div class="partIconContainer">
                         
                         <img 
                             src="assets/img/icons/${verificaDisponibilidadePath(url,'default.png')}"
@@ -83,6 +89,7 @@ function rendPartesOptions(parts,element)
                    
                 </li>`
         }
+        
     ) 
 
     // usePartesOptions()

@@ -194,7 +194,7 @@ header{
     }
 }
 .toastNoSavedWarning{
-    padding: 20px;
+    padding: 12px;
     background-color: rgba(165, 37, 37, 0.349);
     border: 2px solid red;
     color: red;
@@ -215,6 +215,9 @@ header{
 }
 .toastNoSavedWarning span{
     margin-right: 10px;
+}
+.toastNoSavedWarning P{
+    margin: 0;
 }
 
 main{
@@ -249,12 +252,14 @@ main{
 .view ul{
     display: flex;
    justify-content: center;
+   gap: 10px;
 }
-.view li{
+.itemParteTag{
     background-color: var(--main-bg);
     color: var(--white);
     padding: 5px 10px;
     border-radius: 15px;
+    display: none;
 }
 
 .modelingContainer{
@@ -298,9 +303,11 @@ main{
 
 
 .modelingSlicesDiv{
-    display: inline-block; 
+    align-items: end;
+    display: flex; 
     width:95%;  
     height:100%; 
+
     position:relative 
 }.modelingSlicesDiv .slice{
     height: 100% ; 
@@ -322,6 +329,7 @@ main{
 /* menu modelagem ============================================================================================*/
 
 /* NAVEGAÇÃO */
+
 .menu{
     width: 40%;
 }
@@ -336,7 +344,7 @@ main{
     list-style: none;
     width: 100%;
 
-}.menu nav ul li{
+}.optionPart{
     display: none;
     border-radius: 15px 15px 0px 0px;
     padding: 0px 5px;
@@ -348,19 +356,16 @@ main{
     font-size: 50%;
     transition: all 100ms;
     position: relative;
+   
+    align-items: center;
 }
-.menu nav ul li div {
+.partIconContainer {
     height: 100%;
     display: flex;   
     justify-content: center;
     align-items: center;
 }
-.menu nav ul li div {
-    height: 100%;
-    display: flex;   
-    justify-content: center;
-    align-items: center;
-}
+
 .menu nav ul li img {
     width: 100%;
     transition: width 50ms;
@@ -588,3 +593,47 @@ main{
 
 
 
+
+
+ .incompleteWarningContainer{
+    display: flex;
+    justify-content: end !important;
+    position: absolute;
+    top:-15%;
+    left: -10px;
+    max-height: 29px;
+    display: none;
+ }
+ .checkWarningContainer{
+    display: flex;
+    justify-content: end !important;
+    position: absolute;
+    top:-15%;
+    left: -10px;
+    max-height: 29px;
+ }
+ .incompleteWarning{
+    font-size: 20px !important;
+    background-color: red;
+    color: white ;
+    border-radius: 50%;
+    border: 4px white solid;
+    
+    
+ 
+ }
+ .checkWarning{
+    font-size: 20px !important;
+    background-color: rgb(79, 134, 42);
+    color: white ;
+    border-radius: 50%;
+    border: 3px white solid;
+ }
+ /* .np-active .checkWarningContainer{
+    
+    display: none !important;
+ } */
+ .np-active .incompleteWarning{
+    
+    border: 3px white solid;
+ }

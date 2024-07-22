@@ -21,9 +21,9 @@ function useSelect()
     currentCore= listaItensPartesSelecionados[0]
     showPartesOptions()
     usePartesOptions()
-    useItemParteMins()
+    // useItemParteMins()
 
-    saveModdeling()
+    editing = false
 }
 
 function rendSelectItensOs(items,element)

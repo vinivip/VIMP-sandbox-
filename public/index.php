@@ -20,8 +20,8 @@
     <div class="toastNoSavedWarning ">
         
         <div class="toastContent">
-            <span class="material-symbols-outlined">error</span>
-            VOCÊ DEVE SALVAR A MODELAGEM ANTES DE IR PARA OUTRO ITEM DA OS
+            <span  class="material-symbols-outlined">error</span>
+            <p id="toast"></p>
         </div>
     </div>
     <header>
@@ -33,7 +33,7 @@
                 
             </h3>
         </nav>
-
+        
     </header>
     <main >
         
@@ -67,20 +67,23 @@
                     </div>
                          
                     <div id="slices"  class="modelingSlicesDiv">
+                    
                         <div  class="slice" >
                             <svg id="containerSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5757.32 4614.32" class="infill" >
                             </svg>
+                            
                         </div>
                         
+                        <ul id="selectionTags">
+                    
+                    </ul> 
                         
                         
-                        
-                        
+                         
                     </div>
+                    
                 </section>
-                <ul>
-                    <li>corpo-normal x</li>
-                </ul>   
+                 
     
         </section>
         <section id="menu" class="menu" >
@@ -170,6 +173,7 @@
     <script src="assets/scripts/components/typeParts.js"></script>
     <script src="assets/scripts/components/acabamentos.js"></script>
     <script src="assets/scripts/components/modelsSlices.js"></script>
+    <script src="assets/scripts/components/tagsList.js"></script>
 
     <script src="assets/scripts/build.js"></script>
     <script src="assets/scripts/main.js"></script>
