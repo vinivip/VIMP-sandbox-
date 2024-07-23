@@ -42,19 +42,12 @@ function useItemParteMins()
         
         selecionaItemParte(parseInt(currentItem))
 
-
         atualizaItemParteSelecionada()
-        //console.log(currentItem)
-        //console.log(listaItensPartesSelecionados)
-        
 
-        //console.log("AOD:",arrOpcoesDisponiveis)
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         
         verificaSelecaoItensParte()  
        
-        
-
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
         }
@@ -62,23 +55,16 @@ function useItemParteMins()
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
 
-        //console.log('item:',currentItem)
         rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
-        // mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
 
         const arrDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
 
-        // console.log("acabamentos antigos",listaItensAcabamentosSelecionados)
-
         listaItensAcabamentosSelecionados = retiraAcabamentosIndisponíveis(
             listaItensAcabamentosSelecionados,
             arrDisponiveis
         )
-        // console.log("acabamento disponivel",arrDisponiveis)
-        console.log("acabamentos novos",listaItensAcabamentosSelecionados)
-
         retornaArrayPartesPendentes()
         showTags()
 }
@@ -109,8 +95,6 @@ function rendItemParteMins(items,element)
           
         }
     )
-    
-    // useItemParteMins()
       
       
   

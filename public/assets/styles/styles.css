@@ -2,10 +2,11 @@
 
 
 :root{
-    --main-bg: #FF751F;
+    --main-bg: #3f4149;
+    --select-bg: #FF751F;
     --white: #ffffff;
-    --sec-bg: #22333B;
-    --neutral-fill: #dacfcf;
+    --sec-bg: var(--main-bg);
+    --neutral-fill: #cfcfcf;
     --cor2: #aaa6a6;
     --cor3: #000000;
     
@@ -54,7 +55,7 @@
 }
 #sideMenuDelete:hover,#sideMenuComments:hover,#sideMenuDuplicate:hover{
 
-    background-color: var(--main-bg);
+    background-color: var(--select-bg);
 
 
 }
@@ -92,7 +93,7 @@
 
 }
 
-body,h1,h2,h3,ul,textarea{
+body,h1,h2,h3,ul,textarea,p{
     margin: 0px;
     padding: 0px;  
     list-style: none;
@@ -116,14 +117,14 @@ body,h1,h2,h3,ul,textarea{
 
 
 .editing{
-    fill: var(--main-bg);
+    fill: var(--select-bg);
   
     /* animation: pulsing 2s infinite linear; */
 }
 .editing{
-    fill: var(--main-bg);
+    fill: var(--select-bg);
     --cor2: rgb(160, 72, 0);
-    --cor3: var(--main-bg);
+    --cor3: var(--select-bg);
     /* animation: pulsing 2s infinite linear; */
 }
 
@@ -250,16 +251,59 @@ main{
     padding-left: 10px;
 }
 .view ul{
+    bottom: -20px;
     display: flex;
    justify-content: center;
-   gap: 10px;
+   gap: 15px;
+   z-index: 3;
+   flex-wrap: wrap;
 }
+.clearAllTags{
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    background-color: #22333B;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+}
+.closeButton{
+    border-radius: 50%;
+    padding: 0px;
+    outline: 0px;
+    font-size: 15px !important;
+    border: 2px solid var(--main-bg);
+    background-color: white;
+    color: var(--main-bg);
+    position: absolute;
+    left: -8px;
+    top:calc(50% - 10px);
+
+}
+.tagTitle{
+    text-align: center;
+    margin: 0px;
+    font-size: 10px;
+   
+}
+.tagItemPart{
+    text-align: center;
+    font-size: 12px;
+    background-color: white;
+    color: var(--select-bg);
+     
+    border-radius: 10px;
+    padding-inline: 10px;
+}
+
 .itemParteTag{
-    background-color: var(--main-bg);
+    background-color: var(--select-bg);
     color: var(--white);
     padding: 5px 10px;
     border-radius: 15px;
     display: none;
+    position: relative;
 }
 
 .modelingContainer{

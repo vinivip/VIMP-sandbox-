@@ -11,7 +11,6 @@ function unselectPart(partID){
 
 }
 
-
 function selectItem(item){
     
     $(item).addClass('selected');

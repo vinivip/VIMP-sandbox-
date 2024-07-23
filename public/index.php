@@ -74,16 +74,16 @@
                             
                         </div>
                         
-                        <ul id="selectionTags">
-                    
-                    </ul> 
+                        
                         
                         
                          
                     </div>
                     
                 </section>
-                 
+                <ul id="selectionTags">
+                            
+                            </ul> 
     
         </section>
         <section id="menu" class="menu" >
@@ -97,7 +97,7 @@
                     <div id="type" class="field">
                         <h3 id="typeTrigger">
                             <span class="material-symbols-outlined">
-                                    chevron_right
+                                    Apparel
                             </span>
                             <span class="partTitle"></span>
                         </h3>
@@ -107,23 +107,12 @@
                         <div class="" id="finishingContent">
                             <h3>
                                 <span class="material-symbols-outlined">
-                                    chevron_right
+                                Note_stack_add
                                 </span>
                                 ACABAMENTO 
                                 <select class="selectAcabamentos" name="" id="SelectAcabamentos"></select></h3>
                         </div>
                     </div>
-                    <!-- <div id="finishing" class="field">
-                        <h3>
-                            <button>
-                                <span class="material-symbols-outlined">
-                                    chevron_right
-                                </span>
-                            </button>
-                            ACABAMENTO
-                        </h3>
-                        
-                    </div> -->
                 </section>
                 <section id="sectorComments" class="sectorComments">
                     <div id="sectorCommentsLog" class="log">
