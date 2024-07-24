@@ -5,6 +5,8 @@ var typePart = document.getElementById('typeContent')
 var selectAcabamentos =  document.getElementById('SelectAcabamentos')
 var saveButton = document.getElementById('sideMenuSave')
 var tagsList = document.getElementById('selectionTags')
+var mensagesLog = document.getElementById('mensagesLog')
+var selectSetores = document.getElementById('selectAreaSelects')
 
 // Exceções de exeptions
 
@@ -30,12 +32,13 @@ var produtos
 var partes 
 var itensPartes 
 var acabamentos 
-var partesChaves 
+var partesChaves
+var setores 
 
 
 //Input OS
 var arrListaItensPartesSelecionados = []
-var arrListaItensAcabamentosSelecionados = [[5,106,23,26,77,16],[],[],[],[],[],[],[]]
+var arrListaItensAcabamentosSelecionados = [[16, 5, 10, 111, 77, 112],[],[],[],[],[],[],[]]
 var arrConfigExibCostas = []
 var listaItensPartesSelecionados = []
 var listaItensAcabamentosSelecionados = []
@@ -43,6 +46,7 @@ var itensOS =[]
 
 //Global States
 var editing = true
+var mensagens = []
 
 async function preload(){  
     const response = await fetch("https://www.vipsportsproducao.com.br/vimp/retorna_dados_produtos.php")
@@ -55,6 +59,9 @@ async function preload(){
     //console.log("teste",itensPartes)
     acabamentos = await data[3];
     partesChaves = await data[4];
+    setores = await data[5]
+
+   
     
 
     //*************************************************************** */
@@ -90,4 +97,5 @@ async function preload(){
     }
 
     app()
+    
 }

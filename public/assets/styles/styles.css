@@ -86,8 +86,10 @@
         background-color: aquamarine;
     }
 }
-
-#type,#finishing,#sectorCommentsLog,#sectorsCommentImput{
+#sectorCommentsLog{
+    border: 2px solid white;
+}
+#type,#finishing,#sectorsCommentImput{
 
     background-color: var(--white);
 
@@ -199,6 +201,17 @@ header{
     background-color: rgba(165, 37, 37, 0.349);
     border: 2px solid red;
     color: red;
+    position: absolute;
+    right: -1000px;
+    top: 5px;
+    border-radius: 5px;
+    z-index: 4
+}
+.toastSavedWarning{
+    padding: 12px;
+    background-color: rgba(77, 165, 37, 0.349);
+    border: 2px solid rgb(13, 185, 22);
+    color: rgb(57, 180, 19);
     position: absolute;
     right: -1000px;
     top: 5px;
@@ -442,6 +455,7 @@ main{
     max-height: 80vh;
     padding: 20px;
     display:flex;
+    justify-content: space-between;
     flex-direction: column;
     gap: 10px;
     box-sizing: border-box;
@@ -564,34 +578,103 @@ main{
 .sectorComments{
     display: flex;
     flex-direction: column;
-
+    height: 100%;
     gap: 10px;
+    max-height: 40%;
 }.sectorComments > .entry,.log{
     padding:10px;
     border-radius: 25px;
+    
 }.sectorComments .log{
     border-radius: 25px;
-    max-height: 300px !important;
+
     box-sizing: border-box;
     align-items: center;
     display: flex;
-
-}.sectorComments .log.open{
-    height: 20vw;
-}
-.sectorComments .log p{
-    text-align: center;
-    margin: 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 65%;
+    max-height: 65%;
     
 }
+.setoresMsg{
+    color: var(--main-bg);
+    font-weight: bold;
+    box-sizing: border-box;
+    
+}
+.mensageMsg{
+    max-width: 100%;
+    color: #ffffff;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+.sectorMensagesContainer{
+    width: 100%;
+    height: 100%;
 
-.sectorComments .entry .selectArea{
+}
+.sectorMensage{
+    background-color: var(--select-bg);
+    padding: 5px 10px;
     border-radius: 10px;
+    text-align: end;
+}
+.sectorMensagesContainer{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    max-height: 100%;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--select-bg);
+    border-radius: 10px;
+    border: var(--main-bg) 3px solid;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--white);
+    border-radius: 10px;
+   
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    
+  }
+
+
+.sectorMensagesWarning{
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    display: none;
+   
+}
+
+
+.selectArea{
+    border-radius: 10px;
+    background-color: #FF751F !important;
     position: absolute;
-    top: -145px;
+    top: -155px;
     padding: 10px;
+    display: none;
+}
+.selectAreaSelects{
+    display: flex;
+    flex-direction: column;
 }
 
 .sectorComments .entry{
@@ -613,12 +696,13 @@ main{
 }
 .sectorComments .entry .inputs textarea{
     width: 100%;
-    height: 8vh;
+    height: 4vh;
     box-sizing: border-box;
     padding: 5px;
     border-radius: 15px;
     border: none;
     overflow: auto;
+    resize: none;
 }.sectorComments .entry textarea:focus{
     outline: none;
 }

@@ -67,7 +67,7 @@ function verifySelectAcabamentoPendente(){
         return
     }
     $('#SelectAcabamentos').removeClass('acabamentoPendente')
-
+    return
 }
 
 
@@ -85,7 +85,7 @@ function useAcabamentos()
     )
     
     verifySelectAcabamentoPendente()
-
+    retornaArrayPartesPendentes()
     return        
 }
 

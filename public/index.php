@@ -24,6 +24,13 @@
             <p id="toast"></p>
         </div>
     </div>
+    <div class="toastSavedWarning ">
+        
+        <div class="toastContent">
+            <span  class="material-symbols-outlined">check_circle</span>
+            <p id="toasts"></p>
+        </div>
+    </div>
     <header>
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
@@ -116,26 +123,22 @@
                 </section>
                 <section id="sectorComments" class="sectorComments">
                     <div id="sectorCommentsLog" class="log">
-                        <p>Nenhum comentário de setor</p>
-                        <ul>
+                        <p class="sectorMensagesWarning">Nenhum comentário de setor</p>
+                        <ul id="mensagesLog" class="sectorMensagesContainer">
+                            
                         </ul>
                     </div>
-                    <form action="" id="sectorsCommentImput" class="entry">
+                    <form id="sectorsCommentImput" class="entry">
                         <div class="inputs">
-                            <div style="display: none;" class="selectArea" id="selectArea">
-                                <label for="art"><input name="art" type="checkbox">arte</label>
-                                <label for="cut"><input name="cut" type="checkbox">corte</label>
-                                <label for="separation"><input name="separation" type="checkbox">separação</label>
-                                <label for="needleWork"><input name="needleWork" type="checkbox">   bordado</label>
-                                <label for="print"><input name="print" type="checkbox">impressão</label>
-                                <label for="serigraphy"><input name="serigraphy" type="checkbox">siregrafia</label>
-                                <label for="sublimation"><input name="sublimation" type="checkbox">sublimação</label>
-                                <label for="delivery"><input name="delivery" type="checkbox">entrega</label>
+                            <div  class="selectArea" id="selectArea">
+                                <div id="selectAreaSelects" class="selectAreaSelects"></div>
                             </div>
                             <div><button id="buttonCommentSector">+Setor</button></div>
-                            <textarea name="Comment" id=""></textarea> 
+                            <textarea name="Comment" id="Comment">
+                                
+                            </textarea> 
                         </div>
-                        <button id="sendButton" class="buttonCircle">
+                        <button  id="sendButton" class="buttonCircle">
                             <span class="material-symbols-outlined">
                                   arrow_forward
                             </span>
@@ -163,6 +166,7 @@
     <script src="assets/scripts/components/acabamentos.js"></script>
     <script src="assets/scripts/components/modelsSlices.js"></script>
     <script src="assets/scripts/components/tagsList.js"></script>
+    <script src="assets/scripts/components/logMensagens.js"></script>
 
     <script src="assets/scripts/build.js"></script>
     <script src="assets/scripts/main.js"></script>

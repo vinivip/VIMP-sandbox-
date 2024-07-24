@@ -24,6 +24,7 @@ function useSelect()
     // useItemParteMins()
 
     editing = false
+    return
 }
 
 function rendSelectItensOs(items,element)

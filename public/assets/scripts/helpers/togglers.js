@@ -137,9 +137,9 @@ function retornaArrayPartesPendentes(){
             showIncompleteWarning(partes[x])
         }
     }
-    console.log(partesProntas)
 }
 function verificaPendenciaModelagem(){
+    console.log(listaItensAcabamentosSelecionados)
     if(listaItensAcabamentosSelecionados.includes(0)){
         return 0
     }
