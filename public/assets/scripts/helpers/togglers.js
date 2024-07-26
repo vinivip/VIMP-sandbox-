@@ -138,6 +138,7 @@ function retornaArrayPartesPendentes(){
         }
     }
 }
+
 function verificaPendenciaModelagem(){
     console.log(listaItensAcabamentosSelecionados)
     if(listaItensAcabamentosSelecionados.includes(0)){

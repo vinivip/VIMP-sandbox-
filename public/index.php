@@ -42,7 +42,19 @@
         </nav>
         
     </header>
-    <main >
+    <main class="unikouContainer">
+        <div class="containerMsg">
+            <div>
+                <span class="material-symbols-outlined">
+                    engineering
+                </span>
+                <h1>ESTA MODELAGEM NÃO ESTÁ DISPONÍVEL...</h1>
+                <h3>Estamos trabalhando nisso!</h3>   
+            </div>
+              
+        </div>
+</main>
+    <main class="modellingContainer">
         
         
         <section  id="view" class="view">

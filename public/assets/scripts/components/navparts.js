@@ -54,8 +54,7 @@ function usePartesOptions()
             showItemParteMins()
             
             
-            // rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
-            // mudaAcabamentoSelect(listaItensAcabamentosSelecionados, currentPart)
+          
             
 }
 

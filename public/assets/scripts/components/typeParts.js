@@ -34,12 +34,15 @@ function atualizaItemParteSelecionada()
 }
 function useItemParteMins()
     {
-        editModdeling()
+        if(ready){
+            editModdeling()
+        }
         unselectItem(`.part${currentPart}.selected`)
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentCore
         }
         
+        console.log(currentItem)
         selecionaItemParte(parseInt(currentItem))
 
         atualizaItemParteSelecionada()
@@ -67,6 +70,7 @@ function useItemParteMins()
         )
         retornaArrayPartesPendentes()
         showTags()
+        carregaAcabamentoSelecionada()
 }
 
 

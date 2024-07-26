@@ -1,24 +1,90 @@
 function loadMensages(){
     mensagesLog.innerHTML = ''
-    mensagens.map(mensagem =>{
+    listaComentariosSetor.map((mensagem,index) =>{
         let msg = mensagem.split("-")
         mensagesLog.innerHTML += `
         <li class="sectorMensage">
-                <span class="setoresMsg">${msg[0]}</span>
-                <p class="mensageMsg">${msg[1]}</p>          
+                <span class="setoresMsg">${codeToMensages(msg[0]).join(" | ")}</span>
+                <div class="mensageMsgContainer">
+                    <p class="mensageMsg">
+                        ${msg[1]}
+                    </p> 
+                    <button onclick="deleteComment(${index})" class="material-symbols-outlined">
+                        delete
+                    </button>
+                </div>
+                  
+
         </li>
         `
         
         
        
     })
+    console.log(listaComentariosSetor)
+}
+function deleteComment(idMsg){
+    if(ready){
+        editModdeling()
+    }
+    listaComentariosSetor.splice(idMsg, 1)
+    loadMensages()
+
 }
 function rendSelectSetores(lista, element){
 
     lista.map(setor=>{
 
-        element.innerHTML += `<label for="${setor.codigoSetor}"><input class="chkSetor" id="${setor.codigoSetor}" name="${setor.descSetor}" type="checkbox">${setor.descSetor}</label>`
+        element.innerHTML += `<label for="${setor.codigoSetor}"><input class="chkSetor" id="${setor.codigoSetor}" name="${setor.codigoSetor}" type="checkbox">${setor.descSetor}</label>`
 
     })
+
+    $("#sendButton").on('click',e=>{
+        e.preventDefault() 
+        editModdeling()
+        
+        let setores = viewChecked()
+        let mensagem = $('#Comment').val()
+        console.log(mensagem.trim().length)
+        console.log(setores)
+        if(setores){
+            if(mensagem.trim().length){
+                
+                listaComentariosSetor.push(setores+'-'+mensagem.trim())
+                loadMensages()
+            }else{
+                openToast("VOCÊ DEVE ESCREVER ALGUMA MENSAGEM PARA ENVIAR UMA OBSERVAÇÃO")
+             
+            }
+        }else{
+               openToast("VOCÊ DEVE SELECIONAR AOMENOS UM SETOR PARA ENVIAR UMA OBSERVAÇÃO")
+        }
+    }
+   )
+   $("#buttonCommentSector").on('click',e=>{
+    e.preventDefault() 
+    $("#selectArea").fadeIn()
+   })
+   $('#selectArea').on('mouseleave',()=>{
+        $("#selectArea").fadeOut()
+   })
+
+}
+
+function viewChecked(){
+    const selectedSetores = []
+    const setores = document.getElementsByClassName("chkSetor")
+    for(i=0;i<setores.length;i++){
+        if(setores[i].checked){
+            selectedSetores.push(setores[i].name)
+        }   
+    }
+    
+    if(selectedSetores.length == 0 ){
+        return 
+    }
+    let retorno = selectedSetores.join()
+
+    return retorno
 
 }

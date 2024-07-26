@@ -74,7 +74,9 @@ function verifySelectAcabamentoPendente(){
 function useAcabamentos()
 {     
     
-    editModdeling()
+    if(ready){
+        editModdeling()
+    }
     currentAcabamento = selectAcabamentos.value 
     //console.log('novo:', currentAcabamento)
     listaItensAcabamentosSelecionados = atualizaAcabamento
@@ -86,6 +88,7 @@ function useAcabamentos()
     
     verifySelectAcabamentoPendente()
     retornaArrayPartesPendentes()
+    carregaAcabamentoSelecionada()
     return        
 }
 

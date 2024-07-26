@@ -3,36 +3,10 @@ async function app(){
     build()
     useSelect()
 
-    $("#sendButton").on('click',e=>{
-        e.preventDefault() 
-        let sel = document.getElementById('selectArea')
-        const mensagem = [viewChecked().join(' | ')]
-        mensagem.push($('#Comment').val())
-        mensagens.push(mensagem.join(' - '))
-        loadMensages()
-        console.log(mensagens)
-    }
-   )
-   $("#buttonCommentSector").on('click',e=>{
-    e.preventDefault() 
-    $("#selectArea").fadeIn()
-   })
-   $('#selectArea').on('mouseleave',()=>{
-        $("#selectArea").fadeOut()
-   })
+   
 }
 
-function viewChecked(){
-    const selectedSetores = []
-    const setores = document.getElementsByClassName("chkSetor")
-    for(i=0;i<setores.length;i++){
-        if(setores[i].checked){
-            selectedSetores.push(setores[i].name)
 
-        }
-    }
-    return selectedSetores
-}
 
 
 function saveModdeling(){
