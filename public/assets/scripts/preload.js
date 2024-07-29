@@ -147,15 +147,14 @@ async function preload(){
     
 //********************************************************************* */
 
-    
+console.log("itens os: ",itensOS)
 
     for(i = 0; i< itensOS.length;i++){
         arrListaItensPartesSelecionados.push(itensOS[i].modelagem)
         arrListaItensAcabamentosSelecionados.push(itensOS[i].acabamentos)
         arrListaComentariosSetor.push(itensOS[i].sectorComments)
     }
-    console.log(arrListaItensPartesSelecionados)
-    console.log(arrListaItensAcabamentosSelecionados)
+
     app()
     
 }

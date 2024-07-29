@@ -71,6 +71,8 @@ function useItemParteMins()
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
+        console.log("LIPs",listaItensPartesSelecionados)
+        console.log("LIAs",listaItensAcabamentosSelecionados)
 }
 
 

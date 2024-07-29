@@ -28,7 +28,6 @@ function loadModel(idSvg,layer)
 function rendAcabamentoModelagem(qtd){
     const slices = document.getElementById('containerSvg')
     for (i=0;i<qtd;i++){
-        console.log("parte do erro", listaItensAcabamentosSelecionados[i])
         const partId=encontraAcabamentoPorId(parseInt(arrAcabamentoDefault[currentProduct][i])).codigoParteProduto
         slices.innerHTML += `<use id='${"layerUse"+(qtd+i)}' class="acabamentoPart modelPart${partId}" xlink:href=""></use>`  
     }
@@ -40,7 +39,6 @@ function rendAcabamentoModelagem(qtd){
     }
     for(k=0;k<listaItensAcabamentosSelecionados.length;k++){
         id = listaItensAcabamentosSelecionados[k]
-        console.log(id)
         if(id!==0){
             layer = parseInt(encontraAcabamentoPorId(id).codigoParteProduto)
             loadAcabamento(id,listaItensAcabamentosSelecionados.length+ordemCamadasPorParte[layer])

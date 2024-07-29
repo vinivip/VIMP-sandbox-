@@ -34,6 +34,8 @@ function useSelect()
     // ====================================================================================================== 
     rendObjetosImgModelagem(listaItensPartesSelecionados.length)
     currentCore= listaItensPartesSelecionados[0]
+    currentItem = listaItensPartesSelecionados[0]
+
     showPartesOptions()
     usePartesOptions()
 
@@ -50,7 +52,7 @@ function rendSelectItensOs(items,element)
         item => {
    
             element.innerHTML += `
-                <option value="${item.codigoProduto}">ITEM 0${item.codigoProduto}(${item.descProduto}): ${item.descItem}</option>
+                <option value="${item.codigoProduto}">${item.descProduto}</option>
 `      
         }
     )  
