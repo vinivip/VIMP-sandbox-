@@ -89,7 +89,10 @@ function useAcabamentos()
     verifySelectAcabamentoPendente()
     retornaArrayPartesPendentes()
     carregaAcabamentoSelecionada()
-    return        
+ 
+    console.log("LIPs",listaItensPartesSelecionados)
+    console.log("LIAs",listaItensAcabamentosSelecionados)  
+    return      
 }
 
 // function selectSelected(codAcabamento){

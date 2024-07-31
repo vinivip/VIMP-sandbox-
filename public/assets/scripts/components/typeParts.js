@@ -42,7 +42,6 @@ function useItemParteMins()
             currentItem = $(this).attr('id') || currentCore
         }
         
-        console.log(currentItem)
         selecionaItemParte(parseInt(currentItem))
 
         atualizaItemParteSelecionada()
@@ -71,8 +70,7 @@ function useItemParteMins()
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
-        console.log("LIPs",listaItensPartesSelecionados)
-        console.log("LIAs",listaItensAcabamentosSelecionados)
+        
 }
 
 

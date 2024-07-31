@@ -11,10 +11,10 @@ var selectSetores = document.getElementById('selectAreaSelects')
 // Exceções de exeptions
 
 // var exceptions = {
-//     '21-8':'21(raeglan)',
-//     '22-8':'22(raeglan)',
-//     '21-1':'21(raeglan)',
-//     '22-1':'22(raeglan)',
+//     '21-8':'21(raglan)',
+//     '22-8':'22(raglan)',
+//     '21-1':'21(raglan)',
+//     '22-1':'22(raglan)',
 // }
 
 // Valores default (temporarios)
@@ -24,8 +24,6 @@ var currentCore
 var currentItem 
 var currentAcabamento
 var currentEnabled=[]
-
-
 
 // Arrays itens, partes e produtos
 var produtos 
@@ -46,6 +44,7 @@ var listaItensAcabamentosSelecionados = []
 var itensOS =[]
 
 //Global States
+var msg = ''
 var editing = true
 var ready = false
 var listaComentariosSetor = []

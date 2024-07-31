@@ -104,8 +104,6 @@ function defineArrAcabamentosDisponiveis(listaItensSelecionados){
         arrAcabamentosDisponiveis=[...arrAcabamentosDisponiveis,...arrAcabamentos];
         // console.log(arrAcabamentosDisponiveis)
     }
-    
-    
     return arrAcabamentosDisponiveis
 }
 
@@ -145,4 +143,18 @@ function verificaPendenciaModelagem(){
         return 0
     }
     return 1
+}
+
+function encontraItemPartePorAcabamento(codAcabamento){
+
+ const objAcabamento = encontraAcabamentoPorId(codAcabamento)
+
+ for(i=0; i< listaItensPartesSelecionados.length; i++){
+    let itemParte = encontraItemPartePorId(listaItensPartesSelecionados[i])
+    if (objAcabamento.codigoParteProduto == itemParte.codigoParteProduto){
+        return listaItensPartesSelecionados[i]
+    }
+ }
+
+
 }

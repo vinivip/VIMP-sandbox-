@@ -16,7 +16,6 @@ function loadModel(idSvg,layer)
 {
     const slices = document.getElementById('containerSvg')
     for (i=0;i<qtd;i++){
-       console.log(arrDefault[currentProduct][i])
         const partId=encontraItemPartePorId(arrDefault[currentProduct][i]).codigoParteProduto
         slices.innerHTML += `<use id='${"layerUse"+i}' class="modelPart modelPart${partId}" xlink:href=""></use>`  
     }  
@@ -44,9 +43,43 @@ function rendAcabamentoModelagem(qtd){
             loadAcabamento(id,listaItensAcabamentosSelecionados.length+ordemCamadasPorParte[layer])
         }
     }
-}function loadAcabamento(idSvg,layer)
+}function loadAcabamento(codAcabamento,layer)
 {
-    pathSvg = `assets/img/models/${verificaDisponibilidadePath(`acabamento_${idSvg}.svg`,'default.svg')}#template`
+    const idSvg = retornaCaminhoModelo( String(codAcabamento))
+
+    pathSvg = `assets/img/models/${verificaDisponibilidadePath(`teste_${idSvg}.svg`,'default.svg')}#template`
     $("#layerUse"+layer).attr('xlink:href',pathSvg)
          
+}
+
+var rel_modelo_acabamento = {
+    17:"1",
+    20:"1",
+    21:"1",
+    22:"1",
+    46:"1",
+}
+
+var rel_tipo_item_parte = {
+    22: "1",
+    23: "1",
+    21: "2",
+    86: "2"
+}
+
+function retornaCaminhoModelo(codAcabamento)
+{   
+    
+    
+
+    if(Object.keys(rel_modelo_acabamento).includes(codAcabamento)){
+        // console.log(codAcabamento)
+        // console.log("path:", `${rel_modelo_acabamento[codAcabamento]}.${rel_tipo_item_parte[encontraItemPartePorAcabamento(codAcabamento)]}`)
+       return `${rel_modelo_acabamento[codAcabamento]}.${rel_tipo_item_parte[encontraItemPartePorAcabamento(codAcabamento)]}` 
+    }
+    
+    return codAcabamento
+
+
+
 }

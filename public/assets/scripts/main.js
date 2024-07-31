@@ -1,16 +1,13 @@
-async function app(){   
+async function app()
+{   
     console.log(setores)
     build()
     useSelect()
 
    
 }
-
-
-
-
-function saveModdeling(){
-    
+function saveModdeling()
+{  
         if(verificaPendenciaModelagem()){
                 $('#descSelectOS').off()
                 $('.descSelectOS').hide()
@@ -22,14 +19,10 @@ function saveModdeling(){
                 return
         }
         openToast("VOCÊ POSSUI ACABAMENTOS NÃO DEFINIDOS")
-        // editModdeling()
-        
-
-
-    
+            
 }
-function editModdeling(){
-
+function editModdeling()
+{
     if(!editing){
         $('#changeItem').hide()
         $('#descSelectOS').html($("#changeItem option:selected").text()+' (editando)');
@@ -46,13 +39,11 @@ function editModdeling(){
     editing = true
     saveButton.disabled = false
     }
-
-
 }
 
-var msg = ''
-function openToast(Mensage){
-    
+
+function openToast(Mensage)
+{
     if(msg){
         clearTimeout(msg)
         closeToast()
@@ -66,7 +57,9 @@ function openToast(Mensage){
     msg = setTimeout(closeToast, 5000)
     return 
 }
-function closeToast(){
+
+function closeToast()
+{
     $('.toastNoSavedWarning').animate({
         "top": "-=205px",
     },'fast')
@@ -77,8 +70,8 @@ function closeToast(){
     msg = ''
 }
 
-function openToastS(Mensage){
-    
+function openToastS(Mensage)
+{
     if(msg){
         clearTimeout(msg)
         closeToastS()
@@ -92,7 +85,9 @@ function openToastS(Mensage){
     msg = setTimeout(closeToastS, 5000)
     return 
 }
-function closeToastS(){
+
+function closeToastS()
+{
     $('.toastSavedWarning').animate({
         "top": "-=205px",
     },'fast')
