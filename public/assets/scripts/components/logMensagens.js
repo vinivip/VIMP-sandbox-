@@ -1,3 +1,48 @@
+
+function deleteComment(idMsg){
+    if(ready){
+        editModdeling()
+    }
+    listaComentariosSetor.splice(idMsg, 1)
+    loadMensages()
+
+}
+codeToMensages = (lSetores)=>{
+    let arrSetores = []
+    for(m = 0; m < lSetores.length; m++){
+        if(findSector(lSetores[m])){
+            arrSetores.push(findSector(lSetores[m]))
+        }
+        
+    }
+    // console.log(arrSetores)
+    return arrSetores
+}
+findSector = (codigoSetor)=>{
+    for (i=0;i < setores.length;i++){
+        if(setores[i].codigoSetor == codigoSetor){
+            return setores[i].descSetor
+        }
+    }
+}
+
+function viewChecked(){
+    const selectedSetores = []
+    const setores = document.getElementsByClassName("chkSetor")
+    for(i=0;i<setores.length;i++){
+        if(setores[i].checked){
+            selectedSetores.push(setores[i].name)
+        }   
+    }
+    
+    if(selectedSetores.length == 0 ){
+        return 
+    }
+    let retorno = selectedSetores.join()
+
+    return retorno
+
+}
 function loadMensages(){
     mensagesLog.innerHTML = ''
     listaComentariosSetor.map((mensagem,index) =>{
@@ -21,16 +66,9 @@ function loadMensages(){
         
        
     })
-    console.log(listaComentariosSetor)
+  
 }
-function deleteComment(idMsg){
-    if(ready){
-        editModdeling()
-    }
-    listaComentariosSetor.splice(idMsg, 1)
-    loadMensages()
 
-}
 function rendSelectSetores(lista, element){
 
     lista.map(setor=>{
@@ -45,8 +83,8 @@ function rendSelectSetores(lista, element){
         
         let setores = viewChecked()
         let mensagem = $('#Comment').val()
-        console.log(mensagem.trim().length)
-        console.log(setores)
+        // console.log(mensagem.trim().length)
+        // console.log(setores)
         if(setores){
             if(mensagem.trim().length){
                 
@@ -68,23 +106,5 @@ function rendSelectSetores(lista, element){
    $('#selectArea').on('mouseleave',()=>{
         $("#selectArea").fadeOut()
    })
-
-}
-
-function viewChecked(){
-    const selectedSetores = []
-    const setores = document.getElementsByClassName("chkSetor")
-    for(i=0;i<setores.length;i++){
-        if(setores[i].checked){
-            selectedSetores.push(setores[i].name)
-        }   
-    }
-    
-    if(selectedSetores.length == 0 ){
-        return 
-    }
-    let retorno = selectedSetores.join()
-
-    return retorno
 
 }

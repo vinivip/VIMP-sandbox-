@@ -20,28 +20,32 @@ function useSelect()
     // definição listaItensPartesSelecionados ===============================================================
     listaItensPartesSelecionados = arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')]
     verificaSelecaoItensParte()   
+    
     // ====================================================================================================== 
     // definição listaItensAcabamentosSelecionados ==========================================================
     listaItensAcabamentosSelecionados = arrListaItensAcabamentosSelecionados[$("#changeItem").prop('selectedIndex')]
     if (listaItensAcabamentosSelecionados.length == 0){
         listaItensAcabamentosSelecionados = arrAcabamentoDefault[currentProduct] 
     }
-      
+    
     // ====================================================================================================== 
     // definição listaComentariosSetor ==========================================================
     listaComentariosSetor = arrListaComentariosSetor[$("#changeItem").prop('selectedIndex')]
     loadMensages()  
     // ====================================================================================================== 
     rendObjetosImgModelagem(listaItensPartesSelecionados.length)
+    
     currentCore= listaItensPartesSelecionados[0]
     currentItem = listaItensPartesSelecionados[0]
 
     showPartesOptions()
+     
     usePartesOptions()
-
+    
 
     editing = false
     ready = true
+    
     return
 }
 

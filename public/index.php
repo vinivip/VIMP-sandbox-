@@ -165,7 +165,6 @@
 
     <script src="assets/scripts/helpers/jquery-3.7.1.slim.min.js"></script>
     <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
-    <!-- <script src="assets/scripts/helpers/lib_hierarquia.js"></script> -->
     <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script>
 
 

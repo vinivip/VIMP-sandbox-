@@ -50,9 +50,11 @@ function usePartesOptions()
             
             // console.log('DO SELECIONA PARTES:',itensPartes)
             selecionaParte(currentPart)
-            selecionaItemParte(parseInt(currentCore)) // atualiza acabamento de partes e acabamento de relacionamentos
-            showItemParteMins()
             
+            selecionaItemParte(parseInt(currentCore)) // atualiza acabamento de partes e acabamento de relacionamentos
+
+            
+            showItemParteMins()
             
           
             

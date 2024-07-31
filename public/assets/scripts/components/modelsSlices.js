@@ -16,7 +16,7 @@ function loadModel(idSvg,layer)
 {
     const slices = document.getElementById('containerSvg')
     for (i=0;i<qtd;i++){
-       console.log(arrDefault[currentProduct][i])
+    //    console.log(arrDefault[currentProduct][i])
         const partId=encontraItemPartePorId(arrDefault[currentProduct][i]).codigoParteProduto
         slices.innerHTML += `<use id='${"layerUse"+i}' class="modelPart modelPart${partId}" xlink:href=""></use>`  
     }  

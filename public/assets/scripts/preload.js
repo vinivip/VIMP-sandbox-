@@ -8,16 +8,7 @@ var tagsList = document.getElementById('selectionTags')
 var mensagesLog = document.getElementById('mensagesLog')
 var selectSetores = document.getElementById('selectAreaSelects')
 
-// Exceções de exeptions
-
-// var exceptions = {
-//     '21-8':'21(raeglan)',
-//     '22-8':'22(raeglan)',
-//     '21-1':'21(raeglan)',
-//     '22-1':'22(raeglan)',
-// }
-
-// Valores default (temporarios)
+// Valores default 
 var currentProduct 
 var currentPart 
 var currentCore 
@@ -64,75 +55,11 @@ async function preload(){
     partesChaves = await data[4];
     setores = await data[5]
 
-    codeToMensages = (lSetores)=>{
-        let arrSetores = []
-        for(m = 0; m < lSetores.length; m++){
-            if(findSector(lSetores[m])){
-                arrSetores.push(findSector(lSetores[m]))
-            }
-            
-        }
-        console.log(arrSetores)
-        return arrSetores
-    }
-    findSector = (codigoSetor)=>{
-        for (i=0;i < setores.length;i++){
-            if(setores[i].codigoSetor == codigoSetor){
-                return setores[i].descSetor
-            }
-        }
-    }
 
-   
-    
+    // CARREGA LISTA DE ITENS DA OS
 
-    //*************************************************************** */
-    //APAGAR QUANDO FOR PARA PRODUÇÂO
-    //Inicializa lista de itens da OS (deverá ser subitituido pelos itens da OS verdadeiros)
-    // var listaProduto= [
-    //     1, 
-    //     2,
-    //     1,
-    //     1,
-    //     1,
-    //     1,
-    //     1,
-    //     1
-    // ]
-    // var modelagem = [
-    //     [], 
-    //     [30, 35, 36, 41, 43, 71],
-    //     [3, 83, 22, 15, 81, 82],
-    //     [9, 83, 22, 15, 81, 82],
-    //     [3, 83, 80, 15, 81, 82],
-    //     [3, 83, 21, 15, 81, 82],
-    //     [3, 83, 22, 19, 81, 82],
-    //     [3, 83, 22, 18, 81, 82]
-    // ]
-    // var listaAcabamentosOS = [
-    //     [], 
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5],
-    //     [16, 10, 111, 77, 112, 5]
-    // ]
-    // var listaCommentsOS = [
-    //     [], 
-    //     [],
-    //     [],
-    //     [],
-    //     [],
-    //     [],
-    //     [],
-    //     []
-    // ]
-
-    const osCrua = await fetch("assets/scripts/OS.json")
-    const dataOS = await osCrua.json()
-    console.log("itens os",dataOS)
+    const osJson = await fetch("assets/scripts/OS.json")
+    const dataOS = await osJson.json()
     for (i=0;i < dataOS.idItem.length;i++){ 
         itensOS = [...itensOS,
             {
@@ -147,14 +74,12 @@ async function preload(){
     
 //********************************************************************* */
 
-console.log("itens os: ",itensOS)
-
     for(i = 0; i< itensOS.length;i++){
         arrListaItensPartesSelecionados.push(itensOS[i].modelagem)
         arrListaItensAcabamentosSelecionados.push(itensOS[i].acabamentos)
         arrListaComentariosSetor.push(itensOS[i].sectorComments)
     }
-
+    
     app()
     
 }

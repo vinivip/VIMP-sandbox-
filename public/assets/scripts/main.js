@@ -1,5 +1,5 @@
 async function app(){   
-    console.log(setores)
+    // console.log(setores)
     build()
     useSelect()
 

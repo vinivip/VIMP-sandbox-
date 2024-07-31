@@ -140,7 +140,7 @@ function retornaArrayPartesPendentes(){
 }
 
 function verificaPendenciaModelagem(){
-    console.log(listaItensAcabamentosSelecionados)
+    // console.log(listaItensAcabamentosSelecionados)
     if(listaItensAcabamentosSelecionados.includes(0)){
         return 0
     }

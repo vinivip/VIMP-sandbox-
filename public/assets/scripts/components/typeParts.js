@@ -8,6 +8,8 @@ function showItemParteMins()
         flag = verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis, flag)
                
     }
+    
+    
     useItemParteMins()
 }
 function hideItemParteMins()
@@ -42,12 +44,16 @@ function useItemParteMins()
             currentItem = $(this).attr('id') || currentCore
         }
         
-        console.log(currentItem)
+        // console.log(currentItem)
         selecionaItemParte(parseInt(currentItem))
-
+        
         atualizaItemParteSelecionada()
-
+        
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
+        console.log("parte", currentPart)
+        console.log("LIAS:",listaItensAcabamentosSelecionados)
+        console.log("LIPS:",listaItensPartesSelecionados)
+        console.log("OptDisponiveis:", arrOpcoesDisponiveis) 
         
         verificaSelecaoItensParte()  
        
@@ -71,8 +77,8 @@ function useItemParteMins()
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
-        console.log("LIPs",listaItensPartesSelecionados)
-        console.log("LIAs",listaItensAcabamentosSelecionados)
+        // console.log("LIPs",listaItensPartesSelecionados)
+        // console.log("LIAs",listaItensAcabamentosSelecionados)
 }
 
 
