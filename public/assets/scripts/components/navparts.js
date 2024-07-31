@@ -2,10 +2,11 @@
 function showPartesOptions()
 {      
     $(`.prod${currentProduct}`).fadeIn()
-    optionPartListner = $('.optionPart').click(usePartesOptions)   
+    $('.optionPart').on('click',usePartesOptions)   
 }
 function hidePartesOptions()
 {      
+    $('.optionPart').off()   
     unselectPart(currentPart)
     $(`.prod${currentProduct}`).hide()  
 
@@ -18,7 +19,7 @@ function selectEditingModel(){
 function toggleBackModels(){
     const costas = arrConfigExibCostas[0]
     const frente = arrConfigExibCostas[1]
-    console.log('frente,costas:',frente,costas)
+    // console.log('frente,costas:',frente,costas)
    if (costas.includes(parseInt(currentPart))){
         mostraLayers(costas)
         escondeLayers(frente)
@@ -47,14 +48,13 @@ function usePartesOptions()
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
-            
+            // console.log('DO SELECIONA PARTES:',itensPartes)
             selecionaParte(currentPart)
-            selecionaItemParte(parseInt(currentCore))
+            selecionaItemParte(parseInt(currentCore)) // atualiza acabamento de partes e acabamento de relacionamentos
             showItemParteMins()
-            // selecionaItemParte(currentCore)
             
-
             
+          
             
 }
 
@@ -71,7 +71,13 @@ function rendPartesOptions(parts,element)
             let url = `icon_${part.codigoParteProduto}_laranja.webp`
             element.innerHTML += `
                 <li id='${part.codigoParteProduto}'  class='optionPart prod${part.codigoProduto}'>
-                    <div>
+                    <div class="incompleteWarningContainer"> 
+                        <span class="material-symbols-outlined incompleteWarning">exclamation</span>    
+                    </div>
+                    <div class="checkWarningContainer"> 
+                        <span class="material-symbols-outlined checkWarning">check</span>
+                    </div>
+                    <div class="partIconContainer">
                         
                         <img 
                             src="assets/img/icons/${verificaDisponibilidadePath(url,'default.png')}"
@@ -82,6 +88,7 @@ function rendPartesOptions(parts,element)
                    
                 </li>`
         }
+        
     ) 
 
     // usePartesOptions()

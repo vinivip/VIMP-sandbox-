@@ -1,14 +1,14 @@
-
 function showItemParteMins()
 {
     var objElementos = document.getElementsByClassName(`part${currentPart}`)
-    
+    var flag = false
     $(`.part${currentPart}`).fadeIn()
     for( i = 0; i < objElementos.length; i++){
         const id = objElementos[i].id
-        
-        verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis)
+        flag = verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis, flag)
+               
     }
+    useItemParteMins()
 }
 function hideItemParteMins()
 {
@@ -34,29 +34,45 @@ function atualizaItemParteSelecionada()
 }
 function useItemParteMins()
     {
+        if(ready){
+            editModdeling()
+        }
         unselectItem(`.part${currentPart}.selected`)
-        currentItem = $(this).attr('id') || currentCore
+        if($(this).attr('id')){
+            currentItem = $(this).attr('id') || currentCore
+        }
         
+        console.log(currentItem)
         selecionaItemParte(parseInt(currentItem))
 
-
         atualizaItemParteSelecionada()
-        // console.log(currentItem)
-        // console.log(listaItensPartesSelecionados)
-        
 
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         
         verificaSelecaoItensParte()  
        
-        
-
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
         }
         
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
+
+        rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
+
+        arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
+
+        const arrDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
+
+        listaItensAcabamentosSelecionados = retiraAcabamentosIndisponíveis(
+            listaItensAcabamentosSelecionados,
+            arrDisponiveis
+        )
+        retornaArrayPartesPendentes()
+        showTags()
+        carregaAcabamentoSelecionada()
+        console.log("LIPs",listaItensPartesSelecionados)
+        console.log("LIAs",listaItensAcabamentosSelecionados)
 }
 
 
@@ -71,19 +87,20 @@ function rendItemParteMins(items,element)
             element.innerHTML += `
                 <div 
                     id='${item.codigoItemParteProduto}' 
-                    title='${item.descItemParteProduto}' 
                     class='part${item.codigoParteProduto} miniatura'
                 >   
                    <img 
                     src="assets/img/miniaturas/${verificaDisponibilidadePath(url,'default.png')}"
                     alt="${item.descItemParteProduto}">
+                
+                    <p id="" class="itemTag">${item.descItemParteProduto}</p>    
                  
-                </div>`
+                </div>
+                
+                `
           
         }
     )
-    
-    // useItemParteMins()
       
       
   

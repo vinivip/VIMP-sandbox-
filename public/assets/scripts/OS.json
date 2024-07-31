@@ -1,0 +1,26 @@
+{
+    "idItem":[
+        "uHAjEW9Y",
+        "xo7RNJED"
+    ],
+    "codigoProduto":[
+        "1",
+        "1"
+    ],
+    "descItem":[
+        "TESTE (CAMISA | CACHARREL | BRANCO)",
+        "TESTE 2 (CAMISA | CACHARREL | AMARELO)"
+    ],
+    "modelagem":[
+        [ 81,83,2,  82, 80, 88],
+        []
+    ],
+    "acabamentos":[
+        [77, 111, 112, 106, 105, 3],
+        []
+    ],
+    "obsSetores":[
+        ["B-TESTE CORTE","C-TESTE SEPARAÇÃO","A,D-TESTE"],
+        []
+    ]
+}

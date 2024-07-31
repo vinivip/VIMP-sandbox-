@@ -10,20 +10,53 @@
     <title>VIMP 2.0</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.svg">
     <script>
         var listaArquivosDisponiveis = <?=$json; ?>;
     </script>
 </head>
+
 <body onload="preload()">
-    <header >
+    <div class="toastNoSavedWarning ">
+        
+        <div class="toastContent">
+            <span  class="material-symbols-outlined">error</span>
+            <p id="toast"></p>
+        </div>
+    </div>
+    <div class="toastSavedWarning ">
+        
+        <div class="toastContent">
+            <span  class="material-symbols-outlined">check_circle</span>
+            <p id="toasts"></p>
+        </div>
+    </div>
+    <header>
         <nav id="nav-os" class="nav-os">
             <img src="assets/img/logo.svg" alt="logoVIMP">
-            <select id="changeItem">
+            <select id="changeItem"></select>
+            <h3 class="descSelectOS">
+                <div id="descSelectOS"></div>
                 
-            </select>
+            </h3>
         </nav>
+        
     </header>
-    <main >
+    <main class="unikouContainer">
+        <div class="containerMsg">
+            <div>
+                <span class="material-symbols-outlined">
+                    engineering
+                </span>
+                <h1>ESTA MODELAGEM NÃO ESTÁ DISPONÍVEL...</h1>
+                <h3>Estamos trabalhando nisso!</h3>   
+            </div>
+              
+        </div>
+</main>
+    <main class="modellingContainer">
+        
+        
         <section  id="view" class="view">
                 <h1 class="partTitle">CORPO</h1>
                 <section class= "modelingContainer" >
@@ -39,29 +72,37 @@
                                         chat
                                 </span>
                             </button>
-                            <button id="sideMenuDuplicate">
+                            <button  id="sideMenuDuplicate">
                                 <span class="material-symbols-outlined">
                                         markdown_copy
+                                </span>
+                            </button>
+                            <button onclick="saveModdeling()" id="sideMenuSave" disabled> 
+                                <span class="material-symbols-outlined">
+                                        save
                                 </span>
                             </button>
                         </nav>
                     </div>
                          
                     <div id="slices"  class="modelingSlicesDiv">
+                    
                         <div  class="slice" >
                             <svg id="containerSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5757.32 4614.32" class="infill" >
                             </svg>
+                            
                         </div>
                         
                         
                         
                         
-                        
+                         
                     </div>
+                    
                 </section>
-                <ul>
-                    <li>corpo-normal x</li>
-                </ul>   
+                <ul id="selectionTags">
+                            
+                            </ul> 
     
         </section>
         <section id="menu" class="menu" >
@@ -74,53 +115,42 @@
                 <section id="piecePart" class="selectAcordion">
                     <div id="type" class="field">
                         <h3 id="typeTrigger">
-                            <button>
-                                <span class="material-symbols-outlined">
-                                    chevron_right
-                                </span>
-                            </button>
+                            <span class="material-symbols-outlined">
+                                    Apparel
+                            </span>
                             <span class="partTitle"></span>
                         </h3>
                         <div class="typeContent open" id="typeContent">
 
                         </div>
-                    </div>
-                    <div id="finishing" class="field">
-                        <h3>
-                            <button>
+                        <div class="" id="finishingContent">
+                            <h3>
                                 <span class="material-symbols-outlined">
-                                    chevron_right
+                                Note_stack_add
                                 </span>
-                            </button>
-                            ACABAMENTO
-                        </h3>
-                        <div class=".content" id="finishingContent">
-                            
+                                ACABAMENTO 
+                                <select class="selectAcabamentos" name="" id="SelectAcabamentos"></select></h3>
                         </div>
                     </div>
                 </section>
                 <section id="sectorComments" class="sectorComments">
                     <div id="sectorCommentsLog" class="log">
-                        <p>Nenhum comentário de setor</p>
-                        <ul>
+                        <p class="sectorMensagesWarning">Nenhum comentário de setor</p>
+                        <ul id="mensagesLog" class="sectorMensagesContainer">
+                            
                         </ul>
                     </div>
-                    <form action="" id="sectorsCommentImput" class="entry">
+                    <form id="sectorsCommentImput" class="entry">
                         <div class="inputs">
-                            <div style="display: none;" class="selectArea" id="selectArea">
-                                <label for="art"><input name="art" type="checkbox">arte</label>
-                                <label for="cut"><input name="cut" type="checkbox">corte</label>
-                                <label for="separation"><input name="separation" type="checkbox">separação</label>
-                                <label for="needleWork"><input name="needleWork" type="checkbox">   bordado</label>
-                                <label for="print"><input name="print" type="checkbox">impressão</label>
-                                <label for="serigraphy"><input name="serigraphy" type="checkbox">siregrafia</label>
-                                <label for="sublimation"><input name="sublimation" type="checkbox">sublimação</label>
-                                <label for="delivery"><input name="delivery" type="checkbox">entrega</label>
+                            <div  class="selectArea" id="selectArea">
+                                <div id="selectAreaSelects" class="selectAreaSelects"></div>
                             </div>
                             <div><button id="buttonCommentSector">+Setor</button></div>
-                            <textarea name="Comment" id=""></textarea> 
+                            <textarea name="Comment" id="Comment">
+                                
+                            </textarea> 
                         </div>
-                        <button id="sendButton" class="buttonCircle">
+                        <button  id="sendButton" class="buttonCircle">
                             <span class="material-symbols-outlined">
                                   arrow_forward
                             </span>
@@ -145,7 +175,10 @@
     <script src="assets/scripts/components/itemsOS.js"></script>
     <script src="assets/scripts/components/navparts.js"></script>
     <script src="assets/scripts/components/typeParts.js"></script>
+    <script src="assets/scripts/components/acabamentos.js"></script>
     <script src="assets/scripts/components/modelsSlices.js"></script>
+    <script src="assets/scripts/components/tagsList.js"></script>
+    <script src="assets/scripts/components/logMensagens.js"></script>
 
     <script src="assets/scripts/build.js"></script>
     <script src="assets/scripts/main.js"></script>

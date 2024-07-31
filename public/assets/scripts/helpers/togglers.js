@@ -11,8 +11,8 @@ function unselectPart(partID){
 
 }
 
-
 function selectItem(item){
+    
     $(item).addClass('selected');
 }
 function unselectItem(item){
@@ -22,6 +22,7 @@ function unselectItem(item){
 function enableItem(item){
     $(item).addClass('enabled');
     $(item).on('click',useItemParteMins)
+
 }
 function disableItem(item){
     $(item).removeClass('enabled');
@@ -29,20 +30,27 @@ function disableItem(item){
     unselectItem(item)
 }
 
-function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis){
+function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis, flag){
     if(listaItensDisponiveis.includes(codItemParte))    
     {   
         enableItem( `#${codItemParte}.part${currentPart}`)
-
+        if(listaItensPartesSelecionados.includes(codItemParte)){
+            if(!flag){
+                currentItem = codItemParte
+                return true
+            }
+        }           
     }else{
         disableItem( `#${codItemParte}.part${currentPart}`)
+        return false
     }
-
 }
 function verificaSelecaoItensParte(){
     
     if (listaItensPartesSelecionados.length == 0){
         listaItensPartesSelecionados = arrDefault[currentProduct]
+       
+       
         
     }
     // console.log("seleção item:",listaItensPartesSelecionados)
@@ -73,4 +81,68 @@ function mostraLayers(listaEscodidos){
         $(`.modelPart${listaEscodidos[i]}`).show()
     }
 
+}
+
+
+
+function defineArrAcabamentosDisponiveis(listaItensSelecionados){
+    let arrAcabamentos = []; 
+    let arrAcabamentosDisponiveis = [];
+    
+    for(i=0;i<listaItensSelecionados.length;i++){
+        arrAcabamentos = []
+        // console.log("item PARTE:",listaItensSelecionados[i])
+        for(a=0;a<arrRelacionamentosAcabamentos.length;a++){
+            var listaAcabamentos = arrRelacionamentosAcabamentos[a].slice();
+            listaAcabamentos.shift();
+            if (listaAcabamentos.includes(parseInt(listaItensSelecionados[i]))){
+                var acabamento = encontraAcabamentoPorId(arrRelacionamentosAcabamentos[a][0]);
+                
+                arrAcabamentos.push(parseInt(acabamento.codigoAcabamento));
+            }
+        }
+        arrAcabamentosDisponiveis=[...arrAcabamentosDisponiveis,...arrAcabamentos];
+        // console.log(arrAcabamentosDisponiveis)
+    }
+    
+    
+    return arrAcabamentosDisponiveis
+}
+
+function encontraListaPartesPorProduto(){
+    const partesDoProduto = []
+    for(i=0; i<partes.length; i++){
+        if (partes[i].codigoProduto == currentProduct){
+            partesDoProduto.push(parseInt(partes[i].codigoParteProduto))
+        }
+    }
+    return partesDoProduto
+}
+function retornaArrayPartesPendentes(){
+    let partes = [...encontraListaPartesPorProduto()]
+    let partesProntas = []
+    let partePronta = ''
+    
+    for(x = 0; x< listaItensAcabamentosSelecionados.length; x++){
+        if(listaItensAcabamentosSelecionados[x] !== 0){
+            
+            partePronta = parseInt(encontraAcabamentoPorId(listaItensAcabamentosSelecionados[x]).codigoParteProduto)
+            partesProntas.push(partePronta)
+        }
+    }
+    for(x=0;x<partes.length;x++){
+        if(partesProntas.includes(partes[x])){
+            hideIncompleteWarning(partes[x])
+        }else{
+            showIncompleteWarning(partes[x])
+        }
+    }
+}
+
+function verificaPendenciaModelagem(){
+    console.log(listaItensAcabamentosSelecionados)
+    if(listaItensAcabamentosSelecionados.includes(0)){
+        return 0
+    }
+    return 1
 }
