@@ -17,8 +17,7 @@
 </head>
 
 <body onload="preload()">
-    <div class="toastNoSavedWarning ">
-        
+    <div class="toastNoSavedWarning "> 
         <div class="toastContent">
             <span  class="material-symbols-outlined">error</span>
             <p id="toast"></p>
@@ -166,6 +165,7 @@
 
 
     <script src="assets/scripts/helpers/jquery-3.7.1.slim.min.js"></script>
+    <script src="assets/scripts/config.js"></script>
     <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
     <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script>
     <!-- <script src="assets/scripts/helpers/lib_hierarquia.js"></script>
@@ -183,10 +183,13 @@
     <script src="assets/scripts/components/selectOptions_trims.js"></script>
     <script src="assets/scripts/components/layers_trimModeling.js"></script>
     <script src="assets/scripts/components/layers_itemPartsModeling.js"></script>
+    <script src="assets/scripts/components/checkboxSelect_sectorsList.js"></script>
+    <script src="assets/scripts/components/log_sectorsComments.js"></script>
 
-    <script src="assets/scripts/components/logMensagens.js"></script>
+    <script src="assets/scripts/libs/toastWarning/toastWarning_lib.js"></script>
+    <script src="assets/scripts/libs/fetchFromServer/fetchFromServerLib.js"></script>
 
     <script src="assets/scripts/main.js"></script>
-    <script src="assets/scripts/preload.js"></script>
+    
 </body>
 </html>

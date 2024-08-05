@@ -30,10 +30,10 @@ function useSelect()
     // ====================================================================================================== 
     // definição listaComentariosSetor ==========================================================
     listaComentariosSetor = arrListaComentariosSetor[$("#changeItem").prop('selectedIndex')]
-    loadMensages()  
+    rendItensMensages()
     // ====================================================================================================== 
     rendObjetosImgModelagem(listaItensPartesSelecionados.length)
-    currentCore= listaItensPartesSelecionados[0]
+    currentItemParteChave= listaItensPartesSelecionados[0]
     currentItem = listaItensPartesSelecionados[0]
 
     showPartesOptions()

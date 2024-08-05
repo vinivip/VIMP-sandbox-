@@ -70,8 +70,7 @@ function usePartesOptions()
             hideItemParteMins()
             
             currentPart = $(this).attr('id')||`${currentPart}`;
-            // console.log("depois:",listaItensPartesSelecionados)
-            // console.log(currentPart)
+           
             selectPart(currentPart)
             selectEditingModel()
             toggleBackModels()
@@ -79,12 +78,8 @@ function usePartesOptions()
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
             selecionaParte(currentPart)
-            selecionaItemParte(parseInt(currentCore)) 
-            if(currentPart == "20"){
-                arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"))
-                console.log(arrOpcoesDisponiveis)
-               
-            }
+            selecionaItemParte(parseInt(currentItemParteChave)) 
+           
 
 
             showItemParteMins()

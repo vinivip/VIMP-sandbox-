@@ -41,10 +41,10 @@ function useItemParteMins()
         }
         unselectItem(`.part${currentPart}.selected`)
         if($(this).attr('id')){
-            currentItem = $(this).attr('id') || currentCore
-            if(currentPart == "3"){
-                arrOpcoesDisponiveis = relacionaMangaCava(currentItem)
-            }
+            currentItem = $(this).attr('id') || currentItemParteChave
+            // if(currentPart == "3"){
+            //     arrOpcoesDisponiveis = relacionaMangaCava(currentItem)
+            // }
         }
         
         selecionaItemParte(parseInt(currentItem))
@@ -58,7 +58,7 @@ function useItemParteMins()
         verificaSelecaoItensParte()  
        
         if (partesChaves.includes(currentPart)){
-            currentCore = currentItem
+            currentItemParteChave = currentItem
             refDisponiveis = arrOpcoesDisponiveis
         }
         
