@@ -1,8 +1,10 @@
 function showItemParteMins()
 {
+    
     var objElementos = document.getElementsByClassName(`part${currentPart}`)
     var flag = false
     $(`.part${currentPart}`).fadeIn()
+    console.log(arrOpcoesDisponiveis)
     for( i = 0; i < objElementos.length; i++){
         const id = objElementos[i].id
         flag = verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis, flag)
@@ -40,11 +42,16 @@ function useItemParteMins()
         unselectItem(`.part${currentPart}.selected`)
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentCore
+            if(currentPart == "3"){
+                arrOpcoesDisponiveis = relacionaMangaCava(currentItem)
+            }
         }
         
         selecionaItemParte(parseInt(currentItem))
 
         atualizaItemParteSelecionada()
+
+        console.log("disponiveis click",arrOpcoesDisponiveis)
 
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         
@@ -52,6 +59,7 @@ function useItemParteMins()
        
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
+            refDisponiveis = arrOpcoesDisponiveis
         }
         
         selectItem(`#${currentItem}.enabled`)
@@ -70,7 +78,9 @@ function useItemParteMins()
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
-        
+       
+
+        console.log("disponiveis fim",arrOpcoesDisponiveis)
 }
 
 

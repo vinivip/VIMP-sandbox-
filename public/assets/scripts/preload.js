@@ -49,6 +49,7 @@ var editing = true
 var ready = false
 var listaComentariosSetor = []
 var produtosImplementados = [1]
+var refDisponiveis = []
 
 
 async function preload(){  
@@ -71,7 +72,7 @@ async function preload(){
             }
             
         }
-        console.log(arrSetores)
+        //console.log(arrSetores)
         return arrSetores
     }
     findSector = (codigoSetor)=>{
@@ -131,7 +132,7 @@ async function preload(){
 
     const osCrua = await fetch("assets/scripts/OS.json")
     const dataOS = await osCrua.json()
-    console.log("itens os",dataOS)
+    //console.log("itens os",dataOS)
     for (i=0;i < dataOS.idItem.length;i++){ 
         itensOS = [...itensOS,
             {
@@ -146,7 +147,7 @@ async function preload(){
     
 //********************************************************************* */
 
-console.log("itens os: ",itensOS)
+//console.log("itens os: ",itensOS)
 
     for(i = 0; i< itensOS.length;i++){
         arrListaItensPartesSelecionados.push(itensOS[i].modelagem)

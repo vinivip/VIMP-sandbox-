@@ -33,6 +33,36 @@ function toggleBackModels(){
     
     
 }
+function relacionaMangaCava(idManga){
+   
+    let itemDisponivel
+    let cavaAtual
+    let novasOpcoes = []
+    const idMangaNenhum = 80
+    for (i=0; i < refDisponiveis.length; i++){
+        itemDisponivel = encontraItemPartePorId(refDisponiveis[i])
+        if( parseInt(itemDisponivel.codigoParteProduto) == 20){
+            
+            if( !(parseInt(itemDisponivel.codigoItemParteProduto) == 83)){
+                
+                cavaAtual = parseInt(itemDisponivel.codigoItemParteProduto)
+                
+            }
+            
+        }
+        else{
+            novasOpcoes.push(parseInt(itemDisponivel.codigoItemParteProduto))
+        }
+    }
+   
+    if(idManga == idMangaNenhum){
+        novasOpcoes.push(cavaAtual)
+        return novasOpcoes
+    }
+    novasOpcoes.push(83)
+    return novasOpcoes
+    
+}
 function usePartesOptions()
         {
             // console.log("antes:",listaItensPartesSelecionados)
@@ -48,9 +78,15 @@ function usePartesOptions()
             
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
-            // console.log('DO SELECIONA PARTES:',itensPartes)
             selecionaParte(currentPart)
-            selecionaItemParte(parseInt(currentCore)) // atualiza acabamento de partes e acabamento de relacionamentos
+            selecionaItemParte(parseInt(currentCore)) 
+            if(currentPart == "20"){
+                arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"))
+                console.log(arrOpcoesDisponiveis)
+               
+            }
+
+
             showItemParteMins()
             
             

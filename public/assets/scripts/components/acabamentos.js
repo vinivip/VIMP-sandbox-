@@ -90,8 +90,8 @@ function useAcabamentos()
     retornaArrayPartesPendentes()
     carregaAcabamentoSelecionada()
  
-    console.log("LIPs",listaItensPartesSelecionados)
-    console.log("LIAs",listaItensAcabamentosSelecionados)  
+    //console.log("LIPs",listaItensPartesSelecionados)
+    //console.log("LIAs",listaItensAcabamentosSelecionados)  
     return      
 }
 

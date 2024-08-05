@@ -57,7 +57,7 @@ function retornaCaminhoModelo(codAcabamento)
     
     if(Object.keys(rel_modelo_acabamento).includes(codAcabamento)){
         let itemParte = encontraItemPartePorAcabamento(codAcabamento)
-        console.log(Object.keys(rel_tipo_item_parte))
+
         if(Object.keys(rel_tipo_item_parte).includes(String(itemParte))){
             return `${rel_modelo_acabamento[codAcabamento]}.${rel_tipo_item_parte[encontraItemPartePorAcabamento(codAcabamento)]}` 
         }
