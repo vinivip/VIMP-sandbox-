@@ -163,26 +163,29 @@
         </section>
     </main>
 
+
+
     <script src="assets/scripts/helpers/jquery-3.7.1.slim.min.js"></script>
-    <!-- <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script> -->
-    <!-- <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script> -->
-    <script src="assets/scripts/helpers/lib_hierarquia.js"></script>
-     <script src="assets/scripts/helpers/config_camisa.js"></script>
+    <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
+    <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script>
+    <!-- <script src="assets/scripts/helpers/lib_hierarquia.js"></script>
+    <script src="assets/scripts/helpers/config_camisa.js"></script> -->
     
 
 
     <script src="assets/scripts/helpers/togglers.js"></script>
     
     
-    <script src="assets/scripts/components/itemsOS.js"></script>
-    <script src="assets/scripts/components/navparts.js"></script>
-    <script src="assets/scripts/components/typeParts.js"></script>
-    <script src="assets/scripts/components/acabamentos.js"></script>
-    <script src="assets/scripts/components/modelsSlices.js"></script>
-    <script src="assets/scripts/components/tagsList.js"></script>
+    <script src="assets/scripts/components/selectOptions_itensOs.js"></script>
+    <script src="assets/scripts/components/subtitlesCards_Modeling.js"></script>
+    <script src="assets/scripts/components/catalog_itensParts.js"></script>
+    <script src="assets/scripts/components/navigationTab_parts.js"></script>
+    <script src="assets/scripts/components/selectOptions_trims.js"></script>
+    <script src="assets/scripts/components/layers_trimModeling.js"></script>
+    <script src="assets/scripts/components/layers_itemPartsModeling.js"></script>
+
     <script src="assets/scripts/components/logMensagens.js"></script>
 
-    <script src="assets/scripts/build.js"></script>
     <script src="assets/scripts/main.js"></script>
     <script src="assets/scripts/preload.js"></script>
 </body>
