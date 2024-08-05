@@ -19,7 +19,6 @@ function selectEditingModel(){
 function toggleBackModels(){
     const costas = arrConfigExibCostas[0]
     const frente = arrConfigExibCostas[1]
-    // console.log('frente,costas:',frente,costas)
    if (costas.includes(parseInt(currentPart))){
         mostraLayers(costas)
         escondeLayers(frente)
@@ -33,36 +32,7 @@ function toggleBackModels(){
     
     
 }
-function relacionaMangaCava(idManga){
-   
-    let itemDisponivel
-    let cavaAtual
-    let novasOpcoes = []
-    const idMangaNenhum = 80
-    for (i=0; i < refDisponiveis.length; i++){
-        itemDisponivel = encontraItemPartePorId(refDisponiveis[i])
-        if( parseInt(itemDisponivel.codigoParteProduto) == 20){
-            
-            if( !(parseInt(itemDisponivel.codigoItemParteProduto) == 83)){
-                
-                cavaAtual = parseInt(itemDisponivel.codigoItemParteProduto)
-                
-            }
-            
-        }
-        else{
-            novasOpcoes.push(parseInt(itemDisponivel.codigoItemParteProduto))
-        }
-    }
-   
-    if(idManga == idMangaNenhum){
-        novasOpcoes.push(cavaAtual)
-        return novasOpcoes
-    }
-    novasOpcoes.push(83)
-    return novasOpcoes
-    
-}
+
 function usePartesOptions()
         {
             // console.log("antes:",listaItensPartesSelecionados)
@@ -80,11 +50,11 @@ function usePartesOptions()
             
             selecionaParte(currentPart)
             selecionaItemParte(parseInt(currentCore)) 
-            if(currentPart == "20"){
-                arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"))
-                console.log(arrOpcoesDisponiveis)
+            // if(currentPart == "20"){
+            //     arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"),80,20)
+            //     console.log(arrOpcoesDisponiveis)
                
-            }
+            // }
 
 
             showItemParteMins()

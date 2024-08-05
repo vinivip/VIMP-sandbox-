@@ -34,6 +34,42 @@ function atualizaItemParteSelecionada()
 
     }
 }
+function relacionaMangaCava(
+    idItemPartePaiSelecionado, 
+    idPartePaiNenhum,
+    idParteFilho
+){
+    let itemDisponivel
+    let cavaAtual
+    let novasOpcoes = []
+    let codigoItemParteFilho = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto == idParteFilho && itemParte.descItemParteProduto == "NENHUMA").codigoItemParteProduto
+)
+   
+
+    for (i=0; i < refDisponiveis.length; i++){
+        itemDisponivel = encontraItemPartePorId(refDisponiveis[i])
+        if( parseInt(itemDisponivel.codigoParteProduto) ==  idParteFilho){
+            
+            if( !(parseInt(itemDisponivel.codigoItemParteProduto) == codigoItemParteFilho)){
+                
+                cavaAtual = parseInt(itemDisponivel.codigoItemParteProduto)
+                
+            }
+            
+        }
+        else{
+            novasOpcoes.push(parseInt(itemDisponivel.codigoItemParteProduto))
+        }
+    }
+   
+    if(idItemPartePaiSelecionado == idPartePaiNenhum){
+        novasOpcoes.push(cavaAtual)
+        return novasOpcoes
+    }
+    novasOpcoes.push(codigoItemParteFilho)
+    return novasOpcoes
+    
+}
 function useItemParteMins()
     {
         if(ready){
@@ -42,12 +78,13 @@ function useItemParteMins()
         unselectItem(`.part${currentPart}.selected`)
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentCore
-            if(currentPart == "3"){
-                arrOpcoesDisponiveis = relacionaMangaCava(currentItem)
-            }
         }
         
         selecionaItemParte(parseInt(currentItem))
+
+        // if(currentPart == "3"){
+        //     arrOpcoesDisponiveis = relacionaMangaCava(currentItem,80,20)
+        // }
 
         atualizaItemParteSelecionada()
 
@@ -60,11 +97,12 @@ function useItemParteMins()
         if (partesChaves.includes(currentPart)){
             currentCore = currentItem
             refDisponiveis = arrOpcoesDisponiveis
+          
         }
         
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
-
+        console.log("selecionados", listaItensPartesSelecionados)
         rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
@@ -81,6 +119,7 @@ function useItemParteMins()
        
 
         console.log("disponiveis fim",arrOpcoesDisponiveis)
+        
 }
 
 
