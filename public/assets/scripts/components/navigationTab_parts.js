@@ -50,6 +50,10 @@ function usePartesOptions()
             selecionaParte(currentPart)
             // console.log("OP disponiveis NAV:",arrOpcoesDisponiveis)
             selecionaItemParte(parseInt(currentItemParteChave)) 
+
+            // ------------------------------------------------------------------------ TESTE DO ALMOÇO
+            arrOpcoesDisponiveis = relacionaMangaCava(3,20)
+            // -----------------------------------------------------------------------------
             console.log(arrOpcoesDisponiveis)
 
             showItemParteMins()

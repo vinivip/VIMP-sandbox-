@@ -37,7 +37,7 @@ var camisa_manga_curta = 22;
 var camisa_manga_raglan_curta = 23;
 var camisa_manga_raglan_longa = 86;
 
-var arrMangaNenhuma = [camisa_manga_nenhuma,camisa_corpo_machao,camisa_corpo_normal,camisa_corpo_recorte_de_tecido,camisa_corpo_regata,camisa_corpo_colete,camisa_corpo_avental,];
+var arrMangaNenhuma = [camisa_manga_nenhuma,camisa_corpo_machao,camisa_corpo_normal,camisa_corpo_baby_look,camisa_corpo_recorte_de_tecido,camisa_corpo_regata,camisa_corpo_colete,camisa_corpo_avental,];
 var arrMangaCurta = [camisa_manga_curta,camisa_corpo_baby_look,camisa_corpo_normal,camisa_corpo_polo,camisa_corpo_recorte_de_tecido];
 var arrMangaLonga = [camisa_manga_longa,camisa_corpo_baby_look,camisa_corpo_normal,camisa_corpo_polo,camisa_corpo_recorte_de_tecido];
 var arrMangaRaglanCurta = [camisa_manga_raglan_curta,camisa_corpo_raglan,camisa_corpo_raglan_bl];
@@ -128,7 +128,7 @@ var arrCamisaCavaNenhuma = [camisa_cava_nenhuma,camisa_corpo_avental,camisa_corp
 var arrCamisaCavaColete = [camisa_cava_colete,camisa_corpo_colete];
 var arrCamisaCavaMachao = [camisa_cava_machao,camisa_corpo_machao];
 var arrCamisaCavaRegata = [camisa_cava_regata,camisa_corpo_regata];
-var arrCamisaCavaNormal = [camisa_cava_normal,camisa_corpo_normal];
+var arrCamisaCavaNormal = [camisa_cava_normal,camisa_corpo_normal,camisa_corpo_recorte_de_tecido,camisa_corpo_baby_look];
 
 arrRelacionamentosPartes.push(arrCamisaCavaNenhuma);
 arrRelacionamentosPartes.push(arrCamisaCavaColete);
@@ -331,3 +331,5 @@ var rel_tipo_item_parte = {
     86:"MANGA_LONGA"
 }
 
+//SUBRELACIONAMENTOS ENTRE PARTES
+objSubRelacionamentos.push([1,[3,20]])

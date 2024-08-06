@@ -34,15 +34,40 @@ function atualizaItemParteSelecionada()
 
     }
 }
+function calculaSubRelacionamentos(objSubRelacionamentos){
+    let partePai 
+    let parteFilho 
+    
+    for(g=0;g<objSubRelacionamentos.length; g++){
+        console.log(g, objSubRelacionamentos[g][1])
+        partePai = objSubRelacionamentos[g][1][0]
+        parteFilho = objSubRelacionamentos[g][1][1]
+        if(currentProduct == objSubRelacionamentos[g][0]){
+            arrOpcoesDisponiveis = relacionaMangaCava(partePai,parteFilho)
+
+            listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
+        }
+    }
+}
 function relacionaMangaCava(
-    idItemPartePaiSelecionado, 
-    idPartePaiNenhum,
+    idPartePai,
     idParteFilho
 ){
+    
+
+    let idItemPartePaiSelecionado = encontraItemPartePorParte(idPartePai)
+
+
+    //let idPartePai = encontraItemPartePorId(idItemPartePaiSelecionado).codigoParteProduto
     let itemDisponivel
     let cavaAdicionada = false
     let novasOpcoes = []
+    
     let codigoItemParteFilhoNenhum = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto == idParteFilho && itemParte.descItemParteProduto == "NENHUM").codigoItemParteProduto)
+    
+    let idPartePaiNenhum = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto ==  parseInt(idPartePai) && itemParte.descItemParteProduto == "NENHUM").codigoItemParteProduto )
+
+   
 
     let codParteChave = encontraItemPartePorId(currentItemParteChave).codigoParteProduto
     let codItemParteChaveSelecionado = encontraItemPartePorParte(String(codParteChave))
@@ -85,26 +110,34 @@ function useItemParteMins()
         
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentItemParteChave
+            if (partesChaves.includes(currentPart)){
+                currentItemParteChave = currentItem
+            }
         }
 
-        if(encontraItemPartePorId(currentItem).codigoParteProduto == "3"){
-        arrOpcoesDisponiveis = relacionaMangaCava(currentItem,80,20)
-        console.log(arrOpcoesDisponiveis)
-        }
-
+        // -------------------------------------- RELACIONAMENTO PRIMARIO
         selecionaItemParte(parseInt(currentItem))
         atualizaItemParteSelecionada()
-       
-
-
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
+
+        // -------------------------------------- SUB-RELACIONAMENTO
+        // let objSubRelacionamentos = [
+        //     [1,[3,20]],
+        // ]
         
+        calculaSubRelacionamentos(objSubRelacionamentos)
+        // arrOpcoesDisponiveis = relacionaMangaCava(3,20)
+
+        // listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
+        // --------------------------------------
+        
+        
+        
+
+
         verificaSelecaoItensParte()  
        
-        if (partesChaves.includes(currentPart)){
-            currentItemParteChave = currentItem
-           
-        }
+        
         
         selectItem(`#${currentItem}.enabled`)
         carregaModelagemSelecionada()
@@ -122,9 +155,6 @@ function useItemParteMins()
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
-       
-
-        //console.log("disponiveis fim",arrOpcoesDisponiveis)
 
 }
 
