@@ -1,6 +1,5 @@
 function showItemParteMins()
 {
-    
     var objElementos = document.getElementsByClassName(`part${currentPart}`)
     var flag = false
     $(`.part${currentPart}`).fadeIn()
@@ -14,10 +13,54 @@ function showItemParteMins()
 }
 function hideItemParteMins()
 {
-     
     $(`.part${currentPart}`).hide()
     $(`.part${currentPart}`).off()
+}
+function selectItem(item)
+{  
+    $(item).addClass('selected');
+}
+function unselectItem(item)
+{
+    $(item).removeClass('selected');   
+}
+function enableItem(item)
+{
+    $(item).addClass('enabled');
+    $(item).on('click',useItemParteMins)
+}
+function disableItem(item)
+{   
+    $(item).removeClass('enabled');
+    $(item).off()
+    unselectItem(item)
+}
+function verificaDisponibilidadeItemParte(codItemParte,listaItensDisponiveis, flag)
+{  
+    if(listaItensDisponiveis.includes(codItemParte))    
+    {   
+        enableItem( `#${codItemParte}.part${currentPart}`)
+        if(listaItensPartesSelecionados.includes(codItemParte)){
+            if(!flag){
+                currentItem = codItemParte
+                return true
+            }
+        }           
+    }else{
+        disableItem( `#${codItemParte}.part${currentPart}`)
+        return false
+    }
+}
+function verificaSelecaoItensParte()
+{
+    if (listaItensPartesSelecionados.length == 0){
+        listaItensPartesSelecionados = arrDefault[currentProduct]
+    }
     
+    unselectItem('.selected')
+    for (var i = 0; i < listaItensPartesSelecionados.length; i++){
+        selectItem(`#${listaItensPartesSelecionados[i]}.miniatura`)
+    }
 }
 function atualizaItemParteSelecionada()
 {
@@ -34,12 +77,12 @@ function atualizaItemParteSelecionada()
 
     }
 }
-function calculaSubRelacionamentos(objSubRelacionamentos){
+function calculaSubRelacionamentos(objSubRelacionamentos)
+{
     let partePai 
     let parteFilho 
     
     for(g=0;g<objSubRelacionamentos.length; g++){
-        console.log(g, objSubRelacionamentos[g][1])
         partePai = objSubRelacionamentos[g][1][0]
         parteFilho = objSubRelacionamentos[g][1][1]
         if(currentProduct == objSubRelacionamentos[g][0]){
@@ -49,16 +92,9 @@ function calculaSubRelacionamentos(objSubRelacionamentos){
         }
     }
 }
-function relacionaMangaCava(
-    idPartePai,
-    idParteFilho
-){
-    
-
+function relacionaMangaCava(idPartePai, idParteFilho)
+{
     let idItemPartePaiSelecionado = encontraItemPartePorParte(idPartePai)
-
-
-    //let idPartePai = encontraItemPartePorId(idItemPartePaiSelecionado).codigoParteProduto
     let itemDisponivel
     let cavaAdicionada = false
     let novasOpcoes = []
@@ -66,8 +102,6 @@ function relacionaMangaCava(
     let codigoItemParteFilhoNenhum = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto == idParteFilho && itemParte.descItemParteProduto == "NENHUM").codigoItemParteProduto)
     
     let idPartePaiNenhum = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto ==  parseInt(idPartePai) && itemParte.descItemParteProduto == "NENHUM").codigoItemParteProduto )
-
-   
 
     let codParteChave = encontraItemPartePorId(currentItemParteChave).codigoParteProduto
     let codItemParteChaveSelecionado = encontraItemPartePorParte(String(codParteChave))
@@ -102,7 +136,7 @@ function relacionaMangaCava(
 
 }
 function useItemParteMins()
-    {
+{
         if(ready){
             editModdeling()
         }
@@ -121,42 +155,32 @@ function useItemParteMins()
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
 
         // -------------------------------------- SUB-RELACIONAMENTO
-        // let objSubRelacionamentos = [
-        //     [1,[3,20]],
-        // ]
-        
         calculaSubRelacionamentos(objSubRelacionamentos)
-        // arrOpcoesDisponiveis = relacionaMangaCava(3,20)
-
-        // listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
-        // --------------------------------------
-        
-        
-        
-
 
         verificaSelecaoItensParte()  
-       
-        
-        
         selectItem(`#${currentItem}.enabled`)
+
         carregaModelagemSelecionada()
+        
+
 
         rendSelectAcabamentos($arrRetornoAcabamentos,selectAcabamentos)
 
         arrListaItensPartesSelecionados[$("#changeItem").prop('selectedIndex')] = listaItensPartesSelecionados
 
-        const arrDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
+        const arrAcabDisponiveis = defineArrAcabamentosDisponiveis(listaItensPartesSelecionados)
 
         listaItensAcabamentosSelecionados = retiraAcabamentosIndisponíveis(
             listaItensAcabamentosSelecionados,
-            arrDisponiveis
+            arrAcabDisponiveis
         )
         retornaArrayPartesPendentes()
         showTags()
         carregaAcabamentoSelecionada()
 
 }
+
+
 
 
 function rendItemParteMins(items,element)

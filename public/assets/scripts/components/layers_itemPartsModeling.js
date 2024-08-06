@@ -1,6 +1,41 @@
+function escondeLayers(listaEscodidos)
+{    
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).hide()
+    }
+}
+function mostraLayers(listaEscodidos)
+{    
+    for(i=0;i<listaEscodidos.length;i++){
+        $(`.modelPart${listaEscodidos[i]}`).show()
+    }
+}
+function toggleBackModels(){
 
+    const costas = arrConfigExibCostas[0]
+    const frente = arrConfigExibCostas[1]
+   if (costas.includes(parseInt(currentPart))){
+        mostraLayers(costas)
+        escondeLayers(frente)
+        trocaModelagemParteChaveCostas()
+   }else{
+        mostraLayers(frente)
+        escondeLayers(costas)    
+        flag_costas = false
+    } 
+}
+var flag_costas = false
+function trocaModelagemParteChaveCostas(){  
+     
+    flag_costas = true
+}
+function carregaModelagemCostas(){
+    if(flag_costas){
+        loadModel("costas_"+currentItemParteChave,0)
+    }
+}
 function loadModel(idSvg,layer)
-{
+{   
     pathSvg = `assets/img/models/${verificaDisponibilidadePath(`model_${idSvg}.svg`,'default.svg')}#template`
     $("#layerUse"+layer).attr('xlink:href',pathSvg)
          
@@ -12,6 +47,7 @@ function loadModel(idSvg,layer)
         layer = encontraItemPartePorId(id).codigoParteProduto
         loadModel(id,ordemCamadasPorParte[layer])
     }
+    carregaModelagemCostas()
 }function rendObjetosImgModelagem(qtd)
 {
     const slices = document.getElementById('containerSvg')

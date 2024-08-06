@@ -39,3 +39,18 @@ var editing = true
 var ready = false
 var listaComentariosSetor = []
 var produtosImplementados = [1] // Define os produtos que estão disponíveis para modelagem
+
+
+
+//lib hierarquia
+var produtos,partes,itensPartes,acabamentos;
+var arrRelacionamentosPartes = [];
+var arrRelacionamentosAcabamentos = [];
+var $arrRetornoAcabamentos = [];
+var $arrRetornoItensPartes = [];
+var arrOpcoesDisponiveis  = [];
+var arrDefault = [];
+var arrAcabamentoDefault = [];
+var arrExibicaoApenasCostas = [];//lista de itens das parte que ser�o exibidos apenas nas costas
+var ordemCamadasPorParte = [];//array para ordenar a camada em que cada item ser� exibido.
+var objSubRelacionamentos = []; //array para subrelacionamentos entre partes (ex. Manga/Cava)

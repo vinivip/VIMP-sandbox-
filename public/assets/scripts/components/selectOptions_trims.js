@@ -1,3 +1,49 @@
+function defineArrAcabamentosDisponiveis(listaItensSelecionados){
+    
+    let arrAcabamentos = []; 
+    let arrAcabamentosDisponiveis = [];
+    
+    for(i=0;i<listaItensSelecionados.length;i++){
+        arrAcabamentos = []
+        for(a=0;a<arrRelacionamentosAcabamentos.length;a++){
+            var listaAcabamentos = arrRelacionamentosAcabamentos[a].slice();
+            listaAcabamentos.shift();
+            if (listaAcabamentos.includes(parseInt(listaItensSelecionados[i]))){
+                var acabamento = encontraAcabamentoPorId(arrRelacionamentosAcabamentos[a][0]);
+                
+                arrAcabamentos.push(parseInt(acabamento.codigoAcabamento));
+            }
+        }
+        arrAcabamentosDisponiveis=[...arrAcabamentosDisponiveis,...arrAcabamentos];
+    }
+    return arrAcabamentosDisponiveis
+}
+function retornaArrayPartesPendentes(){
+    let partes = [...encontraListaPartesPorProduto()]
+    let partesProntas = []
+    let partePronta = ''
+    
+    for(x = 0; x< listaItensAcabamentosSelecionados.length; x++){
+        if(listaItensAcabamentosSelecionados[x] !== 0){
+            
+            partePronta = parseInt(encontraAcabamentoPorId(listaItensAcabamentosSelecionados[x]).codigoParteProduto)
+            partesProntas.push(partePronta)
+        }
+    }
+    for(x=0;x<partes.length;x++){
+        if(partesProntas.includes(partes[x])){
+            hideIncompleteWarning(partes[x])
+        }else{
+            showIncompleteWarning(partes[x])
+        }
+    }
+}
+function verificaPendenciaModelagem(){
+    if(listaItensAcabamentosSelecionados.includes(0)){
+        return 0
+    }
+    return 1
+}
 function atualizaAcabamento(antigaListaAcabamentos,novoAcabamento, codParte)
 {
     const listaAcabamentos = [...antigaListaAcabamentos]

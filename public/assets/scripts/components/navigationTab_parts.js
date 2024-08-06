@@ -1,4 +1,13 @@
-
+function selectPart(partID)
+{
+    $(`li#${partID}`).addClass('np-active')
+    $(`li#${partID} img`).attr('src',`assets/img/icons/icon_${partID}_branco.webp`)    
+}
+function unselectPart(partID)
+{
+    $(`li#${partID}`).removeClass('np-active') 
+    $(`li#${partID} img`).attr('src',`assets/img/icons/icon_${partID}_laranja.webp`)
+}
 function showPartesOptions()
 {      
     $(`.prod${currentProduct}`).fadeIn()
@@ -9,33 +18,17 @@ function hidePartesOptions()
     $('.optionPart').off()   
     unselectPart(currentPart)
     $(`.prod${currentProduct}`).hide()  
-
 }
-function selectEditingModel(){
+function selectEditingModel()
+{
     $('.editing').removeClass('editing')
     $(`.modelPart${currentPart}`).addClass('editing')
 }
 
-function toggleBackModels(){
-    const costas = arrConfigExibCostas[0]
-    const frente = arrConfigExibCostas[1]
-    // console.log('frente,costas:',frente,costas)
-   if (costas.includes(parseInt(currentPart))){
-        mostraLayers(costas)
-        escondeLayers(frente)
 
-   }else{
-        mostraLayers(frente)
-        escondeLayers(costas)    
-    } 
-        
-        
-    
-    
-}
+
 function usePartesOptions()
         {
-            // console.log("antes:",listaItensPartesSelecionados)
             unselectPart(currentPart)
             hideItemParteMins()
             
@@ -48,30 +41,15 @@ function usePartesOptions()
             $('.partTitle').text(encontraPartePorId(parseInt(currentPart)).descParteProduto)
             
             selecionaParte(currentPart)
-            // console.log("OP disponiveis NAV:",arrOpcoesDisponiveis)
             selecionaItemParte(parseInt(currentItemParteChave)) 
-
-            // ------------------------------------------------------------------------ TESTE DO ALMOÇO
-            arrOpcoesDisponiveis = relacionaMangaCava(3,20)
-            // -----------------------------------------------------------------------------
-            console.log(arrOpcoesDisponiveis)
-
+            calculaSubRelacionamentos(objSubRelacionamentos)
             showItemParteMins()
-            
-            
-          
             
 }
 
-
-
 function rendPartesOptions(parts,element)
 {
-
     parts.map(
-
-        
-        
         part => {
             let url = `icon_${part.codigoParteProduto}_laranja.webp`
             element.innerHTML += `
@@ -89,15 +67,8 @@ function rendPartesOptions(parts,element)
                             title='${part.descParteProduto}' 
                             alt="${part.descParteProduto}"
                         >
-                    </div>
-                   
+                    </div>          
                 </li>`
-        }
-        
+        }  
     ) 
-
-    // usePartesOptions()
-
-    
-    
 };

@@ -170,11 +170,8 @@
     <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script> -->
     <script src="assets/scripts/helpers/lib_hierarquia.js"></script>
     <script src="assets/scripts/helpers/config_camisa.js"></script>
-    
+    <script src="assets/scripts/helpers/searchFunctions.js"></script>
 
-
-    <script src="assets/scripts/helpers/togglers.js"></script>
-    
     
     <script src="assets/scripts/components/selectOptions_itensOs.js"></script>
     <script src="assets/scripts/components/subtitlesCards_Modeling.js"></script>

@@ -50,7 +50,7 @@ arrRelacionamentosPartes.push(arrMangaRaglanCurta);
 arrRelacionamentosPartes.push(arrMangaRaglanLonga);
 
 
-//CAMISA PESCOÇO
+//CAMISA PESCOï¿½O
 var camisa_pescoco_abanhado = 19;
 var camisa_pescoco_gola_redonda = 15;
 var camisa_pescoco_gola_decote_v = 18;
@@ -137,7 +137,7 @@ arrRelacionamentosPartes.push(arrCamisaCavaRegata);
 arrRelacionamentosPartes.push(arrCamisaCavaNormal);
 
 
-//EXIBIÇÃO APENAS QDO A PARTE ESTIVER SELECIONADA, POIS É UMA EXIBIÇÃO NAS COSTAS
+//EXIBIï¿½ï¿½O APENAS QDO A PARTE ESTIVER SELECIONADA, POIS ï¿½ UMA EXIBIï¿½ï¿½O NAS COSTAS
 var arrPartesCostasCamisa = [];
 var arrPartesFrenteCamisa = [];
 var arrConfigExibicaoCostasCamisa = [];
@@ -308,7 +308,7 @@ arrRelacionamentosAcabamentos.push(arrAcabamentoCamisaCavaVies);
 
 
 //ARRAY DEFAUL CAMISAS
-//arrDefault está declarado em lib_hierarquia
+//arrDefault estï¿½ declarado em lib_hierarquia
 //OBS respeitar a ordem das partes na montagem do array
 var listaDefault = [camisa_corpo_normal,camisa_cava_nenhuma,camisa_manga_curta,camisa_pescoco_gola_redonda,camisa_bolso_frente_nenhum,camisa_bolso_costas_nenhum]
 var listaAcabamentoDefault = [acabamento_camisa_corpo_abanhado,acabamento_camisa_cava_nenhum,acabamento_camisa_manga_abanhado,acabamento_camisa_gola_ribana,acabamento_camisa_bolso_frente_nenhum,acabamento_camisa_bolso_costas_nenhum]
@@ -322,6 +322,11 @@ var rel_modelo_acabamento = {
     21:"PUNHO",
     22:"PUNHO",
     46:"PUNHO",
+    16:"ABANHADO",
+    14: "ABANHADO_SOBREPOSTO",
+    18: "VIES",
+    43: "VIES",
+    44: "VIES"
 }
 
 var rel_tipo_item_parte = {
