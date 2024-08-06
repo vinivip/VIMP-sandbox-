@@ -82,10 +82,13 @@ function useItemParteMins()
         
         selecionaItemParte(parseInt(currentItem))
 
-        // if(currentPart == "3"){
-        //     arrOpcoesDisponiveis = relacionaMangaCava(currentItem,80,20)
-        // }
-
+        // arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"),80,20)
+        // console.log("manga selecionada",encontraItemPartePorParte("3"))
+        console.log("opcoes disponiveis(NOVO)", arrOpcoesDisponiveis)
+        if(currentPart == "3"){
+            arrOpcoesDisponiveis = relacionaMangaCava(currentItem,80,20)
+        }
+        console.log("opcoes disponiveis(ALTERADO)", arrOpcoesDisponiveis)
         atualizaItemParteSelecionada()
 
         console.log("disponiveis click",arrOpcoesDisponiveis)

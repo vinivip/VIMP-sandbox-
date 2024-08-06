@@ -35,13 +35,11 @@ function toggleBackModels(){
 
 function usePartesOptions()
         {
-            // console.log("antes:",listaItensPartesSelecionados)
             unselectPart(currentPart)
             hideItemParteMins()
             
             currentPart = $(this).attr('id')||`${currentPart}`;
-            // console.log("depois:",listaItensPartesSelecionados)
-            // console.log(currentPart)
+    
             selectPart(currentPart)
             selectEditingModel()
             toggleBackModels()
@@ -50,10 +48,10 @@ function usePartesOptions()
             
             selecionaParte(currentPart)
             selecionaItemParte(parseInt(currentCore)) 
+            
             // if(currentPart == "20"){
             //     arrOpcoesDisponiveis = relacionaMangaCava(encontraItemPartePorParte("3"),80,20)
             //     console.log(arrOpcoesDisponiveis)
-               
             // }
 
 
