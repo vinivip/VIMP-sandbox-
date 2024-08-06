@@ -39,4 +39,3 @@ var editing = true
 var ready = false
 var listaComentariosSetor = []
 var produtosImplementados = [1] // Define os produtos que estão disponíveis para modelagem
-var refDisponiveis = []

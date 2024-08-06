@@ -30,8 +30,8 @@ function rendSelectSetores(lista, element){
         
         let setores = viewChecked()
         let mensagem = $('#Comment').val()
-        console.log(mensagem.trim().length)
-        console.log(setores)
+        //console.log(mensagem.trim().length)
+        //console.log(setores)
         if(setores){
             if(mensagem.trim().length){
                 

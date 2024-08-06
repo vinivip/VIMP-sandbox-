@@ -4,7 +4,7 @@ function showItemParteMins()
     var objElementos = document.getElementsByClassName(`part${currentPart}`)
     var flag = false
     $(`.part${currentPart}`).fadeIn()
-    console.log(arrOpcoesDisponiveis)
+    //console.log(arrOpcoesDisponiveis)
     for( i = 0; i < objElementos.length; i++){
         const id = objElementos[i].id
         flag = verificaDisponibilidadeItemParte(parseInt(id),arrOpcoesDisponiveis, flag)
@@ -34,24 +34,68 @@ function atualizaItemParteSelecionada()
 
     }
 }
+function relacionaMangaCava(
+    idItemPartePaiSelecionado, 
+    idPartePaiNenhum,
+    idParteFilho
+){
+    let itemDisponivel
+    let cavaAdicionada = false
+    let novasOpcoes = []
+    let codigoItemParteFilhoNenhum = parseInt(itensPartes.find(itemParte => itemParte.codigoParteProduto == idParteFilho && itemParte.descItemParteProduto == "NENHUM").codigoItemParteProduto)
+
+    let codParteChave = encontraItemPartePorId(currentItemParteChave).codigoParteProduto
+    let codItemParteChaveSelecionado = encontraItemPartePorParte(String(codParteChave))
+
+    for (i=0; i < arrOpcoesDisponiveis.length; i++){
+        itemDisponivel = encontraItemPartePorId(arrOpcoesDisponiveis[i])
+        if(!(parseInt(itemDisponivel.codigoParteProduto) ==  idParteFilho)){
+            novasOpcoes.push(parseInt(arrOpcoesDisponiveis[i]))
+        }
+    }
+
+    if(!(idItemPartePaiSelecionado == idPartePaiNenhum)){
+        cavaAdicionada = true
+        novasOpcoes.push(codigoItemParteFilhoNenhum)
+    }else{
+        for(x = 0; x<arrRelacionamentosPartes.length;x++){
+            if( 
+                arrRelacionamentosPartes[x].includes(codItemParteChaveSelecionado) &&
+                parseInt(encontraItemPartePorId(arrRelacionamentosPartes[x][0]).codigoParteProduto) == idParteFilho && arrRelacionamentosPartes[x][0] !== codigoItemParteFilhoNenhum){
+                    cavaAdicionada = true
+                    
+                    novasOpcoes.push(arrRelacionamentosPartes[x][0])
+            }
+        }
+    }
+
+    if(!cavaAdicionada){
+        novasOpcoes.push(codigoItemParteFilhoNenhum)
+    }
+    
+    return novasOpcoes
+
+}
 function useItemParteMins()
     {
         if(ready){
             editModdeling()
         }
         unselectItem(`.part${currentPart}.selected`)
+        
         if($(this).attr('id')){
             currentItem = $(this).attr('id') || currentItemParteChave
-            // if(currentPart == "3"){
-            //     arrOpcoesDisponiveis = relacionaMangaCava(currentItem)
-            // }
         }
-        
+
+        if(encontraItemPartePorId(currentItem).codigoParteProduto == "3"){
+        arrOpcoesDisponiveis = relacionaMangaCava(currentItem,80,20)
+        console.log(arrOpcoesDisponiveis)
+        }
+
         selecionaItemParte(parseInt(currentItem))
-
         atualizaItemParteSelecionada()
+       
 
-        console.log("disponiveis click",arrOpcoesDisponiveis)
 
         listaItensPartesSelecionados = verificaMudancaItensSelecionados(listaItensPartesSelecionados,arrOpcoesDisponiveis)
         
@@ -59,7 +103,7 @@ function useItemParteMins()
        
         if (partesChaves.includes(currentPart)){
             currentItemParteChave = currentItem
-            refDisponiveis = arrOpcoesDisponiveis
+           
         }
         
         selectItem(`#${currentItem}.enabled`)
@@ -80,7 +124,7 @@ function useItemParteMins()
         carregaAcabamentoSelecionada()
        
 
-        console.log("disponiveis fim",arrOpcoesDisponiveis)
+        //console.log("disponiveis fim",arrOpcoesDisponiveis)
 
 }
 
