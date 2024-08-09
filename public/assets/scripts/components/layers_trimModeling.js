@@ -1,9 +1,21 @@
 function rendAcabamentoModelagem(qtd){
+    $(".acabamentoPart").off()
     const slices = document.getElementById('containerSvg')
     for (i=0;i<qtd;i++){
+        
+
         const partId=encontraAcabamentoPorId(parseInt(arrAcabamentoDefault[currentProduct][i])).codigoParteProduto
-        slices.innerHTML += `<use id='${"layerUse"+(qtd+i)}' class="acabamentoPart modelPart${partId}" xlink:href=""></use>`  
+        slices.innerHTML += `<use name='${partId}' id='${"layerUse"+(qtd+i)}' class="acabamentoPart modelPart${partId}" xlink:href=""></use>`  
+
+        
     }
+    $(".modelPart").on('click',(model)=>{
+        openComplemetsModal($("#"+model.currentTarget.id).attr('name'))
+    }) 
+    $(".acabamentoPart").on('click',(model)=>{
+        openComplemetsModal($("#"+model.currentTarget.id).attr('name'))
+    }) 
+    
 }function carregaAcabamentoSelecionada()
 {
     let id, layer

@@ -40,6 +40,7 @@ function retornaArrayPartesPendentes(){
 }
 function verificaPendenciaModelagem(){
     if(listaItensAcabamentosSelecionados.includes(0)){
+        openToast("VOCÊ POSSUI ACABAMENTOS NÃO DEFINIDOS",'error')
         return 0
     }
     return 1

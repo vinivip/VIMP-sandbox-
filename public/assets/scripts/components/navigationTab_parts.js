@@ -27,11 +27,14 @@ function selectEditingModel()
 
 
 
-function usePartesOptions()
+function usePartesOptions(navigate='')
         {
             unselectPart(currentPart)
             hideItemParteMins()
             
+            if(navigate!==''){
+                currentPart = navigate
+            }
             currentPart = $(this).attr('id')||`${currentPart}`;
            
             selectPart(currentPart)

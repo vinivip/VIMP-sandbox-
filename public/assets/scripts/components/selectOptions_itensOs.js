@@ -31,14 +31,20 @@ function useSelect()
     // definição listaComentariosSetor ==========================================================
     listaComentariosSetor = arrListaComentariosSetor[$("#changeItem").prop('selectedIndex')]
     rendItensMensages()
-    // ====================================================================================================== 
+    // ===================================================================================================
+    //Lista obsItemParte==================================================================================
+    let listaObsItemParte = arrObsItemParte[$("#changeItem").prop('selectedIndex')]
+    let listaObsAcabamento  = arrObsAcabamento[$("#changeItem").prop('selectedIndex')]
+
+    listaObsItemOs = trataDadosObs(listaObsItemParte,listaObsAcabamento)
+    //=====================================================================================================
     rendObjetosImgModelagem(listaItensPartesSelecionados.length)
     currentItemParteChave= listaItensPartesSelecionados[0]
     currentItem = listaItensPartesSelecionados[0]
 
     showPartesOptions()
     usePartesOptions()
-
+    
 
     editing = false
     ready = true

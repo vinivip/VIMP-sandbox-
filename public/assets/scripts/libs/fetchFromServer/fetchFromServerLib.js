@@ -24,7 +24,9 @@ async function fetchItensOs() {
                 descProduto: await dataOS.descItem[i],
                 modelagem: await dataOS.modelagem[i],
                 acabamentos: await dataOS.acabamentos[i],
-                sectorComments: await dataOS.obsSetores[i]
+                sectorComments: await dataOS.obsSetores[i],
+                obsItemParte: await dataOS.obsItemParte[i],
+                obsAcabamento: await dataOS.obsAcabamento[i]
             }
         ]
     }
@@ -32,6 +34,8 @@ async function fetchItensOs() {
         arrListaItensPartesSelecionados.push(itensOS[i].modelagem)
         arrListaItensAcabamentosSelecionados.push(itensOS[i].acabamentos)
         arrListaComentariosSetor.push(itensOS[i].sectorComments)
+        arrObsItemParte.push(itensOS[i].obsItemParte)
+        arrObsAcabamento.push(itensOS[i].obsAcabamento)
     }
 
     return await itensOS

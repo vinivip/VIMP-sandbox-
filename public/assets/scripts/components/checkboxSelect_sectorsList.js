@@ -38,11 +38,11 @@ function rendSelectSetores(lista, element){
                 listaComentariosSetor.push(setores+'-'+mensagem.trim())
                 rendItensMensages()
             }else{
-                openToast("VOCÊ DEVE ESCREVER ALGUMA MENSAGEM PARA ENVIAR UMA OBSERVAÇÃO")
+                openToast("VOCÊ DEVE ESCREVER ALGUMA MENSAGEM PARA ENVIAR UMA OBSERVAÇÃO",'error')
              
             }
         }else{
-               openToast("VOCÊ DEVE SELECIONAR AOMENOS UM SETOR PARA ENVIAR UMA OBSERVAÇÃO")
+               openToast("VOCÊ DEVE SELECIONAR AOMENOS UM SETOR PARA ENVIAR UMA OBSERVAÇÃO",'error')
         }
     }
    )

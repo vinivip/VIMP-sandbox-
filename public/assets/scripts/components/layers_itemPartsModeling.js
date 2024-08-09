@@ -50,11 +50,15 @@ function loadModel(idSvg,layer)
     carregaModelagemCostas()
 }function rendObjetosImgModelagem(qtd)
 {
+    $(".modelPart").off()
     const slices = document.getElementById('containerSvg')
     for (i=0;i<qtd;i++){
+
         const partId=encontraItemPartePorId(arrDefault[currentProduct][i]).codigoParteProduto
-        slices.innerHTML += `<use id='${"layerUse"+i}' class="modelPart modelPart${partId}" xlink:href=""></use>`  
-    }  
+        slices.innerHTML += `<use name='${partId}' id='${"layerUse"+i}' class="modelPart modelPart${partId}" xlink:href=""></use>`  
+
+    }
+     
     rendAcabamentoModelagem(qtd)
 }
 

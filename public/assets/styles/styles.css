@@ -12,6 +12,7 @@
     --cor4: #000000;
     --fntPSM: 0.8vw;
     --fntSM: 1vw;
+    --fntGSM: 1.2vw;
     --fntPMD: 1.4vw;
     --fntMD: 1.6vw;
     --fntLG: 3.5vw;
@@ -181,6 +182,9 @@ use:hover{
     transition: all 1000ms;
     z-index: 2;
 }
+use{
+    cursor: pointer;
+}
 .modelPart2:hover{
     transition: all 1000ms;
     --cor2: orange
@@ -224,60 +228,9 @@ header{
 }
 
 
-@keyframes toast{
-    0%{
-        top: 5px;
-        right: -200px;
-    }
-    5%{
-        top: 5px;
-        right: 5px;
-    }
-    90%{
-        top:5px
-    }
-    100%{
-        top: -200px;
-  
-    }
-}
-.toastNoSavedWarning{
-    padding: 12px;
-    background-color: rgba(165, 37, 37, 0.349);
-    border: 2px solid red;
-    color: red;
-    position: absolute;
-    right: -1000px;
-    top: 5px;
-    border-radius: 5px;
-    z-index: 4
-}
-.toastSavedWarning{
-    padding: 12px;
-    background-color: rgba(77, 165, 37, 0.349);
-    border: 2px solid rgb(13, 185, 22);
-    color: rgb(57, 180, 19);
-    position: absolute;
-    right: -1000px;
-    top: 5px;
-    border-radius: 5px;
-    z-index: 4
-}
-.toastAnimate{
-    display: flex;
-    animation: toast 5000ms;
-}
 
-.toastContent{
-    display: flex;
-    align-items: center;
-}
-.toastNoSavedWarning span{
-    margin-right: 10px;
-}
-.toastNoSavedWarning P{
-    margin: 0;
-}
+
+
 
 main{
     height: 90vh;
@@ -721,11 +674,13 @@ textarea::-webkit-scrollbar {
     margin: 0 auto;
     color: white;
     display: none;
+    
    
 }
 .mensageMsgContainer{
     display: flex;
     justify-content: space-between;
+   
 }
 
 
@@ -797,6 +752,7 @@ textarea::-webkit-scrollbar {
     left: -10px;
     max-height: 29px;
     display: none;
+   
  }
  .checkWarningContainer{
     display: flex;
@@ -831,3 +787,143 @@ textarea::-webkit-scrollbar {
     
     border: 3px white solid;
  }
+
+ /* MODAL DE COMPLEMENTOS DE MODELAGEM */
+ .modalComplementosDeModelagem{
+    position: absolute;
+    background-color: rgba(65, 65, 65, 0.356);
+    z-index: 5;
+    width: 100VW;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+ }.modalComplementosDeModelagem section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ }
+ .conteudoComplementosDeModelagem{
+    background-color: var(--main-bg);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    width: 50%;
+    position: relative;
+    gap: 2%;
+}
+.camposComplementosDeModelagem{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    row-gap: 15px;
+}.warningObsModal{
+    font-size: var(--fntPSM);
+    font-weight: bolder;
+    color: red;
+    text-align: center;
+}
+.camposComplementosDeModelagem h2{
+
+    display: flex;
+    font-size: var(--fntGSM);
+    align-items: center;
+    color: var(--main-bg);
+
+}
+
+.camposComplementosDeModelagem textarea{
+    width: 95%;
+    height: 20vh;
+    border-radius: 15px;
+    resize: none;
+    border: none;
+    padding: 2%;
+    
+}.camposComplementosDeModelagem textarea:focus{
+    border: none;
+    outline: none;
+}
+.complementosDePartes, .complementosDeAcabamentos{
+
+    background-color: white;
+    padding: 1.5%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.nomeParteModalComplementos{
+    color: var(--select-bg);
+}
+.buttonsModalComplementos{
+
+   display: flex;
+   flex-direction: column;
+   row-gap: 5px;
+   position: absolute;
+   right: -4%;
+
+}.buttonsModalComplementos button{
+    border-radius: 0px 5px 5px 0px;
+    display: flex;
+    align-items: center;
+
+}.buttonsModalComplementos .close{
+    background-color: red;
+
+}.buttonsModalComplementos .save{
+    background-color: green;
+
+}
+.modalTabs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2%;
+    border-radius: 10px;
+    gap: 5px;
+}
+.modalTabOption{
+    order: -1;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    padding: 5px ;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 500ms;
+}.modalTabOption.active{
+    
+    background-color: #FF751F;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all 500ms;
+}.modalTabOption.locked{
+    order: -0;
+    filter: grayscale(50);
+    cursor: not-allowed;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+.modalTabOption h6{
+    margin: none;
+}
+
+.imgModalTabs{
+    width: 50px;
+}
+
+
+
+
+

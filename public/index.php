@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/styles/styles.css" rel="stylesheet"/>
+    <link href="assets/scripts/libs/toastWarning/toastWarningStyles.css" rel="stylesheet"/>
     <title>VIMP 2.0</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -17,18 +18,46 @@
 </head>
 
 <body onload="preload()">
-    <div class="toastNoSavedWarning "> 
-        <div class="toastContent">
-            <span  class="material-symbols-outlined">error</span>
-            <p id="toast"></p>
+    <div class="modalsAngar"></div>
+           
+    <div class="modalComplementosDeModelagem">
+        <section>
+        <div class="conteudoComplementosDeModelagem">
+            <div id="modalTabs" class="modalTabs">
+
+            </div>
+            <div class="camposComplementosDeModelagem">
+                <div class="complementosDePartes">
+                    <p class="warningObsModal" id="verificaObsItemParte"></p>
+                    <h2 id="labelInputItemPartObsModal">
+                    
+                    </h2>
+                    <textarea name="" id="inputObsModalItemPartes"></textarea>
+                </div>
+                <div class="complementosDeAcabamentos">
+                    <p class="warningObsModal" id="verificaObsAcabamento"></p>
+                    <h2 id="labelInputTrimObsModal">
+                        
+                    </h2>
+                    <textarea name="" id="inputObsModalAcabamento"></textarea>
+                </div>
+
+            </div>
+            
+            <nav class="buttonsModalComplementos">
+                <button onclick="noSaveCloseModal()" class="close">
+                    <span class="material-symbols-outlined">
+                            Close
+                    </span>
+                </button>
+                <button onclick="saveCloseModal()" class="save">
+                    <span class="material-symbols-outlined">
+                            Save
+                    </span>
+                </button>
+            </nav>
         </div>
-    </div>
-    <div class="toastSavedWarning ">
-        
-        <div class="toastContent">
-            <span  class="material-symbols-outlined">check_circle</span>
-            <p id="toasts"></p>
-        </div>
+        </section>
     </div>
     <header>
         <nav id="nav-os" class="nav-os">
@@ -54,8 +83,6 @@
         </div>
 </main>
     <main class="modellingContainer">
-        
-        
         <section  id="view" class="view">
                 <h1 class="partTitle">CORPO</h1>
                 <section class= "modelingContainer" >
@@ -91,18 +118,10 @@
                             </svg>
                             
                         </div>
-                        
-                        
-                        
-                        
-                         
                     </div>
-                    
                 </section>
                 <ul id="selectionTags">
-                            
-                            </ul> 
-    
+                </ul> 
         </section>
         <section id="menu" class="menu" >
             <nav id="partsNavigation">
@@ -166,13 +185,16 @@
 
     <script src="assets/scripts/helpers/jquery-3.7.1.slim.min.js"></script>
     <script src="assets/scripts/config.js"></script>
-    <!-- <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script>
-    <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script> -->
+
+    <!-- <script src="https://www.vipsportsproducao.com.br/vimp/lib_hierarquia.js"></script> -->
     <script src="assets/scripts/helpers/lib_hierarquia.js"></script>
+
+    <!-- <script src="https://www.vipsportsproducao.com.br/vimp/config_camisa.js"></script> -->
     <script src="assets/scripts/helpers/config_camisa.js"></script>
+
+
     <script src="assets/scripts/helpers/searchFunctions.js"></script>
 
-    
     <script src="assets/scripts/components/selectOptions_itensOs.js"></script>
     <script src="assets/scripts/components/subtitlesCards_Modeling.js"></script>
     <script src="assets/scripts/components/catalog_itensParts.js"></script>
@@ -182,6 +204,7 @@
     <script src="assets/scripts/components/layers_itemPartsModeling.js"></script>
     <script src="assets/scripts/components/checkboxSelect_sectorsList.js"></script>
     <script src="assets/scripts/components/log_sectorsComments.js"></script>
+    <script src="assets/scripts/components/modal_modelingComplements.js"></script>
 
     <script src="assets/scripts/libs/toastWarning/toastWarning_lib.js"></script>
     <script src="assets/scripts/libs/fetchFromServer/fetchFromServerLib.js"></script>

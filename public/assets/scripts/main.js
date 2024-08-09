@@ -20,17 +20,18 @@ function app()
 
 function saveModdeling()
 {  
-        if(verificaPendenciaModelagem()){
+    
+        if(verificaPendenciaModelagem() && validaObsModelagem(listaObsItemOs)){
                 $('#descSelectOS').off()
                 $('.descSelectOS').hide()
                 $('#descSelectOS').off()
                 $('#changeItem').fadeIn()
                 editing = false
                 saveButton.disabled = true
-                openToastS("MODELAGEM SALVA COM SUCESSO!")
+                openToast("MODELAGEM SALVA COM SUCESSO!",'check_circle')
                 return
         }
-        openToast("VOCÊ POSSUI ACABAMENTOS NÃO DEFINIDOS")
+       
             
 }
 function editModdeling()
@@ -40,7 +41,7 @@ function editModdeling()
         $('#descSelectOS').html($("#changeItem option:selected").text()+' (editando)');
         $('.descSelectOS').fadeIn()
         $('#descSelectOS').on('click',()=>{       
-            openToast("VOCÊ DEVE SALVAR A MODELAGEM ANTES DE IR PARA OUTRO ITEM DA OS")
+            openToast("VOCÊ DEVE SALVAR A MODELAGEM ANTES DE IR PARA OUTRO ITEM DA OS",'error')
         })
 
     editing = true
